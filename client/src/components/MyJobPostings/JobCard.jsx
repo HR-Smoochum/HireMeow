@@ -4,10 +4,10 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function App() {
+function JobCard() {
   return (
-    <div> Howdy </div>
+    <div>Job Card</div>
   );
 }
 
-export default App;
+export default JobCard;

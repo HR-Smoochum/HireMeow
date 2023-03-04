@@ -4,10 +4,10 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function App() {
+function NoteCard() {
   return (
-    <div> Howdy </div>
+    <div>Note Card</div>
   );
 }
 
-export default App;
+export default NoteCard;

@@ -4,10 +4,10 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function App() {
+function CreateAccount() {
   return (
-    <div> Howdy </div>
+    <div> Create an Account </div>
   );
 }
 
-export default App;
+export default CreateAccount;

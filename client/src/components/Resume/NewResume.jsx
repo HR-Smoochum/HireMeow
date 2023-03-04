@@ -4,10 +4,10 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function App() {
+function NewResume() {
   return (
-    <div> Howdy </div>
+    <div>...</div>
   );
 }
 
-export default App;
+export default NewResume;

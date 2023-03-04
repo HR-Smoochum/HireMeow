@@ -4,10 +4,10 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function App() {
+function BlogPost() {
   return (
-    <div> Howdy </div>
+    <div>Blog Post</div>
   );
 }
 
-export default App;
+export default BlogPost;
