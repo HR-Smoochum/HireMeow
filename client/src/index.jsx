@@ -2,8 +2,8 @@
 import React from 'react';
 import { render } from 'react-dom'; // idk how to fix this <--- it just needs to reload, it takes a minute to realize things are used/imported properly, you don't need to disable the rule
 import { createRoot } from 'react-dom/client';
-import App from './components/App.jsx';
+import AppHolder from './components/AppHolder.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<App />);
+root.render(<AppHolder />);

@@ -1,36 +1,37 @@
-// 1. Import `extendTheme`
+// LIBRARY IMPORTS
 import React from 'react';
+import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+
+// LOCAL IMPORTS
 import TestDiv from './Test1.jsx';
-import { extendTheme } from "@chakra-ui/react";
-import { ChakraProvider } from '@chakra-ui/react'
+import Example from './HowToUseContext.jsx';
 
-
-// 2. Call `extendTheme` and pass your custom values
-const App = ()=>{
+// COMPONENT
+function App() {
   const theme = extendTheme({
     colors: {
       brand: {
-        black: "#14080E",
-        purple: "#49475B",
-        teal: "#799496",
-        green: "#ACC196",
-        yellow: "#E9EB9E",
-        light: '#fff7ef'
-      }
+        black: '#14080E',
+        purple: '#49475B',
+        teal: '#799496',
+        green: '#ACC196',
+        yellow: '#E9EB9E',
+        light: '#fff7ef',
+      },
     },
     fonts: {
-      heading: `'Poppins', sans-serif`,
-      body: `'Barlow', sans-serif`,
-      
-    }
-  })
-  
-  // 3. Pass the new theme to `ChakraProvider`
-  return(
+      heading: '\'Poppins\', sans-serif',
+      body: '\'Barlow\', sans-serif',
+
+    },
+  });
+
+  return (
     <ChakraProvider theme={theme}>
       <TestDiv />
+      <Example />
     </ChakraProvider>
   );
-};
+}
 
 export default App;
