@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
 
 export default function Navigation({ user }) {
@@ -38,3 +39,10 @@ export default function Navigation({ user }) {
     </MenuList>
   );
 }
+
+// require specific props when calling navigation
+Navigation.propTypes = {
+  user: PropTypes.shape({
+    type: PropTypes.oneOf(['employer', 'seeker', 'guest']).isRequired,
+  }).isRequired,
+};
