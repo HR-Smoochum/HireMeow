@@ -5,6 +5,7 @@ import { extendTheme, ChakraProvider } from '@chakra-ui/react';
 // LOCAL IMPORTS
 import TestDiv from './Test1.jsx';
 import Example from './HowToUseContext.jsx';
+import Header from './Header/Header.jsx';
 
 // COMPONENT
 function App() {
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
+      <Header />
       <TestDiv />
       <Example />
     </ChakraProvider>
