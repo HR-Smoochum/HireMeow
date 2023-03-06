@@ -6,7 +6,7 @@
   "scripts": {
     "client-dev": "webpack --watch",
     "server-dev": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx live-server ./client/dist"
   },
   "repository": {
     "type": "git",
