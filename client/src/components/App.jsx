@@ -1,7 +1,7 @@
 // LIBRARY IMPORTS
 import React from 'react';
 import { extendTheme, ChakraProvider } from '@chakra-ui/react';
-
+import Calendar from './Calendar/Calendar.jsx';
 // LOCAL IMPORTS
 import TestDiv from './Test1.jsx';
 import Example from './HowToUseContext.jsx';
@@ -30,6 +30,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <TestDiv />
       <Example />
+      <Calendar />
     </ChakraProvider>
   );
 }
