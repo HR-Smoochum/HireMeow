@@ -7,24 +7,19 @@ import {
   Heading,
   Spacer,
   Menu,
-  MenuList,
-  MenuItem,
   MenuButton,
   Button,
-  MenuDivider,
 } from '@chakra-ui/react';
 import Navigation from './Navigation.jsx';
 import Notifications from './Notifications.jsx';
+import Options from './Options.jsx';
 
 export default function Header() {
   const user = {
-    type: 'employer',
+    type: 'guest',
     firstName: 'Donna',
     lastName: 'Wong',
   };
-
-  const firstName = user ? user.firstName : 'Guest';
-  const salutation = `Welcome, ${firstName}!`;
 
   return (
     <Flex p="30" alignItems="center">
@@ -44,11 +39,7 @@ export default function Header() {
           <MenuButton as={Button}>
             <CgProfile />
           </MenuButton>
-          <MenuList>
-            <MenuItem>{ salutation }</MenuItem>
-            <MenuDivider />
-            <MenuItem>Log Out</MenuItem>
-          </MenuList>
+          <Options user={user} />
         </Menu>
       </Flex>
     </Flex>

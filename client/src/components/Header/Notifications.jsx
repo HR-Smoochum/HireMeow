@@ -1,4 +1,3 @@
-// LIBRARY IMPORTS
 import React from 'react';
 import {
   Menu,
@@ -8,8 +7,6 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { IoNotificationsSharp } from 'react-icons/io5';
-
-// LOCAL IMPORTS
 
 // COMPONENT
 function Notifications() {
