@@ -1,13 +1,13 @@
 import React from 'react';
 import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
 
-export default function Navigation({ userState }) {
+export default function Navigation({ user }) {
   const handleClick = (e, path) => {
     e.preventDefault();
     console.log(path);
   };
 
-  if (userState === 'employer') {
+  if (user.type === 'employer') {
     return (
       <MenuList>
         <MenuItem onClick={(e) => handleClick(e, 'jobs')}>My Seekers</MenuItem>
@@ -19,7 +19,7 @@ export default function Navigation({ userState }) {
     );
   }
 
-  if (userState === 'seeker') {
+  if (user.type === 'seeker') {
     return (
       <MenuList>
         <MenuItem onClick={(e) => handleClick(e, 'jobs')}>My Jobs</MenuItem>
