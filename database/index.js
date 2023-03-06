@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/jobsite');
 
-// jobs
-// blogpost
-
 const seeker = mongoose.Schema({
   uid: String,
   first_name: String,
   last_name: String,
   industry: String,
-  resume: String,
+  resume: Object,
   notes: Array,
+  saved: Object,
+  /* example saved object
+  { interested: [123, 431, 454, 343], very interested: [6, 9, 17], extremely interested: [234, 4234, 343], applied: [43,56,23], interviewed for: [45, 8, 2]}
+  */
 });
 
 const employer = mongoose.Schema({
@@ -20,9 +21,11 @@ const employer = mongoose.Schema({
   last_name: String,
   industry: String,
   notes: Array,
+  saved: Object, // candidates they have saved
 });
 
 const job = mongoose.Schema({
+  id: Number,
   title: String,
   description: String,
   location: String,
