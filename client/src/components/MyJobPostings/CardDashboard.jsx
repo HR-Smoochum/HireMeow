@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel,
 } from '@chakra-ui/react';
@@ -128,6 +128,21 @@ export default function CardDashboard() {
     },
   ];
 
+  const [checked, setChecked] = useState([]);
+  const handleCheck = (e) => {
+    const temp = new Set();
+    checked.forEach((id) => {
+      temp.add(id);
+    });
+    if (temp.has(e.target.id)) {
+      temp.delete(e.target.id);
+    } else {
+      temp.add(e.target.id);
+    }
+    setChecked(Array.from(temp));
+  };
+  console.log('checked', checked);
+
   return (
 
     <Tabs isFitted variant="unstyled">
@@ -143,7 +158,7 @@ export default function CardDashboard() {
           <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
             {
               InterestedJobs.map(((Job, index) => {
-                return <JobCard Job={Job} key={index} />;
+                return <JobCard Job={Job} key={index} index={index} handleCheck={handleCheck} />;
               }
               ))
             }
