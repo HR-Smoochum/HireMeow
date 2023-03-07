@@ -2,7 +2,7 @@
 // LIBRARY IMPORTS
 import React from 'react';
 import {
-  Box, Button,
+  Box, Button, Center, Heading, Tag,
 } from '@chakra-ui/react';
 
 // Job = {
@@ -18,11 +18,16 @@ import {
 export default function JobCard({ Job, setShowMore }) {
   return (
     <Box>
+      <Heading as="h4" size="md">
+        {Job.title}
+      </Heading>
+      <Tag bg="brand.green" mb="30px">{Job.company}</Tag>
       <Box onClick={() => setShowMore(0)}>
         {Job.description}
       </Box>
-      <Button> Apply</Button>
-
+      <Center>
+        <Button mt="30px" bg="brand.green" color="white"> Apply</Button>
+      </Center>
     </Box>
   );
 }
