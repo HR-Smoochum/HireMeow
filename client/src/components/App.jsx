@@ -5,6 +5,8 @@ import Calendar from './Calendar/Calendar.jsx';
 // LOCAL IMPORTS
 import TestDiv from './Test1.jsx';
 import Example from './HowToUseContext.jsx';
+import Header from './Header/Header.jsx';
+import SearchPage from './SearchPage/SearchPage.jsx';
 
 // COMPONENT
 function App() {

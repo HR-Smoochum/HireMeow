@@ -1,12 +1,28 @@
-// LIBRARY IMPORTS
 import React from 'react';
-
-// LOCAL IMPORTS
+import {
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  Button,
+} from '@chakra-ui/react';
+import { IoNotificationsSharp } from 'react-icons/io5';
 
 // COMPONENT
 function Notifications() {
+  const notifications = ['interview in one hour'];
+
   return (
-    <div>Notifications</div>
+    <Menu>
+      <MenuButton as={Button}>
+        <IoNotificationsSharp />
+      </MenuButton>
+      <MenuList>
+        { notifications.length === 0 ? <MenuItem>No New Notifications</MenuItem> : notifications.map((notification) => (
+          <MenuItem key={notification}>{ notification }</MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
   );
 }
 
