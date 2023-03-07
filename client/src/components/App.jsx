@@ -6,6 +6,7 @@ import { extendTheme, ChakraProvider } from '@chakra-ui/react';
 import TestDiv from './Test1.jsx';
 import Example from './HowToUseContext.jsx';
 import Header from './Header/Header.jsx';
+import SearchPage from './SearchPage/SearchPage.jsx';
 
 // COMPONENT
 function App() {
@@ -29,7 +30,6 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <Header />
       <TestDiv />
       <Example />
     </ChakraProvider>
