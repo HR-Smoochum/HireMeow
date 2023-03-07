@@ -35,6 +35,7 @@ const job = mongoose.Schema({
   salary: String,
   employment: String,
   date: Date,
+  logo: String,
 });
 
 const blogPost = mongoose.Schema({
