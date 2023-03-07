@@ -10,6 +10,7 @@ const seeker = mongoose.Schema({
   resume: Object,
   notes: Array,
   saved: Object,
+  events: Array, // array of objects - each object: event_name and event_time
   /* example saved object
   { interested: [123, 431, 454, 343], very interested: [6, 9, 17], extremely interested: [234, 4234, 343], applied: [43,56,23], interviewed for: [45, 8, 2]}
   */
@@ -22,6 +23,7 @@ const employer = mongoose.Schema({
   industry: String,
   notes: Array,
   saved: Object, // candidates they have saved
+  events: Array, // array of objects - each object: event_name and event_time
 });
 
 const job = mongoose.Schema({
