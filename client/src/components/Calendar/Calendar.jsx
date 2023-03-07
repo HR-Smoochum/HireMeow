@@ -13,7 +13,7 @@ export default function Calendar() {
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
-        weekends={false}
+        weekends={true}
         events={events}
         eventContent={renderEventContent}
       />
