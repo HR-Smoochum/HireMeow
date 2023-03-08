@@ -16,7 +16,7 @@ import Options from './Options.jsx';
 
 export default function Header() {
   const user = {
-    type: 'seeker',
+    type: 'guest',
     firstName: 'Donna',
     lastName: 'Wong',
   };
