@@ -19,11 +19,11 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    return signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   function logout() {
-    return signOut();
+    return signOut(auth);
   }
 
   useEffect(() => {
