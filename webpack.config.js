@@ -7,6 +7,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new Dotenv(),
