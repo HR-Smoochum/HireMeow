@@ -1,8 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
 import {
   FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
 } from '@chakra-ui/react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 
 // LOCAL IMPORTS
@@ -16,6 +18,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState('jobSeeker');
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -31,6 +34,7 @@ function Login() {
       setError('Failed to log in');
     }
     setLoading(false);
+    navigate('/jobs');
   }
 
   return (
@@ -65,7 +69,7 @@ function Login() {
           <div>
             Need an account?
             {' '}
-            <u>Sign up here</u>
+            <Link to="/signup">Sign up here</Link>
           </div>
         </Center>
       </CardBody>
