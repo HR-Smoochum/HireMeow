@@ -22,7 +22,7 @@ export default function Calendar() {
   const [events, setEvents] = useState([]);
   const { useModal, dismissModal } = useContext(modalContext);
   const { seeker } = useContext(JobContext);
-  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} />;
+  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents}/>;
 
 
   const handleCalEvent = () => {
