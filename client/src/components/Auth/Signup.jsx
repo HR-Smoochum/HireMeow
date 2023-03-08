@@ -10,38 +10,43 @@ import { useAuth } from './contexts/AuthContext';
 // LOCAL IMPORTS
 
 // COMPONENT
-function Login() {
+function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState('jobSeeker');
-  const { login } = useAuth();
+  const { signup } = useAuth();
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handlePasswordConfirmChange = (e) => setPasswordConfirm(e.target.value);
   // eslint-disable-next-line consistent-return
   async function handleSubmit(e) {
     e.preventDefault();
 
+    if (password !== passwordConfirm) {
+      return setError('Passwords do not match');
+    }
     try {
       setError('');
       setLoading(true);
-      await login(email, password);
+      await signup(email, password);
     } catch {
-      setError('Failed to log in');
+      setError('Failed to create account');
     }
     setLoading(false);
-    navigate('/jobs');
+    navigate('/login');
   }
 
   return (
     <Card maxW="500px" margin="auto">
       <CardBody>
         <Center>
-          <Heading as="h1" size="xl">Log In</Heading>
+          <Heading as="h1" size="xl">Sign Up</Heading>
         </Center>
         {error && (
           <Alert status="error">{error}</Alert>
@@ -52,6 +57,8 @@ function Login() {
             <Input type="email" id="1" value={email} onChange={handleEmailChange} required />
             <FormLabel>Password</FormLabel>
             <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
+            <FormLabel>Confirm Password</FormLabel>
+            <Input type="password" id="3" value={passwordConfirm} onChange={handlePasswordConfirmChange} required />
             <Center p={4}>
               <RadioGroup onChange={setUser} value={user}>
                 <Stack direction="row">
@@ -61,15 +68,15 @@ function Login() {
               </RadioGroup>
             </Center>
             <Center>
-              <Button disabled={loading} type="submit">Log In</Button>
+              <Button disabled={loading} type="submit">Sign Up</Button>
             </Center>
           </FormControl>
         </form>
         <Center p={4}>
           <div>
-            Need an account?
+            Already have an account?
             {' '}
-            <Link to="/signup">Sign up here</Link>
+            <Link to="/login">Log in here</Link>
           </div>
         </Center>
       </CardBody>
@@ -77,4 +84,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
