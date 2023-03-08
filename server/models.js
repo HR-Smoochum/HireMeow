@@ -5,11 +5,20 @@ module.exports = {
   getAllSeekers: () => {
     return db.Seeker.find({});
   },
+  getASeeker: (id) => {
+    return db.Seeker.find({ uid: id });
+  },
   getAllEmployers: () => {
     return db.Employer.find({});
   },
+  getAnEmployer: (id) => {
+    return db.Employer.find({ uid: id });
+  },
   getAllJobs: () => {
     return db.Job.find({});
+  },
+  getAJob: (jobId) => {
+    return db.Job.find({ id: jobId });
   },
   getAllBlogPosts: () => {
     return db.BlogPost.find({});
