@@ -7,6 +7,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js',
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new Dotenv(),
@@ -17,25 +21,25 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         resolve: {
-          extensions: ['.js', '.jsx', '.png', '.jpg', 'jpeg']
+          extensions: ['.js', '.jsx', '.png', '.jpg', 'jpeg'],
         },
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
 
-    ]
-  }
-}
+    ],
+  },
+};
