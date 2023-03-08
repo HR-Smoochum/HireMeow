@@ -10,6 +10,7 @@ import JobCard from './JobCard.jsx';
 
 // COMPONENT
 export default function CardDashboard() {
+  // 根据查询当前job seeker用户的saved参数，找出保存的所有相关的Jobs信息
   const InterestedJobs = [
     {
       id: 1,

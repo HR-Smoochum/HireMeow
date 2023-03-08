@@ -22,12 +22,10 @@ import JobDetail from './JobDetail.jsx';
 export default function JobCard({ Job, index, handleCheck }) {
   const [showMore, setShowMore] = useState(0);
 
-  const handleDetail = (e) => {
-    e.nativeEvent.stopImmediatePropagation();
+  const handleDetail = () => {
     setShowMore(1);
   };
   const handleInterested = (e) => {
-    e.nativeEvent.stopImmediatePropagation();
     console.log(e.target);
     // update job's interested level
     // if (e.target.value === 'very interested') {
