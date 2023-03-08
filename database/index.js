@@ -10,7 +10,7 @@ const seeker = mongoose.Schema({
   first_name: String,
   last_name: String,
   industry: String,
-  resume: Object,
+  resume: Object, // {title: '', skills:''}
   notes: Array,
   saved: Object,
   events: Array,
@@ -54,9 +54,9 @@ const job = mongoose.Schema({
   industry: String,
   location: String,
   experience: String,
-  environment: String,
   salary: String,
-  employment: String,
+  employment: String, // full time/part time
+  environment: String, // remote or onsite
   date: Date,
 });
 
