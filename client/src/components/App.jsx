@@ -1,12 +1,15 @@
 // LIBRARY IMPORTS
 import React from 'react';
-import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+import { extendTheme, ChakraProvider, Container } from '@chakra-ui/react';
+import { AuthProvider } from './Auth/contexts/AuthContext';
 
 // LOCAL IMPORTS
 import TestDiv from './Test1.jsx';
 import Example from './HowToUseContext.jsx';
 import Header from './Header/Header.jsx';
 import SearchPage from './SearchPage/SearchPage.jsx';
+import Signup from './Auth/Signup.jsx';
+import Login from './Auth/Login.jsx';
 
 // COMPONENT
 function App() {
@@ -37,3 +40,10 @@ function App() {
 }
 
 export default App;
+
+/* <AuthProvider>
+      <Container>
+        <Signup />
+        <Login />
+      </Container>
+    </AuthProvider> */
