@@ -12,7 +12,7 @@ import jobListingsData from './Utilities/sampleJobListingData.js';
 // COMPONENT
 function AppHolder() {
   // STATES
-  const [mode, setMode] = useState('guest'); // ['guest', 'seeker', 'employer']
+  const [mode, setMode] = useState('employer'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
@@ -55,10 +55,10 @@ function AppHolder() {
   };
 
   // WE'LL KEEP THIS COMMENTED OUT UNTIL OUR SERVER ROUTES + DB ARE UP AND RUNNING
-  useEffect(() => {
-    updateAllData()
-      .catch((error) => console.error(error));
-  }, [seekerID, employerID, jobID]);
+  // useEffect(() => {
+  //   updateAllData()
+  //     .catch((error) => console.error(error));
+  // }, [seekerID, employerID, jobID]);
 
   const providerValues = useMemo(() => ({
     mode, setMode, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,

@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/jobsite');
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Connected to database');
+});
+
 const seeker = mongoose.Schema({
   uid: {
     type: Number,
