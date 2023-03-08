@@ -5,6 +5,7 @@ import sampleEmployerData from '../Utilities/sampleEmployerData';
 export default function Form({
   dismissModal, appliedIds, events, setEvents,
 }) {
+    // console.log('this is form events', events);
   function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
@@ -30,16 +31,18 @@ export default function Form({
     }
     const newEvent = {
       title: `${employer.firstName} ${employer.lastName} ${employer.industry}`,
-      start: new Date(data.time),
-      end: new Date(),
+      start: new Date(data.time)
     };
+    // console.log('before setevents', events);
     setEvents([...events, newEvent]);
+    // console.log('after setevents', events);
   };
 
   // TODO: replace mockData with database data
-  // TODO: employers should have their own availability, employees get to schedule an interview when employer unlocks their availability to them
+  // TODO: setmultiple events in setEvents
+  // TODO (future features): employers should have their own availability, employees get to schedule an interview when employer unlocks their availability to them
   return (
-    <form onSubmit={(e) => { handleSubmit(e); }} style={{ border: '1px solid black' }}>
+    <form className="container" onSubmit={(e) => { handleSubmit(e); }}>
       <label>
         Applied Jobs:
         <select onChange={handleSelection} name="employer">

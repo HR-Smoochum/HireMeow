@@ -4,6 +4,7 @@ import FullCalendar from '@fullcalendar/react';
 import Form from './Form.jsx';
 import JobContext from '../Utilities/JobContext.js';
 import modalContext from '../Utilities/modalContext.js';
+import calendarContext from '../Utilities/calendarContext.js';
 import Header from '../Header/Header.jsx';
 import {
   Button, 
@@ -19,10 +20,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 // After scheduling an event, notification is linked to it
 
 export default function Calendar() {
-  const [events, setEvents] = useState([]);
   const { useModal, dismissModal } = useContext(modalContext);
   const { seeker } = useContext(JobContext);
-  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents}/>;
+  const {events, setEvents} = useContext(calendarContext);
+  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} />;
 
 
   const handleCalEvent = () => {

@@ -11,14 +11,14 @@ const employersData = [
     firstName: 'Purr',
     lastName: 'Fect',
     industry: 'Nature & Environment',
-    interviewTimes: ['3/9/2023, 12:17:41 PM', '3/12/2023, 10:00:41 AM'],
+    interviewTimes: ['3/9/2023, 12:30:00 PM', '3/12/2023, 10:00:00 AM'],
   },
   {
     id: 3,
     firstName: 'Luci',
     lastName: 'Furr',
     industry: 'Health & Wellness',
-    interviewTimes: ['3/9/2023, 09:45:41 AM', '3/12/2023, 10:00:41 AM'],
+    interviewTimes: ['3/9/2023, 09:45:00 AM', '3/12/2023, 10:00:00 AM'],
   },
   {
     id: 4,

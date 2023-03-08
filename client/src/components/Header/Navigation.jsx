@@ -38,6 +38,7 @@ export default function Navigation({ user }) {
   return (
     <MenuList>
       <MenuItem onClick={(e) => handleClick(e, 'blog')}>Blog</MenuItem>
+      <MenuItem onClick={(e) => handleClick(e, 'calendar')}>My Calendar</MenuItem>
     </MenuList>
   );
 }

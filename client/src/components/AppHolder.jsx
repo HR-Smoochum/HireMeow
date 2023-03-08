@@ -10,6 +10,7 @@ import seekersData from './Utilities/sampleSeekerData.js';
 import jobListingsData from './Utilities/sampleJobListingData.js';
 import Modal from './Shared/Modal.jsx';
 import ModalContext from './Utilities/modalContext';
+import CalendarContext from './Utilities/calendarContext';
 
 // COMPONENT
 function AppHolder() {
@@ -23,6 +24,7 @@ function AppHolder() {
   const [allJobs, setAllJobs] = useState(jobListingsData);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState([]);
+  const [events, setEvents] = useState([]);
   // HOOKS
   function getSeeker() {
     return request.get(`/seeker/${seekerID}`)
@@ -83,12 +85,14 @@ function AppHolder() {
   return (
     <div>
       <ModalContext.Provider value={{useModal, dismissModal}}>
-        <JobContext.Provider value={providerValues}>
-        <Modal isOpen={modalIsOpen}>
-          {modalContent}
-        </Modal>
-          <App />
-        </JobContext.Provider>
+        <CalendarContext.Provider value ={{events, setEvents}}>
+          <JobContext.Provider value={providerValues}>
+            <Modal isOpen={modalIsOpen}>
+              {modalContent}
+            </Modal>
+            <App />
+          </JobContext.Provider>
+        </CalendarContext.Provider>
       </ModalContext.Provider>
     </div>
   );
