@@ -5,16 +5,20 @@ import { HStack, Box } from '@chakra-ui/react';
 // LOCAL IMPORTS
 import FilterPanel from './FilterPanel.jsx';
 import ResultList from './ResultList.jsx';
+import Header from '../Header/Header.jsx';
 
 // COMPONENT
 function SearchPage() {
   return (
-    <Box m="1rem" bg="green.100">
-      <HStack>
-        <FilterPanel />
-        <ResultList />
-      </HStack>
-    </Box>
+    <>
+      <Header />
+      <Box m="1rem" bg="green.100">
+        <HStack>
+          <FilterPanel />
+          <ResultList />
+        </HStack>
+      </Box>
+    </>
   );
 }
 
