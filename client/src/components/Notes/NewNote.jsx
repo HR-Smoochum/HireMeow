@@ -20,7 +20,7 @@ function NewNote({ handleNewNote }) {
   return (
     <div>
       <div className="newNoteContainer">
-        <div className="toolbarContainer">
+        {/* <div className="toolbarContainer">
           <button type="button" className="bold">B</button>
           <button type="button" className="italicize">I</button>
           <button type="button" className="underline">U</button>
@@ -29,7 +29,8 @@ function NewNote({ handleNewNote }) {
           <button type="button" className="leftAlign fa-solid fa-align-left fa-lg" />
           <button type="button" className="centerAlign fa-solid fa-align-center fa-lg" />
           <button type="button" className="rightAlign fa-solid fa-align-right fa-lg" />
-        </div>
+        </div> */}
+        <div className="noteHeader">Create New Note</div>
         <textarea id="resumeEditor" rows={5} cols={40} className="editorContentArea" type="text" onKeyDown={handleKeyDown} onChange={handleEdit} />
         <button type="submit" className="createResume" onClick={() => handleNewNote(currentContent)}>Save Note</button>
       </div>

@@ -1,5 +1,6 @@
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
+import Header from '../Header/Header.jsx';
 
 // LOCAL IMPORTS
 import NoteCard from './NoteCard.jsx';
@@ -55,6 +56,7 @@ function Notes() {
 
   return (
     <div className="notesComponent">
+      <Header />
       <div className="notesTitle">My Notes</div>
       <div className="notesListContainer">
         <div className="notesList">
