@@ -23,22 +23,22 @@ function AppHolder() {
   // HOOKS
   function getSeeker() {
     return request.get(`/seeker/${seekerID}`)
-      .then((response) => response.data)
+      .then((response) => setSeeker(response.data))
       .catch((error) => { console.error(error); });
   }
   function getEmployer() {
     return request.get(`/employer/${employerID}`)
-      .then((response) => response.data)
+      .then((response) => setEmployer(response.data))
       .catch((error) => { console.error(error); });
   }
   function getAJob() {
     return request.get(`/job/${jobID}`)
-      .then((response) => response.data)
+      .then((response) => setAJob(response.data))
       .catch((error) => { console.error(error); });
   }
   function getAllJobs() {
     return request.get('/jobs')
-      .then((response) => response.data)
+      .then((response) => setAllJobs(response.data))
       .catch((error) => { console.error(error); });
   }
 
@@ -54,10 +54,10 @@ function AppHolder() {
   };
 
   // WE'LL KEEP THIS COMMENTED OUT UNTIL OUR SERVER ROUTES + DB ARE UP AND RUNNING
-  // useEffect(() => {
-  //   updateAllData()
-  //     .catch((error) => console.error(error));
-  // }, [seekerID, employerID, jobID]);
+  useEffect(() => {
+    updateAllData()
+      .catch((error) => console.error(error));
+  }, [seekerID, employerID, jobID]);
 
   const providerValues = useMemo(() => ({
     seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,

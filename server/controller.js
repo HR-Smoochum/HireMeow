@@ -10,7 +10,7 @@ module.exports = {
         res.send(JSON.stringify(dbRes));
       })
       .catch((err) => {
-        console.log('unable to get seekers with error ', err);
+        res.status(400).send(err);
       });
   },
   getEmployers: (req, res) => {
@@ -19,7 +19,7 @@ module.exports = {
         res.send(JSON.stringify(dbRes));
       })
       .catch((err) => {
-        console.log('unable to get employers with error ', err);
+        res.status(400).send(err);
       });
   },
   getJobs: (req, res) => {
@@ -37,7 +37,7 @@ module.exports = {
         res.send(JSON.stringify(dbRes));
       })
       .catch((err) => {
-        console.log('unable to get blog posts with error ', err);
+        res.status(400).send(err);
       });
   },
 };

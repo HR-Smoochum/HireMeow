@@ -28,7 +28,7 @@ const blogData = [
   },
   {
     id: 5,
-    title: 'World\s Most Famous Cats',
+    title: 'World\'s Most Famous Cats',
     description: 'Celebrities love cats too and we can talk about them liking cats or loving cats as long as there is a sentence. These are by far the most famous cats you\'ll ever encounter when you attempt to go visit the world. Of course this just going to just be a bunch of random words about cat and music.',
     date: '2023-03-05',
   },
