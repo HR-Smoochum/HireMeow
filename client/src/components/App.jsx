@@ -54,7 +54,6 @@ function App() {
           </Routes>
         </AuthProvider>
       </Router>
-      <NewNote />
     </ChakraProvider>
   );
 }
