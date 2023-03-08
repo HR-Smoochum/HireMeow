@@ -1,12 +1,8 @@
 // LIBRARY IMPORTS
 import React from 'react';
 import { extendTheme, ChakraProvider } from '@chakra-ui/react';
-<<<<<<< HEAD
-import Calendar from './Calendar/Calendar.jsx';
-=======
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
->>>>>>> main
 // LOCAL IMPORTS
 import Header from './Header/Header.jsx';
 import Login from './Auth/Login.jsx';
@@ -39,11 +35,6 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-<<<<<<< HEAD
-      <TestDiv />
-      <Example />
-      <Calendar />
-=======
       <Router>
         <Routes>
           {/* Default path is to the header => will be removed when everyone adds headers to their components */}
@@ -58,7 +49,6 @@ function App() {
           <Route path="/seekers" element={<SearchPage />} />
         </Routes>
       </Router>
->>>>>>> main
     </ChakraProvider>
   );
 }

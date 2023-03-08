@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // not necessary, mongoose already required from db import
 const db = require('../database');
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
   // to create relevant documents - update as needed
   createInDb: (items, callback) => {
     items.forEach((item) => {
-      db.BlogPost.create(item)
+      db.Employer.create(item)
         .then((res) => {
           callback(null, res);
         })
@@ -28,7 +28,7 @@ module.exports = {
   },
   // to clear relevant collections - update as needed
   clearDb: () => {
-    db.Seeker.deleteMany()
+    db.Employer.deleteMany()
       .then(() => {
         console.log('cleared');
       })

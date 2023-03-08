@@ -93,6 +93,106 @@ const blogData = [
     date: '2023-03-01',
   },
 ];
+const jobData = [
+  {
+    "id": 1,
+    "title": "Software Engineer",
+    "description": "We're seeking a talented software engineer to join our team and help us build cutting-edge products.",
+    "industry": "Technology",
+    "location": "San Francisco",
+    "experience": "5+ years",
+    "environment": "In person",
+    "salary": "$150,000 - $200,000",
+    "employment": "Full-time",
+    "date": "2022-12-31T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Marketing Manager",
+    "description": "We're looking for a marketing manager to lead our marketing efforts and help us grow our customer base.",
+    "industry": "Marketing",
+    "location": "New York City",
+    "experience": "7+ years",
+    "environment": "Remote",
+    "salary": "$120,000 - $150,000",
+    "employment": "Full-time",
+    "date": "2023-02-28T00:00:00.000Z"
+  }
+];
+
+const seekerData = [
+  {
+    "uid": 1,
+    "first_name": "John",
+    "last_name": "Doe",
+    "industry": "Software Engineering",
+    "resume": {"title": "Software Engineer", "summary": "I have 5+ years of experience in building scalable and reliable software systems."},
+    "notes": ["Met at job fair", "Impressive experience"],
+    "saved": {
+      "interested": [2, 5, 8],
+      "very interested": [10, 15],
+      "extremely interested": [20],
+      "applied": [2],
+      "interviewed for": [5]
+    }
+  },
+  {
+    "uid": 2,
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "industry": "Marketing",
+    "resume": {"title": "Marketing Manager", "summary": "I have 7+ years of experience in creating and executing successful marketing campaigns."},
+    "notes": ["Great communication skills", "Creative thinker"],
+    "saved": {
+      "interested": [1, 3, 5],
+      "very interested": [10, 12],
+      "extremely interested": [15],
+      "applied": [1, 5],
+      "interviewed for": [3]
+    }
+  },
+  {
+    "uid": 3,
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "industry": "Design",
+    "resume": {"title": "Product Designer", "summary": "I have 3+ years of experience in designing beautiful and intuitive user experiences."},
+    "notes": ["Impressive portfolio", "Team player"],
+    "saved": {
+      "interested": [1, 2, 5],
+      "very interested": [8, 10],
+      "extremely interested": [12],
+      "applied": [2, 5],
+      "interviewed for": [1]
+    }
+  }
+];
+
+const employerData = [
+  {
+    uid: 123456,
+    first_name: "John",
+    last_name: "Doe",
+    industry: "Technology",
+    notes: [
+      "Has experience with React and Node.js",
+      "Excellent communication skills",
+      "Needs visa sponsorship"
+    ],
+    saved: {
+      "candidate1": {
+        "name": "Jane Smith",
+        "position": "Frontend Developer",
+        "resume": "https://example.com/jane-smith-resume.pdf"
+      },
+      "candidate2": {
+        "name": "Bob Johnson",
+        "position": "Backend Developer",
+        "resume": "https://example.com/bob-johnson-resume.pdf"
+      }
+    }
+  }
+];
 
 const load = (data) => {
   model.createInDb(data, (err, res) => {
@@ -105,4 +205,4 @@ const load = (data) => {
 };
 
 // Update based on which data you need to load
-load(blogData);
+load(employerData);
