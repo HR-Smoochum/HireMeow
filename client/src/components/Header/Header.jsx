@@ -2,8 +2,8 @@ import React from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import {
+  Image,
   Flex,
-  Box,
   Heading,
   Spacer,
   Menu,
@@ -13,6 +13,7 @@ import {
 import Navigation from './Navigation.jsx';
 import Notifications from './Notifications.jsx';
 import Options from './Options.jsx';
+import Logo from '../../../dist/logo.png';
 
 export default function Header() {
   const user = {
@@ -22,10 +23,11 @@ export default function Header() {
   };
 
   return (
-    <Flex p="30" alignItems="center">
-      <Box>
-        <Heading size="md">Job Site</Heading>
-      </Box>
+    <Flex p="30" alignItems="center" maxHeight="md">
+      <Flex alignItems="center">
+        <Image src={Logo} alt="logo" objectFit="contain" maxHeight="15%" maxWidth="15%" />
+        <Heading size="lg" ml="2">Hire Meow</Heading>
+      </Flex>
       <Spacer />
       <Flex gap="2">
         <Menu>
