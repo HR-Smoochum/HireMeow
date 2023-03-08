@@ -1,0 +1,114 @@
+/* ============================
+   Editor
+   ============================
+*/
+
+.toolbarContainer {
+  display: flex;
+  padding: .5em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italicize {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold, .italicize, .underline {
+  font-size: 1.2em;
+  color:#919191;
+  padding: .6em;
+  text-align: center;
+}
+
+.fa-list-ul, .fa-list-ol, .fa-align-left, .fa-align-center, .fa-align-right {
+  padding: 0 .6em 0 .6em;
+  color:#919191;
+  line-height: 0em;
+}
+
+.fa-list-ul:hover, .fa-list-ol:hover, .fa-align-left:hover, .fa-align-center:hover, .fa-align-right:hover, .bold:hover, .italicize:hover, .underline:hover {
+  color:#383838;
+  background-color: rgb(236, 234, 234, .4);
+}
+
+.editorContentArea {
+  border-top: .2em solid #c9c9c9 ;
+  border-bottom: .1em solid #313131 ;
+}
+
+.createResume {
+  margin: 1em 2em 1em 42em;
+  border: .1em solid black;
+  border-radius: .2em;
+}
+
+.createResume:hover {
+  background-color: rgb(236, 234, 234, .8);
+}
+
+/* ============================
+   Notes Component
+   ============================
+*/
+
+.notesComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2em;
+}
+
+.notesListContainer {
+  border: .1em solid black;
+  display: flex;
+  column-gap: 15em;
+  margin: 0em 10em;
+}
+
+.notesTitle {
+  text-align: center;
+}
+
+.notesList {
+  margin: 2em;
+}
+
+.currentNote {
+  background-color: #c9c9c9;
+  width: 30em;
+  margin: 2em;
+}
+
+.currentNoteTitle {
+  background-color: #626060;
+  color: #f7f7f7;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 2em 0;
+  padding: 1em 0 0 0;
+}
+
+.currentNoteDescription {
+  padding: 0 2em 2em 2em;
+}
+
+
+/* ============================
+   New Note
+   ============================
+*/
+
+
+.newNoteContainer {
+  border: .1em solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 0em 10em 0 30em;
+}

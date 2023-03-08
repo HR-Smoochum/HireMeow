@@ -64,6 +64,7 @@ const job = mongoose.Schema({
   employment: String, // full time/part time
   environment: String, // remote or onsite
   date: Date,
+  logo: String,
 });
 
 const blogPost = mongoose.Schema({
