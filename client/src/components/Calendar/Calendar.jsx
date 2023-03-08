@@ -17,6 +17,7 @@ export default function Calendar() {
         events={events}
         eventContent={renderEventContent}
       />
+      <button>Create Event</button>
     </div>
   )
 }
