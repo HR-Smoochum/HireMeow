@@ -7,7 +7,7 @@ module.exports = {
   getSeekers: (req, res) => {
     models.getAllSeekers()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
         res.status(400).send(err);
@@ -16,7 +16,7 @@ module.exports = {
   getEmployers: (req, res) => {
     models.getAllEmployers()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
         res.status(400).send(err);
@@ -25,7 +25,7 @@ module.exports = {
   getJobs: (req, res) => {
     models.getAllJobs()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
         console.log('unable to get jobs with error ', err);
@@ -34,7 +34,7 @@ module.exports = {
   getBlogPosts: (req, res) => {
     models.getAllBlogPosts()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
         res.status(400).send(err);
