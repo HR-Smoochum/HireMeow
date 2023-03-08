@@ -1,7 +1,7 @@
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
 import {
-  FormControl, FormLabel, Input, Card, CardBody, Button, Alert,
+  FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
 } from '@chakra-ui/react';
 import { useAuth } from './contexts/AuthContext';
 
@@ -15,6 +15,7 @@ function Signup() {
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState('jobSeeker');
   const { signup } = useAuth();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
@@ -38,9 +39,11 @@ function Signup() {
   }
 
   return (
-    <Card>
+    <Card maxW="500px" margin="auto">
       <CardBody>
-        <h1>Sign Up</h1>
+        <Center>
+          <Heading as="h1" size="xl">Sign Up</Heading>
+        </Center>
         {error && (
           <Alert status="error">{error}</Alert>
         )}
@@ -52,9 +55,26 @@ function Signup() {
             <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
             <FormLabel>Confirm Password</FormLabel>
             <Input type="password" id="3" value={passwordConfirm} onChange={handlePasswordConfirmChange} required />
-            <Button disabled={loading} type="submit">Sign Up</Button>
+            <Center p={4}>
+              <RadioGroup onChange={setUser} value={user}>
+                <Stack direction="row">
+                  <Radio value="jobSeeker">Job Seeker</Radio>
+                  <Radio value="employer">Employer</Radio>
+                </Stack>
+              </RadioGroup>
+            </Center>
+            <Center>
+              <Button disabled={loading} type="submit">Sign Up</Button>
+            </Center>
           </FormControl>
         </form>
+        <Center p={4}>
+          <div>
+            Already have an account?
+            {' '}
+            <u>Log in here</u>
+          </div>
+        </Center>
       </CardBody>
     </Card>
   );
