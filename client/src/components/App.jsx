@@ -1,9 +1,9 @@
 // LIBRARY IMPORTS
 import React from 'react';
-import { extendTheme, ChakraProvider, Container } from '@chakra-ui/react';
+import { extendTheme, ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './Auth/contexts/AuthContext';
-// import PrivateRoute from './Auth/PrivateRoute';
+import PrivateRoute from './Auth/PrivateRoute';
 
 // LOCAL IMPORTS
 import Header from './Header/Header.jsx';
@@ -40,8 +40,15 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-            {/* Default path is to the header => will be removed when everyone adds headers to their components */}
-            <Route exact path="/" element={<Login />} />
+            {/* if user exists(is logged in), navigate to /jobs */}
+            <Route
+              path="/"
+              element={(
+                <PrivateRoute>
+                  <SearchPage />
+                </PrivateRoute>
+              )}
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/jobs" element={<SearchPage />} />
