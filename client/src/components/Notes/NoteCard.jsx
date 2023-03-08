@@ -4,9 +4,12 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function NoteCard() {
+function NoteCard({ note, handleNote}) {
   return (
-    <div>Note Card</div>
+    <div className="noteContainer">
+      <button type="button" className="noteTitle" value={note} onClick={handleNote}>{note.title}</button>
+      {/* <div className="noteDescription">{note.description}</div> */}
+    </div>
   );
 }
 
