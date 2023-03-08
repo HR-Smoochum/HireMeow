@@ -16,6 +16,20 @@ const employerData = [
       veryInterested: [3, 5],
       extremelyInterested: [7],
     },
+    events: [
+      {
+        title: 'Home Maintenance Expo',
+        date: '2023-04-15T10:00:00Z',
+      },
+      {
+        title: 'Networking Mixer for Home Maintenance Professionals',
+        date: '2023-05-03T18:00:00Z',
+      },
+      {
+        title: 'Writing Workshop: Crafting Strong Descriptions for Your Home Maintenance Business',
+        date: '2023-04-25T13:00:00Z',
+      },
+    ],
   },
   {
     uid: 2,
@@ -34,6 +48,20 @@ const employerData = [
       veryInterested: [1, 9, 10],
       extremelyInterested: [8],
     },
+    events: [
+      {
+        title: 'Interview with Tabbytha Whiskers',
+        date: '2023-03-15T14:00:00Z',
+      },
+      {
+        title: 'Networking Event for Nature & Environment Professionals',
+        date: '2023-03-28T18:00:00Z',
+      },
+      {
+        title: 'Interview with Allie Kat',
+        date: '2023-04-05T10:00:00Z',
+      },
+    ],
   },
   {
     uid: 3,
@@ -52,6 +80,16 @@ const employerData = [
       veryInterested: [4, 6],
       extremelyInterested: [10],
     },
+    events: [
+      {
+        title: 'Interview with Tabbytha Whiskers',
+        date: '2023-03-15T15:00:00Z',
+      },
+      {
+        title: 'Health & Wellness Expo',
+        date: '2023-04-02T10:00:00Z',
+      },
+    ],
   },
   {
     uid: 4,
@@ -69,6 +107,20 @@ const employerData = [
       veryInterested: [6, 8],
       extremelyInterested: [10],
     },
+    events: [
+      {
+        title: 'Interview with Tabbytha Whiskers',
+        date: '2023-03-22T14:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+      {
+        title: 'Interview with Meow Angelou',
+        date: '2023-04-15T10:00:00Z',
+      },
+    ],
   },
   {
     uid: 5,
@@ -87,6 +139,20 @@ const employerData = [
       veryInterested: [2, 5, 7],
       extremelyInterested: [9],
     },
+    events: [
+      {
+        title: 'Interview with Tabbytha Whiskers',
+        date: '2023-03-15T13:00:00Z',
+      },
+      {
+        title: 'Networking Event for Gastronomy Professionals',
+        date: '2023-03-25T19:00:00Z',
+      },
+      {
+        title: 'Interview with Garth Field',
+        date: '2023-04-05T14:30:00Z',
+      },
+    ],
   },
   {
     uid: 6,
@@ -105,6 +171,20 @@ const employerData = [
       veryInterested: [2, 6],
       extremelyInterested: [3, 9],
     },
+    events: [
+      {
+        title: 'Interview with Whiskerina Meowington',
+        date: '2023-03-20T10:00:00Z',
+      },
+      {
+        title: 'Networking Event for Security Professionals',
+        date: '2023-04-05T18:00:00Z',
+      },
+      {
+        title: 'Interview with Felix Clawdini',
+        date: '2023-04-15T14:30:00Z',
+      },
+    ],
   },
 ];
 
