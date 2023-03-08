@@ -4,9 +4,14 @@ import React from 'react';
 // LOCAL IMPORTS
 
 // COMPONENT
-function BlogPost() {
+function BlogPost({ blog }) {
   return (
-    <div>Blog Post</div>
+    <div className="individualBlogPost">
+      <div className="blogImage" />
+      <div className="blogTitle">{blog.title}</div>
+      <div className="blogAuthor">Mr. Bartholomue</div>
+      <div className="blogDate">{blog.date}</div>
+    </div>
   );
 }
 
