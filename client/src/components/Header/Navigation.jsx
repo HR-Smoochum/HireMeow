@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navigation({ user }) {
+  const navigate = useNavigate();
   const handleClick = (e, path) => {
     e.preventDefault();
-    console.log(path);
+    navigate(path);
   };
 
   if (user.type === 'employer') {
     return (
       <MenuList>
-        <MenuItem onClick={(e) => handleClick(e, 'jobs')}>My Seekers</MenuItem>
+        <MenuItem onClick={(e) => handleClick(e, 'seekers')}>My Seekers</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, 'notes')}>My Notes</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, 'calendar')}>My Calendar</MenuItem>
         <MenuDivider />
