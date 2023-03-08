@@ -1,17 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Auth/contexts/AuthContext.jsx';
 
-export default function Options({ user }) {
-  const firstName = user.type === 'guest' ? 'Guest' : user.firstName;
+export default function Options({ mode, firstName }) {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const salutation = `Welcome, ${firstName}!`;
 
-  if (user.type !== 'guest') {
+  const handleNavigate = (e, path) => {
+    e.preventDefault();
+    navigate(path);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout()
+      .then(() => navigate('/'))
+      .catch((err) => console.log(err));
+  };
+
+  if (mode !== 'guest') {
     return (
       <MenuList>
         <MenuItem>{ salutation }</MenuItem>
         <MenuDivider />
-        <MenuItem>Log Out</MenuItem>
+        <MenuItem onClick={(e) => handleLogout(e)}>Log Out</MenuItem>
       </MenuList>
     );
   }
@@ -20,16 +35,14 @@ export default function Options({ user }) {
     <MenuList>
       <MenuItem>{ salutation }</MenuItem>
       <MenuDivider />
-      <MenuItem>Create an Account</MenuItem>
-      <MenuItem>Log In</MenuItem>
+      <MenuItem onClick={(e) => handleNavigate(e, '/signup')}>Create an Account</MenuItem>
+      <MenuItem onClick={(e) => handleNavigate(e, '/login')}>Log In</MenuItem>
     </MenuList>
   );
 }
 
 // require specific props when calling options
 Options.propTypes = {
-  user: PropTypes.shape({
-    firstName: PropTypes.string,
-    type: PropTypes.oneOf(['employer', 'seeker', 'guest']).isRequired,
-  }).isRequired,
+  firstName: PropTypes.string.isRequired,
+  mode: PropTypes.oneOf(['employer', 'seeker', 'guest']).isRequired,
 };

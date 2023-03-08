@@ -12,6 +12,7 @@ import jobListingsData from './Utilities/sampleJobListingData.js';
 // COMPONENT
 function AppHolder() {
   // STATES
+  const [mode, setMode] = useState('employer'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
@@ -60,8 +61,8 @@ function AppHolder() {
   // }, [seekerID, employerID, jobID]);
 
   const providerValues = useMemo(() => ({
-    seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
-  }), [seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
+    mode, setMode, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
+  }), [mode, seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
 
   return (
     <div>

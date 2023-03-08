@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import {
+  Image,
   Flex,
-  Box,
   Heading,
   Spacer,
   Menu,
@@ -13,33 +13,42 @@ import {
 import Navigation from './Navigation.jsx';
 import Notifications from './Notifications.jsx';
 import Options from './Options.jsx';
+import Logo from '../../../dist/logo.png';
+import JobContext from '../Utilities/JobContext.js';
 
 export default function Header() {
-  const user = {
-    type: 'guest',
-    firstName: 'Donna',
-    lastName: 'Wong',
-  };
+  const { mode, seeker, employer } = useContext(JobContext);
+  const [firstName, setFirstName] = useState('Guest');
+
+  useEffect(() => {
+    if (mode === 'seeker') {
+      setFirstName(seeker.firstName);
+    }
+    if (mode === 'employer') {
+      setFirstName(employer.firstName);
+    }
+  }, [mode, seeker.firstName, employer.firstName]);
 
   return (
-    <Flex p="30" alignItems="center">
-      <Box>
-        <Heading size="md">Job Site</Heading>
-      </Box>
+    <Flex p="30" alignItems="center" maxHeight="md">
+      <Flex alignItems="center">
+        <Image src={Logo} alt="logo" objectFit="contain" maxHeight="15%" maxWidth="15%" />
+        <Heading size="lg" ml="2">Hire Meow</Heading>
+      </Flex>
       <Spacer />
       <Flex gap="2">
         <Menu>
           <MenuButton as={Button}>
             <AiOutlineMenu />
           </MenuButton>
-          <Navigation user={user} />
+          <Navigation mode={mode} />
         </Menu>
-        { user.type !== 'guest' ? <Notifications /> : null }
+        { mode !== 'guest' ? <Notifications /> : null }
         <Menu>
           <MenuButton as={Button}>
             <CgProfile />
           </MenuButton>
-          <Options user={user} />
+          <Options mode={mode} firstName={firstName} />
         </Menu>
       </Flex>
     </Flex>

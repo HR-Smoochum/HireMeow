@@ -18,9 +18,9 @@ const load = (data) => {
 
 // First go to models.js and update the load model collection name based on which collection you're loading
 // Navigate to this directory (cd database) in your terminal and run this file via node
-model.clearDb();
+// model.clearDb();
 
-// load(seekerData.seekerData);
+load(seekerData.seekerData);
 // load(employerData.employerData);
 // load(jobData.jobData);
-load(blogData.blogData);
+// load(blogData.blogData);

@@ -26,7 +26,7 @@ module.exports = {
   // THESE 2 MODELS ARE SPECIFICALLY FOR DATA LOADING:
   // to create relevant documents - update as needed
   createInDb: (items, callback) => {
-    db.BlogPost.create(items)
+    db.Seeker.create(items)
       .then((res) => {
         callback(null, res);
       })
@@ -36,7 +36,7 @@ module.exports = {
   },
   // to clear relevant collections - update as needed
   clearDb: () => {
-    db.BlogPost.deleteMany()
+    db.Seeker.deleteMany()
       .then(() => {
         console.log('Collection cleared');
       })
