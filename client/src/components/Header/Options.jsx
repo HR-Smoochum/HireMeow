@@ -1,6 +1,7 @@
-import React, { useNavigate } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/contexts/AuthContext.jsx';
 
 export default function Options({ mode, firstName }) {
