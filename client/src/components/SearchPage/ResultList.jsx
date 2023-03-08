@@ -3,6 +3,7 @@ import React from 'react';
 import { Flex } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
+import jobListingsData from '../Utilities/sampleJobListingData.js';
 
 // COMPONENT
 function ResultList() {
