@@ -6,7 +6,10 @@ import {
 import { HiEllipsisVertical } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 
-function JobCard({ Job }) {
+// LOCAL IMPORTS
+import JobDetail from '../MyJobPostings/JobDetail.jsx';
+
+function JobCard({ job }) {
   const [showMore, setShowMore] = useState(0);
   const handleDetail = () => {
     setShowMore(1);
@@ -22,12 +25,12 @@ function JobCard({ Job }) {
                   <Image
                     borderRadius="full"
                     boxSize="50px"
-                    src={Job.logo}
+                    src={job.logo}
                     alt="company logo"
                   />
                   <Box>
-                    <Heading size="sm">{Job.company}</Heading>
-                    <Text>{Job.title}</Text>
+                    <Heading size="sm">{job.company}</Heading>
+                    <Text>{job.title}</Text>
                   </Box>
                 </Flex>
                 <Menu>
@@ -56,16 +59,14 @@ function JobCard({ Job }) {
             </CardHeader>
             <CardBody onClick={handleDetail}>
               <Text>
-                With Chakra UI, I wanted to sync the speed of development with the speed
-                of design. I wanted the developer to be just as excited as the designer to
-                create a screen.
+                {job.description}
               </Text>
             </CardBody>
           </Card>
         )
       }
       {
-        showMore === 1 && <JobDetail Job={Job} setShowMore={setShowMore} />
+        showMore === 1 && <JobDetail Job={job} setShowMore={setShowMore} />
       }
     </>
   );
