@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/jobsite');
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Connected to database');
+});
+
 const seeker = mongoose.Schema({
   uid: {
     type: Number,
@@ -10,7 +16,7 @@ const seeker = mongoose.Schema({
   first_name: String,
   last_name: String,
   industry: String,
-  resume: Object,
+  resume: Object, // {title: '', skills:''}
   notes: Array,
   saved: Object,
   events: Array,
@@ -54,9 +60,9 @@ const job = mongoose.Schema({
   industry: String,
   location: String,
   experience: String,
-  environment: String,
   salary: String,
-  employment: String,
+  employment: String, // full time/part time
+  environment: String, // remote or onsite
   date: Date,
 });
 
