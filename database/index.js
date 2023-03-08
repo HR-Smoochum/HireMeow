@@ -33,7 +33,8 @@ const job = mongoose.Schema({
   experience: String, // entry level
   environment: String, // remote/in person
   salary: String,
-  logo: String, // logo url
+  employment: String, // full time/part time
+  logo: String,
   company: String,
   date: Date,
 });
