@@ -9,7 +9,9 @@ const model = require('../../server/models.js');
 // experience: String, // entry level
 // environment: String, // remote/in person
 // salary: String,
-// employment: String, // company name?
+// logo: String
+// company: String
+// employment: String,
 // date: Date,
 const JobData = [
   {

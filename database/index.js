@@ -54,11 +54,9 @@ const job = mongoose.Schema({
   industry: String,
   location: String,
   experience: String,
-  environment: String, // remote/in person
   salary: String,
   employment: String, // full time/part time
-  logo: String,
-  company: String,
+  environment: String, // remote or onsite
   date: Date,
 });
 
