@@ -7,25 +7,25 @@ module.exports = {
   getSeekers: (req, res) => {
     models.getAllSeekers()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
-        console.log('unable to get seekers with error ', err);
+        res.status(400).send(err);
       });
   },
   getEmployers: (req, res) => {
     models.getAllEmployers()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
-        console.log('unable to get employers with error ', err);
+        res.status(400).send(err);
       });
   },
   getJobs: (req, res) => {
     models.getAllJobs()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
         console.log('unable to get jobs with error ', err);
@@ -34,10 +34,10 @@ module.exports = {
   getBlogPosts: (req, res) => {
     models.getAllBlogPosts()
       .then((dbRes) => {
-        res.send(JSON.stringify(dbRes));
+        res.send(dbRes);
       })
       .catch((err) => {
-        console.log('unable to get blog posts with error ', err);
+        res.status(400).send(err);
       });
   },
 };
