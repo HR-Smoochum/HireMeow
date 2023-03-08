@@ -5,12 +5,11 @@ import {
   SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel,
 } from '@chakra-ui/react';
 import JobCard from './JobCard.jsx';
-
-// LOCAL IMPORTS
+import Header from '../Header/Header.jsx';
 
 // COMPONENT
 export default function CardDashboard() {
-  // 根据查询当前job seeker用户的saved参数，找出保存的所有相关的Jobs信息
+  // 查询当前job seeker用户的saved参数，找出保存的所有相关的Jobs信息
   const InterestedJobs = [
     {
       id: 1,
@@ -142,35 +141,38 @@ export default function CardDashboard() {
     }
     setChecked(Array.from(temp));
   };
-  console.log('checked', checked);
+  // console.log('checked', checked);
 
   return (
-
-    <Tabs isFitted variant="unstyled">
-      <TabList>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Very Interested</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Extremely Interested</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Applied To</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interviewed At</Tab>
-      </TabList>
-      <TabPanels p="2rem">
-        <TabPanel>
-          <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
-            {
-              InterestedJobs.map(((Job, index) => {
-                return <JobCard Job={Job} key={index} index={index} handleCheck={handleCheck} />;
+    <>
+      <Header />
+      <Tabs isFitted variant="unstyled">
+        <TabList>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Very Interested</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Extremely Interested</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Applied To</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interviewed At</Tab>
+        </TabList>
+        <TabPanels p="2rem">
+          <TabPanel>
+            <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+              {
+                InterestedJobs.map(((Job, index) => {
+                  return <JobCard Job={Job} key={index} index={index} handleCheck={handleCheck} />;
+                }
+                ))
               }
-              ))
-            }
-          </SimpleGrid>
-        </TabPanel>
-        <TabPanel>Are 1, 2, 3</TabPanel>
-        <TabPanel>Red, yellow and blue.</TabPanel>
-        <TabPanel>Are 1, 2, 3</TabPanel>
-        <TabPanel>Red, yellow and blue.</TabPanel>
-      </TabPanels>
-    </Tabs>
+            </SimpleGrid>
+          </TabPanel>
+          <TabPanel>Are 1, 2, 3</TabPanel>
+          <TabPanel>Red, yellow and blue.</TabPanel>
+          <TabPanel>Are 1, 2, 3</TabPanel>
+          <TabPanel>Red, yellow and blue.</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
+
   );
 }
 
