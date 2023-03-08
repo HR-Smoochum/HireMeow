@@ -8,6 +8,8 @@ import JobContext from './Utilities/JobContext.js';
 import employersData from './Utilities/sampleEmployerData.js';
 import seekersData from './Utilities/sampleSeekerData.js';
 import jobListingsData from './Utilities/sampleJobListingData.js';
+import Modal from './Shared/Modal.jsx';
+import ModalContext from './Utilities/modalContext';
 
 // COMPONENT
 function AppHolder() {
@@ -19,7 +21,8 @@ function AppHolder() {
   const [employer, setEmployer] = useState(employersData[0]);
   const [aJob, setAJob] = useState(jobListingsData[0]);
   const [allJobs, setAllJobs] = useState(jobListingsData);
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalContent, setModalContent] = useState([]);
   // HOOKS
   function getSeeker() {
     return request.get(`/seeker/${seekerID}`)
@@ -53,6 +56,19 @@ function AppHolder() {
     setAllJobs(dataAllJobs);
   };
 
+  const useModal = (content) => {
+    if (!modalIsOpen) {
+      setModalContent(content);
+      setModalIsOpen(true);
+    } else {
+      console.error('Cannot open new modal while another modal is currently open, close the current modal before trying to open a new one');
+    }
+  };
+
+  const dismissModal = () => {
+    setModalIsOpen(false);
+  };
+
   // WE'LL KEEP THIS COMMENTED OUT UNTIL OUR SERVER ROUTES + DB ARE UP AND RUNNING
   // useEffect(() => {
   //   updateAllData()
@@ -63,11 +79,17 @@ function AppHolder() {
     seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
   }), [seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
 
+
   return (
     <div>
-      <JobContext.Provider value={providerValues}>
-        <App />
-      </JobContext.Provider>
+      <ModalContext.Provider value={{useModal, dismissModal}}>
+        <JobContext.Provider value={providerValues}>
+        <Modal isOpen={modalIsOpen}>
+          {modalContent}
+        </Modal>
+          <App />
+        </JobContext.Provider>
+      </ModalContext.Provider>
     </div>
   );
 }

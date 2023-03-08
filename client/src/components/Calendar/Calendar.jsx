@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
+import Form from './Form.jsx';
 import JobContext from '../Utilities/JobContext.js';
+import modalContext from '../Utilities/modalContext.js';
 import Header from '../Header/Header.jsx';
 import {
-  Flex,
-  Box,
-  Heading,
-  Spacer,
-  Menu,
-  MenuButton,
   Button, 
 } from '@chakra-ui/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -21,25 +17,30 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 
 // TODO: Button to create event modal, required field to select a job from their 'applied' list from seeker, job title & time
 // After scheduling an event, notification is linked to it
-const handleEvent = (e) => {
-  e.preventDefault();
-};
 
 export default function Calendar() {
+  const [events, setEvents] = useState([]);
+  const { useModal, dismissModal } = useContext(modalContext);
+  const { seeker } = useContext(JobContext);
+  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} />;
+
+
+  const handleCalEvent = () => {
+    return useModal(formComponent);
+  };
 
   return (
     <div>
-      {/* {console.log('this is seeker', seeker)} */}
       <Header />
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         weekends={true}
-        // events={events}
+        events={events}
         eventContent={renderEventContent}
         aspectRatio={3}
       />
-      <Button className='createEvent' onClick={handleEvent}>Create Event</Button>
+      <Button className='createEvent' onClick={handleCalEvent}>Schedule Interview</Button>
     </div>
   );
 }
@@ -52,4 +53,4 @@ function renderEventContent(eventInfo) {
       <i>{eventInfo.event.title}</i>
     </>
   );
-}
+};

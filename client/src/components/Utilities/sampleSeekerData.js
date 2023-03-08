@@ -87,6 +87,13 @@ const seekersData = [
         text: 'Met with a freelance editor to review my writing portfolio and get feedback on my work.',
       },
     ],
+    saved: {
+      interested: [ 2, 5, 8 ],
+      very_interested: [ 10, 15 ],
+      extremely_interested: [ 20 ],
+      applied: [ 1, 3 ],
+      interviewed_for: [ 5 ]
+    },
   },
   {
     id: 2,
