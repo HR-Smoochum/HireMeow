@@ -5,10 +5,9 @@ import {
   FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from './contexts/AuthContext';
 
 // LOCAL IMPORTS
-import { useAuth } from './contexts/AuthContext';
-import Header from '../Header/Header.jsx';
 
 // COMPONENT
 function Login() {
