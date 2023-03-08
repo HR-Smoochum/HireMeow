@@ -6,6 +6,8 @@ import { AuthProvider } from './Auth/contexts/AuthContext';
 // import PrivateRoute from './Auth/PrivateRoute';
 
 // LOCAL IMPORTS
+import Login from './Auth/Login.jsx';
+import Signup from './Auth/Signup.jsx';
 import SearchPage from './SearchPage/SearchPage.jsx';
 import Notes from './Notes/Notes.jsx';
 import Calendar from './Calendar/Calendar.jsx';
@@ -40,6 +42,8 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route exact path="/" element={<SearchPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/jobs" element={<SavedJobs />} />
             <Route path="/seekers" element={<SavedSeekers />} />
             <Route path="/notes" element={<Notes />} />
