@@ -173,11 +173,6 @@
   height: 400px;
   width: 450px;
 }
-/*
-.highlightImage {
-  height: 400px;
-  width: 450px;
-} */
 
 .highlightTitle {
   font-size: 40px;
@@ -234,4 +229,79 @@
 
 .blogTitle {
   font-weight: bold;
+}
+
+
+/* ============================
+   Resume
+   ============================
+*/
+
+.uploadResumeContainer {
+
+}
+
+.myResumeHeader {
+  font-size: 2em;
+  border-top: 0.03em solid lightslategray;
+  border-bottom: 0.03em solid lightslategray;
+  height: 1.7em;
+  text-align: center;
+}
+
+.uploadResumeActionContainer {
+  width: 30em;
+  height: 12em;
+  border: 0.1em solid black;
+  margin: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.uploadResume {
+  font-size: 1.5em;
+  background-color: #e2e0e0;
+  width: 100%;
+}
+
+.uploadResumeButton {
+  padding: .3em 1em;
+  border: solid .1em black;
+  margin: 1em 10em;
+}
+
+.inputResume {
+  margin: 2em 0 0 6em;
+}
+
+.currentResumeLinkContainer {
+  height: 2em;
+  width: 40em;
+  border: 0.1em solid black;
+  margin: 1em 2em;
+}
+
+.resumeInformationContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em;
+}
+
+.resumeImage {
+  width: 40em;
+  height: 42em;
+}
+
+.resumeImageContainer {
+ border: .15em solid #626060;
+ width: 40.2em;
+ height: 42em;
+}
+
+.noResume {
+  text-align: center;
+  padding: 1em;
+  font-size: 2em;
 }
