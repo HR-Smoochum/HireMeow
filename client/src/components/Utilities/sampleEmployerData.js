@@ -1,8 +1,8 @@
 const employersData = [
   {
     uid: 1,
-    firstName: 'Purrito',
-    lastName: 'Paws',
+    first_name: 'Purrito',
+    last_name: 'Paws',
     industry: 'Home Maintenance',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Home Maintenance industry.' },
@@ -33,8 +33,8 @@ const employersData = [
   },
   {
     uid: 2,
-    firstName: 'Purr',
-    lastName: 'Fect',
+    first_name: 'Purr',
+    last_name: 'Fect',
     industry: 'Nature & Environment',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Nature & Environment industry.' },
@@ -65,8 +65,8 @@ const employersData = [
   },
   {
     uid: 3,
-    firstName: 'Luci',
-    lastName: 'Furr',
+    first_name: 'Luci',
+    last_name: 'Furr',
     industry: 'Health & Wellness',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Health & Wellness industry.' },
@@ -93,8 +93,8 @@ const employersData = [
   },
   {
     uid: 4,
-    firstName: 'Ocatvia',
-    lastName: 'Butler',
+    first_name: 'Ocatvia',
+    last_name: 'Butler',
     industry: 'Arts & Literature',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Arts & Literature industry.' },
@@ -124,8 +124,8 @@ const employersData = [
   },
   {
     uid: 5,
-    firstName: 'Notorious',
-    lastName: 'C.A.T.',
+    first_name: 'Notorious',
+    last_name: 'C.A.T.',
     industry: 'Gastronomy',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Gastronomy industry.' },
@@ -156,8 +156,8 @@ const employersData = [
   },
   {
     uid: 6,
-    firstName: 'Cleo',
-    lastName: 'Catra',
+    first_name: 'Cleo',
+    last_name: 'Catra',
     industry: 'Security & Safety',
     notes: [
       { title: 'Qualifications', text: 'Make sure to look for candidates with the right qualifications for the job in the Security & Safety industry.' },
