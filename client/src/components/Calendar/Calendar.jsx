@@ -58,6 +58,7 @@ export default function Calendar() {
     <div>
       <Header />
       <FullCalendar
+        viewClassNames='calendar-layout'
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         weekends={true}
