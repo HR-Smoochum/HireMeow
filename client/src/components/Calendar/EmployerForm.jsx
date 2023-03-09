@@ -40,7 +40,6 @@ export default function EmployerForm({
     for (const [key, val] of new FormData(e.target)) {
       data[key] = val;
     }
-    console.log('this is data', data);
     axios.put(`employers/${employer.uid}`, data)
       .then(() => {
         return axios.get(`employers/${employer.uid}`)

@@ -4,9 +4,6 @@ import axios from 'axios';
 export default function Form({
   dismissModal, appliedIds, events, setEvents, employers, setEmployers, seeker
 }) {
-
-  console.log('this is employers', employers);
-
   function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
@@ -42,7 +39,7 @@ export default function Form({
       <label>
         Applied Jobs:
         <select onChange={handleSelection} name="employer">
-          {appliedEmployers.map((ele, i) => <option key={ele.id}>{`${ele.first_name} ${ele.last_name}`}</option>)}
+          {appliedEmployers.map((ele) => <option key={ele.uid}>{`${ele.first_name} ${ele.last_name}`}</option>)}
         </select>
       </label>
       <label>Schedule a time:</label>

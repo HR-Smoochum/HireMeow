@@ -25,7 +25,6 @@ export default function Calendar() {
     if (mode === 'seeker') {
       axios.get(`/seekers/${seeker.uid}`)
         .then((res) => {
-          console.log('this is axios seekers res.data', res.data.events); 
           setEvents([...res.data.events]);
           return axios.get('/employers')
         })
@@ -37,7 +36,6 @@ export default function Calendar() {
     if (mode === 'employer') {
       axios.get(`/employers/${employer.uid}`)
         .then((res) => {
-          console.log('this is current employer', res.data);
           setEvents([...res.data.events]);
           setCurrEmployer(res.data);
         })
