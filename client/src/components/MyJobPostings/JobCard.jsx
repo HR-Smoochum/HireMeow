@@ -9,7 +9,7 @@ import { HiEllipsisVertical, HiChevronDoubleDown } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 import JobDetail from './JobDetail.jsx';
 
-export default function JobCard({ Job, handleCheck }) {
+export default function JobCard({ Job, handleCheck, handleSingleApply }) {
   const [showMore, setShowMore] = useState(0);
 
   const handleDetail = () => {
@@ -73,9 +73,7 @@ export default function JobCard({ Job, handleCheck }) {
                 </CardHeader>
                 <CardBody>
                   <Text>
-                    With Chakra UI, I wanted to sync the speed of development with the speed
-                    of design. I wanted the developer to be just as excited as the designer to
-                    create a screen.
+                    {Job.description.substring(0, 100)}
                   </Text>
                   <Center>
                     <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" onClick={handleDetail} />
@@ -84,7 +82,6 @@ export default function JobCard({ Job, handleCheck }) {
               </Card>
 
             </label>
-
           </Box>
         )
       }
@@ -92,10 +89,7 @@ export default function JobCard({ Job, handleCheck }) {
         showMore === 1
         && (
           <Box>
-            <input type="checkbox" id={Job.id} style={{ width: '15px', height: '15px', color: 'brand.light' }} />
-            <label htmlFor={Job.id}>
-              <JobDetail Job={Job} setShowMore={setShowMore} />
-            </label>
+            <JobDetail Job={Job} setShowMore={setShowMore} handleSingleApply={handleSingleApply} />
           </Box>
         )
       }

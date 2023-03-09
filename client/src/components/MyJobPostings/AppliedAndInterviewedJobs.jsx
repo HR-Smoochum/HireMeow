@@ -6,7 +6,7 @@ import {
   Card, CardHeader, CardBody, Text, Heading, Flex, Image, Box, IconButton, Center,
 } from '@chakra-ui/react';
 import { HiChevronDoubleDown } from 'react-icons/hi2';
-import JobDetail from './JobDetail.jsx';
+import AppliedAndInterviewedJobDetail from './AppliedAndInterviewedJobDetail.jsx';
 
 export default function AppliedAndInterviewedJobs({ Job }) {
   const [showMore, setShowMore] = useState(0);
@@ -39,9 +39,7 @@ export default function AppliedAndInterviewedJobs({ Job }) {
               </CardHeader>
               <CardBody>
                 <Text>
-                  With Chakra UI, I wanted to sync the speed of development with the speed
-                  of design. I wanted the developer to be just as excited as the designer to
-                  create a screen.
+                  {Job.description.substring(0, 100)}
                 </Text>
                 <Center>
                   <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" onClick={handleDetail} />
@@ -52,7 +50,7 @@ export default function AppliedAndInterviewedJobs({ Job }) {
         )
       }
       {
-        showMore === 1 && <JobDetail Job={Job} setShowMore={setShowMore} />
+        showMore === 1 && <AppliedAndInterviewedJobDetail Job={Job} setShowMore={setShowMore} />
       }
     </>
   );

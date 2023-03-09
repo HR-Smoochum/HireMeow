@@ -9,6 +9,7 @@ import axios from 'axios';
 import JobCard from './JobCard.jsx';
 import Header from '../Header/Header.jsx';
 import AppliedAndInterviewedJobs from './AppliedAndInterviewedJobs.jsx';
+// import { useNavigate } from 'react-router-dom';
 
 // COMPONENT
 export default function CardDashboard() {
@@ -26,20 +27,26 @@ export default function CardDashboard() {
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [interviewedJobs, setInterviewedJobs] = useState([]);
 
+  // const navigate = useNavigate();
+  const [checkboxes, setCheckboxes] = useState([]);
+
   const getAllJobsId = () => {
-    console.log('here get all saved jobs??');
     const uid = 1;
     axios.get(`http://localhost:3000/seekers/${uid}`).then((results) => {
-      console.log('seeker info', results.data);
-      setInterested(results.data[0].saved.interested);
-      setVeryInterested(results.data[0].saved['very interested']);
-      setExtremelyInterested(results.data[0].saved['extremely interested']);
-      setApplied(results.data[0].saved.applied);
-      setInterviewed(results.data[0].saved['interviewed for']);
+      if (results.data.length !== 0) {
+        setInterested(results.data[0].saved.interested);
+        setVeryInterested(results.data[0].saved['very interested']);
+        setExtremelyInterested(results.data[0].saved['extremely interested']);
+        setApplied(results.data[0].saved.applied);
+        setInterviewed(results.data[0].saved['interviewed for']);
+      }
     }).catch((err) => {
       console.error('get seeker from db err', err);
     });
   };
+  useEffect(() => {
+    getAllJobsId();
+  }, [checked]);
 
   const axiosFunc = (arr) => {
     return axios.get('http://localhost:3000/jobsByIdArray', { params: { ids: arr } });
@@ -51,6 +58,8 @@ export default function CardDashboard() {
       }).catch((err) => {
         console.error('get jobs from db err', err);
       });
+    } else {
+      setInterestedJobs([]);
     }
     if (veryInterested.length !== 0) {
       axiosFunc(veryInterested).then((results) => {
@@ -58,6 +67,8 @@ export default function CardDashboard() {
       }).catch((err) => {
         console.error('get jobs from db err', err);
       });
+    } else {
+      setVeryInterestedJobs([]);
     }
     if (extremelyInterested.length !== 0) {
       axiosFunc(extremelyInterested).then((results) => {
@@ -65,6 +76,8 @@ export default function CardDashboard() {
       }).catch((err) => {
         console.error('get jobs from db err', err);
       });
+    } else {
+      setExtremelyInterestedJobs([]);
     }
     if (applied.length !== 0) {
       axiosFunc(applied).then((results) => {
@@ -81,10 +94,6 @@ export default function CardDashboard() {
       });
     }
   };
-
-  useEffect(() => {
-    getAllJobsId();
-  }, []);
   useEffect(() => {
     getAllJobs();
   }, [interested, veryInterested, extremelyInterested, applied, interviewed]);
@@ -94,24 +103,58 @@ export default function CardDashboard() {
   // console.log('extremely interested', extremelyInterestedJobs);
   // console.log('applied', appliedJobs);
   // console.log('interviewed', interviewedJobs);
+  // console.log('interested', interested);
+  // console.log('very interested', veryInterested);
+  // console.log('extremely interested', extremelyInterested);
 
   const handleCheck = (e) => {
+    const idNum = parseInt(e.target.id, 10);
     const temp = new Set();
     checked.forEach((id) => {
       temp.add(id);
     });
-    if (temp.has(e.target.id)) {
-      temp.delete(e.target.id);
+    if (temp.has(idNum)) {
+      temp.delete(idNum);
     } else {
-      temp.add(e.target.id);
+      temp.add(idNum);
     }
     setChecked(Array.from(temp));
+
+    const temp1 = new Set();
+    checkboxes.forEach((item) => {
+      temp1.add(item);
+    });
+    if (temp1.has(e.target)) {
+      temp1.delete(e.target);
+    } else {
+      temp1.add(e.target);
+    }
+    setCheckboxes(temp1);
   };
   // console.log('checked', checked);
+  // console.log('checkboxes', checkboxes);
 
   const handleApply = () => {
-    axios.put('http://localhost:3000/')
+    checkboxes.forEach((item) => {
+      item.checked = false;
+    });
+    axios.put('http://localhost:3000/jobsToApplied', { uid: 1, ids: checked }).then((results) => {
+      getAllJobsId();
+      getAllJobs();
+      setChecked([]);
+      // navigate('/jobs');
+    }).catch((err) => {
+      console.log('change to applied err', err);
+    });
+  };
 
+  const handleSingleApply = (id) => {
+    axios.put('http://localhost:3000/jobsToApplied', { uid: 1, ids: [id] }).then((results) => {
+      getAllJobsId();
+      getAllJobs();
+    }).catch((err) => {
+      console.log('change single job to applied err', err);
+    });
   };
 
   return (
@@ -130,7 +173,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 interestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
                 }
                 ))
               }
@@ -143,7 +186,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 veryInterestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
                 }
                 ))
               }
@@ -156,7 +199,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 extremelyInterestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
                 }
                 ))
               }
@@ -178,11 +221,11 @@ export default function CardDashboard() {
           <TabPanel>
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
-              interviewedJobs.map(((Job, index) => {
-                return <AppliedAndInterviewedJobs Job={Job} key={index} />;
+                interviewedJobs.map(((Job, index) => {
+                  return <AppliedAndInterviewedJobs Job={Job} key={index} />;
+                }
+                ))
               }
-              ))
-            }
             </SimpleGrid>
           </TabPanel>
         </TabPanels>

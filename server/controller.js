@@ -38,7 +38,7 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   getJobsByIdArray: (req, res) => {
-    console.log('getJobsByIdArray query', req.query);
+    // console.log('getJobsByIdArray query', req.query);
     models.getJobsByIdArray(req.query.ids)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
@@ -49,7 +49,8 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   updateJobApplied: (req, res) => {
-    models.updateJobApplied(req.query)
+    console.log('updateJobApplied query', req.body);
+    models.updateJobApplied(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
@@ -58,8 +59,8 @@ module.exports = {
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
-  updateEmployerInterested: (req, res) => {
-    models.updateEmployerInterested()
+  updateSeekerInterested: (req, res) => {
+    models.updateSeekerInterested()
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
