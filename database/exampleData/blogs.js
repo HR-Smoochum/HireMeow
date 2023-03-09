@@ -1,4 +1,4 @@
-const blogData = [
+const blogs = [
   {
     id: 1,
     title: 'The Art of Furniture Deconstruction: A Guide for Cats',
@@ -91,6 +91,4 @@ const blogData = [
   },
 ];
 
-module.exports = {
-  blogData,
-};
+module.exports = blogs;

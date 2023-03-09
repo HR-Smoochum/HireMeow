@@ -10,6 +10,7 @@ import {
   MenuButton,
   Button,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from './Navigation.jsx';
 import Notifications from './Notifications.jsx';
 import Options from './Options.jsx';
@@ -19,6 +20,22 @@ import JobContext from '../Utilities/JobContext.js';
 export default function Header() {
   const { mode, seeker, employer } = useContext(JobContext);
   const [firstName, setFirstName] = useState('Guest');
+  const navigate = useNavigate();
+
+  const handleHome = (e) => {
+    e.preventDefault();
+    if (mode === 'seeker') {
+      navigate('/jobs');
+    }
+
+    if (mode === 'employer') {
+      navigate('/seekers');
+    }
+
+    if (mode === 'guest') {
+      navigate('/jobs');
+    }
+  };
 
   useEffect(() => {
     if (mode === 'seeker') {
@@ -31,7 +48,7 @@ export default function Header() {
 
   return (
     <Flex p="30" alignItems="center" maxHeight="md">
-      <Flex alignItems="center">
+      <Flex alignItems="center" onClick={(e) => handleHome(e)} cursor="pointer">
         <Image src={Logo} alt="logo" objectFit="contain" maxHeight="15%" maxWidth="15%" />
         <Heading size="lg" ml="2">Hire Meow</Heading>
       </Flex>

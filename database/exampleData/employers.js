@@ -1,4 +1,4 @@
-const employerData = [
+const employers = [
   {
     uid: 1,
     first_name: 'Purrito',
@@ -188,6 +188,4 @@ const employerData = [
   },
 ];
 
-module.exports = {
-  employerData,
-};
+module.exports = employers;

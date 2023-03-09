@@ -1,4 +1,4 @@
-const jobData = [
+const jobs = [
   {
     id: 1,
     title: 'Horticulturist',
@@ -25,7 +25,7 @@ const jobData = [
     environment: 'Onsite',
     salary: '$300,000 - $400,000',
     employment: 'Full Time',
-    date: '2023-02-21T14:45:00Z'
+    date: '2023-02-21T14:45:00Z',
   },
   {
     id: 3,
@@ -281,6 +281,4 @@ const jobData = [
   },
 ];
 
-module.exports = {
-  jobData,
-};
+module.exports = jobs;
