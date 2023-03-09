@@ -1,65 +1,69 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel,
 } from '@chakra-ui/react';
+import axios from 'axios';
 import SeekerCard from './SeekerCard.jsx';
 import Header from '../Header/Header.jsx';
 
-// LOCAL IMPORTS
-
 // COMPONENT
 export default function JobSeekerCard() {
-  // 查询当前Employer用户的saved参数，找出保存的所有相关的Job Seeker信息
-  const InterestedSeeker = [
-    {
-      uid: 1,
-      first_name: 'Elon',
-      last_name: 'Musk',
-      industry: 'Software Engineer',
-      resume: { resume: 'I am looking for a job' },
-      notes: [],
-      saved: {},
-    },
-    {
-      uid: 2,
-      first_name: 'Bill',
-      last_name: 'Gates',
-      industry: 'Product Manager',
-      resume: { resume: 'I am looking for a job' },
-      notes: [],
-      saved: {},
-    },
-    {
-      uid: 3,
-      first_name: 'Eva',
-      last_name: 'Chen',
-      industry: 'Software Engineer',
-      resume: { resume: 'I am looking for a job' },
-      notes: [],
-      saved: {},
-    },
-    {
-      uid: 4,
-      first_name: 'Ava',
-      last_name: 'Wong',
-      industry: 'Software Engineer',
-      resume: { resume: 'I am looking for a job' },
-      notes: [],
-      saved: {},
-    },
-    {
-      uid: 5,
-      first_name: 'Max',
-      last_name: 'Zhou',
-      industry: 'Software Engineer',
-      resume: { resume: 'I am looking for a job' },
-      notes: [],
-      saved: {},
-    },
-  ];
+  const [interested, setInterested] = useState([]);// store interested seekers id array
+  const [veryInterested, setVeryInterested] = useState([]);
+  const [extremelyInterested, setExtremelyInterested] = useState([]);
 
+  const [interestedSeekers, setInterestedSeekers] = useState([]);// store interested seekers
+  const [veryInterestedSeekers, setVeryInterestedSeekers] = useState([]);
+  const [extremelyInterestedSeekers, setExtremelyInterestedSeekers] = useState([]);
+
+  const getAllSeekersId = () => {
+    const uid = 1;
+    axios.get(`http://localhost:3000/employers/${uid}`).then((results) => {
+      // console.log('get employer info', results.data);
+      if (results.data.length !== 0) {
+        setInterested(results.data[0].saved.interested);
+        setVeryInterested(results.data[0].saved.veryInterested);
+        setExtremelyInterested(results.data[0].saved.extremelyInterested);
+      }
+    }).catch((err) => {
+      console.error('get seeker from db err', err);
+    });
+  };
+  useEffect(() => {
+    getAllSeekersId();
+  }, []);
+
+  const axiosFunc = (arr) => {
+    // console.log('arr', arr);
+    return axios.get('http://localhost:3000/seekersByIdArray', { params: { ids: arr } });
+  };
+  const getAllSeekers = async () => {
+    const iSeekers = await axiosFunc(interested);
+    setInterestedSeekers(iSeekers.data);
+
+    const vSeekers = await axiosFunc(veryInterested);
+    setVeryInterestedSeekers(vSeekers.data);
+
+    const eSeekers = await axiosFunc(extremelyInterested);
+    setExtremelyInterestedSeekers(eSeekers.data);
+  };
+  useEffect(() => {
+    getAllSeekers();
+  }, [interested, veryInterested, extremelyInterested]);
+
+  const handleInterested = (e, seekId) => {
+    // update seekers's interested level
+    const url = 'http://localhost:3000/seekerInterested';
+    axios.put(url, { uid: 1, id: seekId, level: e.target.value }).then((results) => {
+      getAllSeekersId();
+      getAllSeekers();
+    }).catch((err) => {
+      console.error('update interested level err', err);
+    });
+  };
   return (
     <>
       <Header />
@@ -73,20 +77,37 @@ export default function JobSeekerCard() {
           <TabPanel>
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
-                InterestedSeeker.map(((seeker, index) => {
-                  return <SeekerCard seeker={seeker} key={index} />;
+                interestedSeekers.map(((seeker, index) => {
+                  return <SeekerCard seeker={seeker} key={index} handleInterested={handleInterested} />;
                 }
                 ))
               }
             </SimpleGrid>
           </TabPanel>
-          <TabPanel>Are 1, 2, 3</TabPanel>
-          <TabPanel>Red, yellow and blue.</TabPanel>
+          <TabPanel>
+            <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+              {
+                veryInterestedSeekers.map(((seeker, index) => {
+                  return <SeekerCard seeker={seeker} key={index} handleInterested={handleInterested} />;
+                }
+                ))
+              }
+            </SimpleGrid>
+
+          </TabPanel>
+          <TabPanel>
+            <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+              {
+                extremelyInterestedSeekers.map(((seeker, index) => {
+                  return <SeekerCard seeker={seeker} key={index} handleInterested={handleInterested} />;
+                }
+                ))
+              }
+            </SimpleGrid>
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </>
 
   );
 }
-
-// note on purpose: page to render sets of cards (Interested, Very Interested, Applied to, etc)
