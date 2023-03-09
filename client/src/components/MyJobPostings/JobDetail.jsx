@@ -5,17 +5,7 @@ import {
   Box, Button, Center, Heading, Tag,
 } from '@chakra-ui/react';
 
-// Job = {
-//   id: 1,
-//   title: 'software engineer',
-//   location: 'seattle',
-//   employment: 'remote',
-//   experience: 'entry level',
-//   date: '3/1/2023',
-//   logo: 'https://images.app.goo.gl/SW3mMuphfe114aZT9',
-//   company: 'google',
-// }
-export default function JobCard({ Job, setShowMore }) {
+export default function JobCard({ Job, setShowMore, handleSingleApply }) {
   return (
     <Box>
       <Heading as="h4" size="md">
@@ -26,7 +16,17 @@ export default function JobCard({ Job, setShowMore }) {
         {Job.description}
       </Box>
       <Center>
-        <Button mt="30px" bg="brand.green" color="white"> Apply</Button>
+        <Button
+          mt="30px"
+          bg="brand.green"
+          color="white"
+          onClick={() => {
+            handleSingleApply(Job.id);
+            setShowMore(0);
+          }}
+        >
+          Apply
+        </Button>
       </Center>
     </Box>
   );
