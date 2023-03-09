@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use(router);
 
-// // serves the static files after url has been refreshed
+// serves the static files after url has been refreshed
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/'));
 });
