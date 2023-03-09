@@ -39,7 +39,7 @@
 }
 
 .editorContentArea {
-  border-top: .2em solid #c9c9c9 ;
+  /* border-top: .2em solid #c9c9c9 ; */
   border-bottom: .1em solid #313131 ;
 }
 
@@ -105,10 +105,133 @@
    ============================
 */
 
-
 .newNoteContainer {
   border: .1em solid black;
   display: flex;
   flex-direction: column;
   margin: 0em 10em 0 30em;
+}
+
+.noteHeader {
+  text-align: center;
+  background-color: #c9c9c9;
+}
+
+/* ============================
+   Blog
+   ============================
+*/
+
+.blogHeaderContainer {
+  border-top: 0.07em solid lightslategray;
+  border-bottom: 0.07em solid lightslategray;
+  display: flex;
+  justify-content: center;
+  column-gap: 4em;
+  align-items: center;
+  height: 3em;
+}
+
+.blogSectionHighlights {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.blogSectionHighlights:hover {
+  text-transform: uppercase;
+  color: #1b1a1a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.blogSeparator {
+  width: 0.4em;
+  height: 0.4em;
+  border: 0.2em solid #313131;
+  border-radius: 0.5em;
+}
+
+.blogContainer {
+  padding: 5em;
+}
+
+.highlightContainer {
+  display: flex;
+  column-gap: 2em;
+}
+
+.highlightBlogContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1em;
+  width: 800px;
+}
+
+.highlightImageContainer {
+  margin: 0 0 0 3em;
+  height: 400px;
+  width: 450px;
+}
+/*
+.highlightImage {
+  height: 400px;
+  width: 450px;
+} */
+
+.highlightTitle {
+  font-size: 40px;
+}
+
+.readMore {
+  padding: .5em;
+  border-radius: .2em;
+  border: .1em solid #383838;
+  margin: 0 40em 0 0;
+}
+
+.readMore:hover {
+  background-color: #e2e0e0;
+}
+
+.featuredBlogsContainer {
+  margin: 7em 0;
+  display: flex;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.featuredBlogPostsList {
+  height: 26em;
+  display: flex;
+  column-gap: 2em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 0 4em;
+}
+
+.individualBlogPost {
+  height: 400px;
+  min-width: 400px;
+  border: .15em solid #313131;
+  box-shadow: 0.2em 0.05em 1em #626060
+}
+
+.blogImage {
+  height: 300px;
+  width: 450px;
+  object-fit: cover;
+}
+
+.blogPostContentContainer {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 6em;
+  row-gap: 1em;
+  padding: 0 0 0 1em;
+}
+
+.blogTitle {
+  font-weight: bold;
 }
