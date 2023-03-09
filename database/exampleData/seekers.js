@@ -3,6 +3,7 @@ const seekers = [
     uid: 1,
     first_name: 'Meow',
     last_name: 'Angelou',
+    photo: 'https://source.unsplash.com/gKXKBY-C-Dk',
     industry: 'Arts & Literature',
     resume: {
       name: 'Meow Angelou',
@@ -109,6 +110,7 @@ const seekers = [
     uid: 2,
     first_name: 'Catniss',
     last_name: 'Everdeen',
+    photo: 'https://source.unsplash.com/yMSecCHsIBc',
     industry: 'Gastronomy',
     resume: {
       name: 'Catniss Everdeen',
@@ -203,6 +205,7 @@ const seekers = [
     uid: 3,
     first_name: 'Mouse',
     last_name: 'Ketcher',
+    photo: 'https://source.unsplash.com/75715CVEJhI',
     industry: 'Home Maintenance',
     resume: {
       name: 'Mouse Ketcher',
@@ -295,6 +298,7 @@ const seekers = [
     uid: 4,
     first_name: 'Sir',
     last_name: 'Pursalot',
+    photo: 'https://source.unsplash.com/7GX5aICb5i4',
     resume: {
       name: 'Sir Pursalot',
       title: 'Ornithologist',
@@ -385,6 +389,7 @@ const seekers = [
     uid: 5,
     first_name: 'Garth',
     last_name: 'Field',
+    photo: 'https://source.unsplash.com/LEpfefQf4rU',
     industry: 'Health & Wellness',
     resume: {
       name: 'Garth Field',
@@ -482,6 +487,7 @@ const seekers = [
     uid: 6,
     first_name: 'Tabbytha',
     last_name: 'Whiskers',
+    photo: 'https://source.unsplash.com/mrTydVjg04o',
     industry: 'Home Maintenance',
     resume: {
       name: 'Tabbytha Whiskers',
@@ -575,6 +581,7 @@ const seekers = [
     uid: 7,
     firstName: 'Allie',
     lastName: 'Kat',
+    photo: 'https://source.unsplash.com/IuJc2qh2TcA',
     industry: 'Health & Wellness',
     resume: {
       name: 'Allie Kat',
@@ -669,6 +676,7 @@ const seekers = [
     uid: 8,
     first_name: 'Dolly',
     last_name: 'Purrton',
+    photo: 'https://source.unsplash.com/9UUoGaaHtNE',
     industry: 'Arts & Literature',
     resume: {
       name: 'Dolly Purrton',
@@ -762,6 +770,7 @@ const seekers = [
     uid: 9,
     first_name: 'Luna',
     last_name: 'Whiskerkins',
+    photo: 'https://source.unsplash.com/i_V3puSJ4W0',
     industry: 'Animal Care',
     resume: {
       name: 'Luna Whiskerkins',
@@ -855,6 +864,7 @@ const seekers = [
     uid: 10,
     first_name: 'Kit',
     last_lame: 'Clawlins',
+    photo: 'https://source.unsplash.com/G7kUPmzi80E',
     industry: 'Nature & Environment',
     resume: {
       name: 'Kit Clawlins',

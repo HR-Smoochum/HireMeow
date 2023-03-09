@@ -3,6 +3,7 @@ const seekersData = [
     uid: 1,
     first_name: 'Meow',
     last_name: 'Angelou',
+    photo: 'https://source.unsplash.com/gKXKBY-C-Dk',
     industry: 'Arts & Literature',
     resume: {
       name: 'Meow Angelou',
@@ -109,6 +110,7 @@ const seekersData = [
     uid: 2,
     first_name: 'Catniss',
     last_name: 'Everdeen',
+    photo: 'https://source.unsplash.com/yMSecCHsIBc',
     industry: 'Gastronomy',
     resume: {
       name: 'Catniss Everdeen',
@@ -203,6 +205,7 @@ const seekersData = [
     uid: 3,
     first_name: 'Mouse',
     last_name: 'Ketcher',
+    photo: 'https://source.unsplash.com/75715CVEJhI',
     industry: 'Home Maintenance',
     resume: {
       name: 'Mouse Ketcher',
@@ -295,6 +298,7 @@ const seekersData = [
     uid: 4,
     first_name: 'Sir',
     last_name: 'Pursalot',
+    photo: 'https://source.unsplash.com/7GX5aICb5i4',
     resume: {
       name: 'Sir Pursalot',
       title: 'Ornithologist',
@@ -385,6 +389,7 @@ const seekersData = [
     uid: 5,
     first_name: 'Garth',
     last_name: 'Field',
+    photo: 'https://source.unsplash.com/LEpfefQf4rU',
     industry: 'Health & Wellness',
     resume: {
       name: 'Garth Field',
@@ -482,6 +487,7 @@ const seekersData = [
     uid: 6,
     first_name: 'Tabbytha',
     last_name: 'Whiskers',
+    photo: 'https://source.unsplash.com/mrTydVjg04o',
     industry: 'Home Maintenance',
     resume: {
       name: 'Tabbytha Whiskers',
@@ -573,15 +579,16 @@ const seekersData = [
   },
   {
     uid: 7,
-    first_name: 'Allie',
-    last_name: 'Field',
+    firstName: 'Allie',
+    lastName: 'Kat',
+    photo: 'https://source.unsplash.com/IuJc2qh2TcA',
     industry: 'Health & Wellness',
     resume: {
-      name: 'Allie Field',
+      name: 'Allie Kat',
       title: 'Professional Lap Warmer',
       contact: {
         phone: '555-555-5555',
-        email: 'allieField@example.com',
+        email: 'allieKat@example.com',
         address: {
           street: '123 Main St',
           city: 'Anytown',
@@ -669,6 +676,7 @@ const seekersData = [
     uid: 8,
     first_name: 'Dolly',
     last_name: 'Purrton',
+    photo: 'https://source.unsplash.com/9UUoGaaHtNE',
     industry: 'Arts & Literature',
     resume: {
       name: 'Dolly Purrton',
@@ -759,18 +767,113 @@ const seekersData = [
     ],
   },
   {
+    uid: 9,
+    first_name: 'Luna',
+    last_name: 'Whiskerkins',
+    photo: 'https://source.unsplash.com/i_V3puSJ4W0',
+    industry: 'Animal Care',
+    resume: {
+      name: 'Luna Whiskerkins',
+      title: 'Cat Caretaker',
+      contact: {
+        phone: '555-555-5555',
+        email: 'lunawhiskerkins@example.com',
+        address: {
+          street: '123 Feline Lane',
+          city: 'Kittyville',
+          state: 'CA',
+          zip: '12345',
+        },
+      },
+      skills: [
+        'Expert in feline behavior and care',
+        'Experience working with cats of all breeds and ages',
+        'Ability to administer medication and provide basic medical care',
+        'Knowledge of grooming and nutrition for cats',
+      ],
+      experience: [
+        {
+          title: 'Cat Caretaker',
+          company: 'Kitty Haven',
+          startDate: 'June 2021',
+          endDate: 'Present',
+          responsibilities: [
+            'Provide daily care for cats, including feeding, grooming, and litter box cleaning',
+            'Administer medication as needed and provide basic medical care',
+            'Interact with cats to promote socialization and playtime',
+            'Maintain a clean and organized environment for the cats',
+          ],
+        },
+        {
+          title: 'Volunteer',
+          company: 'Feline Friends',
+          startDate: 'January 2019',
+          endDate: 'May 2021',
+          responsibilities: [
+            'Assist with daily care for cats awaiting adoption',
+            'Provide socialization and playtime for cats',
+            'Assist with adoption events and fundraisers',
+          ],
+        },
+      ],
+      education: [
+        {
+          degree: 'Associate of Applied Science in Veterinary Technology',
+          institution: 'Cat Care Institute',
+          completionDate: 'May 2018',
+        },
+      ],
+    },
+    notes: [
+      {
+        title: 'Day 1',
+        text: 'Polished my resume and cover letter\nResearched cat caretaker job openings in the area\nApplied to several job postings',
+      },
+      {
+        title: 'Day 7',
+        text: 'Received an email from Kitty Haven to schedule an interview\nResearched the organization and prepared answers to common cat caretaker interview questions\nReviewed my experience and qualifications for the position',
+      },
+      {
+        title: 'Day 14',
+        text: 'Had a great interview with Kitty Haven and received positive feedback\nSent a follow-up email thanking the interviewer for their time and reiterating my interest in the position\nContinued to search for other job openings and submit applications',
+      },
+      {
+        title: 'Day 21',
+        text: 'Received a job offer from Kitty Haven and accepted the position\nExcited to start my new job as a Cat Caretaker and help provide loving care for cats!',
+      },
+    ],
+    saved: {
+      interested: [2, 7, 14],
+      veryInterested: [4, 9],
+      extremelyInterested: [11, 16, 19],
+      applied: [1],
+      interviewedFor: [5, 12],
+    },
+    events: [
+      {
+        title: 'Interview with Whisker Watchers',
+        date: '2023-03-24T18:00:00Z',
+      },
+      {
+        title: 'Interview with Purrfect Pet Care',
+        date: '2023-04-07T15:30:00Z',
+      },
+    ],
+  },
+  {
     uid: 10,
     first_name: 'Kit',
-    last_name: 'Pawter',
+    last_lame: 'Clawlins',
+    photo: 'https://source.unsplash.com/G7kUPmzi80E',
     industry: 'Nature & Environment',
     resume: {
-      name: 'Kit Pawter',
+      name: 'Kit Clawlins',
       title: 'Dog Badgerer',
       contact: {
         phone: '555-555-5555',
-        email: 'kitpawter@example.com',
+        email: 'kitclawlins@catmail.com',
         address: {
-          street: '123 Forest Rd',
+          street: '123 Furrest Rd',
           city: 'Greenwood',
           state: 'WA',
           zip: '98056',
