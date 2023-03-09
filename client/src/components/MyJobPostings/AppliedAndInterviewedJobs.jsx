@@ -38,8 +38,8 @@ export default function AppliedAndInterviewedJobs({ Job }) {
                 </Flex>
               </CardHeader>
               <CardBody>
-                <Text>
-                  {Job.description.substring(0, 100)}
+                <Text h="50px">
+                  {Job.description.substring(0, 80)}
                 </Text>
                 <Center>
                   <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" onClick={handleDetail} />
