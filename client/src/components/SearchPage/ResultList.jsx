@@ -1,15 +1,25 @@
 // LIBRARY IMPORTS
-import React from 'react';
-import { Flex } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { SimpleGrid } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
+import JobContext from '../Utilities/JobContext.js';
+import JobCard from '../Shared/ListCard.jsx';
 
 // COMPONENT
 function ResultList() {
+  // SET STATES/CONSTANTS
+  const { allJobs } = useContext(JobContext);
+
   return (
-    <Flex align="center" justify="center" bg="teal.100">
-      Result List goes here!
-    </Flex>
+    <SimpleGrid spacing={6} templateColumns="repeat(2, minmax(15rem, 1fr))" bg="brand.green">
+      {
+        allJobs.map(((job) => {
+          return <JobCard job={job} key={job.id} />;
+        }
+        ))
+      }
+    </SimpleGrid>
   );
 }
 

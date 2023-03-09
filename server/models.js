@@ -1,32 +1,37 @@
-const mongoose = require('mongoose');
-const db = require('../database/index.js');
+const {
+  Seeker,
+  Employer,
+  Job,
+  BlogPost,
+} = require('../database/index.js');
 
 module.exports = {
   getAllSeekers: () => {
-    return db.Seeker.find({});
+    return Seeker.find({});
   },
   getASeeker: (id) => {
-    return db.Seeker.find({ uid: id });
+    return Seeker.find({ uid: id });
   },
   getAllEmployers: () => {
-    return db.Employer.find({});
+    return Employer.find({});
   },
   getAnEmployer: (id) => {
-    return db.Employer.find({ uid: id });
+    return Employer.find({ uid: id });
   },
   getAllJobs: () => {
-    return db.Job.find({});
+    return Job.find({});
   },
   getAJob: (jobId) => {
-    return db.Job.find({ id: jobId });
+    return Job.find({ id: jobId });
   },
   getAllBlogPosts: () => {
-    return db.BlogPost.find({});
+    return BlogPost.find({});
   },
-  // THESE 2 MODELS ARE SPECIFICALLY FOR DATA LOADING:
-  // to create relevant documents - update as needed
+
+  // These are functions used within the database/savedJobsAndSeekers
+  // Should be deleted later
   createInDb: (items, callback) => {
-    db.Seeker.create(items)
+    Seeker.create(items)
       .then((res) => {
         callback(null, res);
       })
@@ -34,9 +39,9 @@ module.exports = {
         callback(err);
       });
   },
-  // to clear relevant collections - update as needed
+
   clearDb: () => {
-    db.Seeker.deleteMany()
+    Seeker.deleteMany()
       .then(() => {
         console.log('Collection cleared');
       })
