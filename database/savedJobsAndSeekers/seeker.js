@@ -19,6 +19,16 @@ const seekerData = [
     saved: {
       interested: [1, 2], 'very interested': [6, 8], 'extremely interested': [4], applied: [3], 'interviewed for': [5, 7],
     },
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
     uid: 2,
@@ -30,6 +40,16 @@ const seekerData = [
     saved: {
       interested: [1, 2], 'very interested': [6, 8], 'extremely interested': [4], applied: [3], 'interviewed for': [5, 7],
     },
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
     uid: 3,
@@ -39,6 +59,16 @@ const seekerData = [
     resume: { title: 'Pharmaceutical Sales', skills: 'Customer service, Motivation for sales, Meeting sales goals' },
     notes: [],
     saved: {},
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
     uid: 4,
@@ -48,6 +78,16 @@ const seekerData = [
     resume: { title: 'software engineer', skills: 'MongoDB, Node.js, Javascript' },
     notes: [],
     saved: {},
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
     uid: 5,
@@ -57,6 +97,16 @@ const seekerData = [
     resume: { title: 'software engineer', skills: 'MongoDB, Node.js, Javascript' },
     notes: [],
     saved: {},
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
 ];
 const load = (data) => {

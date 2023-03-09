@@ -15,6 +15,16 @@ const employerData = [
     industry: 'Tech',
     notes: [],
     saved: { interested: [1, 2], 'very interested': [3, 6], 'extremely interested': [4, 5] },
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
     uid: 2,
@@ -23,6 +33,16 @@ const employerData = [
     industry: 'Medical',
     notes: [],
     saved: { interested: [2, 3], 'very interested': [1, 4], 'extremely interested': [5, 6] },
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   }];
 const load = (data) => {
   model.createInDb(data, (err, res) => {
