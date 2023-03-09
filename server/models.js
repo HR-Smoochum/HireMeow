@@ -27,6 +27,11 @@ module.exports = {
   getAllBlogPosts: () => {
     return BlogPost.find({});
   },
+  postResume: (file, path, seekerName) => {
+    return Seeker.updateOne({ uid: seekerName }, {
+      resumeFilePath: `${path}`,
+    });
+  },
 
   // These are functions used within the database/savedJobsAndSeekers
   // Should be deleted later
