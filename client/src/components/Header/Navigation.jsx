@@ -13,6 +13,9 @@ export default function Navigation({ mode }) {
   if (mode === 'employer') {
     return (
       <MenuList>
+        <MenuItem onClick={(e) => handleClick(e, '/seekers')}>All Seekers</MenuItem>
+        <MenuDivider />
+        <MenuItem onClick={(e) => handleClick(e, '/myseekers')}>My Seekers</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/calendar')}>My Calendar</MenuItem>
         <MenuDivider />
@@ -24,7 +27,7 @@ export default function Navigation({ mode }) {
   if (mode === 'seeker') {
     return (
       <MenuList>
-        <MenuItem onClick={(e) => handleClick(e, 'jobs')}>All Jobs</MenuItem>
+        <MenuItem onClick={(e) => handleClick(e, '/jobs')}>All Jobs</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/myjobs')}>My Jobs</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
@@ -38,7 +41,7 @@ export default function Navigation({ mode }) {
 
   return (
     <MenuList>
-      <MenuItem onClick={(e) => handleClick(e, 'jobs')}>All Jobs</MenuItem>
+      <MenuItem onClick={(e) => handleClick(e, '/jobs')}>All Jobs</MenuItem>
       <MenuDivider />
       <MenuItem onClick={(e) => handleClick(e, '/blog')}>Blog</MenuItem>
     </MenuList>
