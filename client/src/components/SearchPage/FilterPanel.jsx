@@ -4,7 +4,7 @@ import { VStack, Box, Heading } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
 import { environmentList, experienceList, employmentList } from './filterValues.js';
-import CheckboxList from './Checkbox.jsx';
+import CheckboxList from './CheckboxList.jsx';
 import SalarySlider from './Slider.jsx';
 
 // COMPONENT
