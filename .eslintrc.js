@@ -30,5 +30,8 @@ module.exports = {
     'react-hooks/exhaustive-deps': [
       'off',
     ],
+    'react/prop-types': [
+      'off',
+    ],
   },
 };

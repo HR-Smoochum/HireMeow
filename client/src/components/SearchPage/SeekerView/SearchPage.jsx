@@ -5,15 +5,14 @@ import React, {
 import { HStack, Box } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
-import Header from '../Header/Header.jsx';
-import JobContext from '../Utilities/JobContext.js';
+import Header from '../../Header/Header.jsx';
+import JobContext from '../../Utilities/JobContext.js';
 
 import FilterPanel from './FilterPanel.jsx';
-import ResultList from './ResultList.jsx';
-import SearchBar from './SearchBar.jsx';
-import { environmentList, experienceList, employmentList } from './filterValues.js';
-import jobListingsData from '../Utilities/sampleJobListingData.js';
-
+import ResultList from '../ResultList.jsx';
+import SearchBar from '../SearchBar.jsx';
+import { environmentList, experienceList, employmentList } from '../filterValues.js';
+import jobListingsData from '../../Utilities/sampleJobListingData.js';
 
 // COMPONENT
 function SearchPage() {

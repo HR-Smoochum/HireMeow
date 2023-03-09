@@ -1,11 +1,11 @@
 // LIBRARY IMPORTS
 import React from 'react';
-import { VStack, Box, Heading } from '@chakra-ui/react';
+import { VStack, Heading } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
-import { environmentList, experienceList, employmentList } from './filterValues.js';
-import CheckboxList from './CheckboxList.jsx';
-import SalarySlider from './Slider.jsx';
+import { environmentList, experienceList, employmentList } from '../filterValues.js';
+import CheckboxList from '../CheckboxList.jsx';
+import SalarySlider from '../Slider.jsx';
 
 // COMPONENT
 function FilterPanel({ handleExperienceChecked, handleEmploymentChecked, handleEnvironmentChecked }) {

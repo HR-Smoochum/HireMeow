@@ -573,13 +573,8 @@ const seekers = [
   },
   {
     uid: 7,
-<<<<<<< HEAD
     firstName: 'Allie',
     lastName: 'Kat',
-=======
-    first_name: 'Allie',
-    last_name: 'Field',
->>>>>>> main
     industry: 'Health & Wellness',
     resume: {
       name: 'Allie Kat',
@@ -858,13 +853,8 @@ const seekers = [
   },
   {
     uid: 10,
-<<<<<<< HEAD
-    firstName: 'Kit',
-    lastName: 'Clawlins',
-=======
     first_name: 'Kit',
-    last_name: 'Pawter',
->>>>>>> main
+    last_lame: 'Clawlins',
     industry: 'Nature & Environment',
     resume: {
       name: 'Kit Clawlins',
