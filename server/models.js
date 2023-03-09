@@ -28,37 +28,16 @@ module.exports = {
     return BlogPost.find({});
   },
 
-  // These are functions used within the database/savedJobsAndSeekers
-  // Should be deleted later
-  createInDb: (items, callback) => {
-    Seeker.create(items)
-      .then((res) => {
-        callback(null, res);
-      })
-      .catch((err) => {
-        callback(err);
-      });
-  },
-
-  clearDb: () => {
-    Seeker.deleteMany()
-      .then(() => {
-        console.log('Collection cleared');
-      })
-      .catch((err) => {
-        console.log('Unable to clear collection', err);
-      });
-  },
   getJobsByIdArray: (ids) => {
-    return db.Job.find({ id: { $in: ids } });
+    return Job.find({ id: { $in: ids } });
   },
   getSeekersByIdArray: (query) => {
     const { uid, jobId } = query;
-    return db.BlogPost.find({});
+    return BlogPost.find({});
   },
   updateJobApplied: async (data) => {
     const { uid, ids } = data;
-    const userInfo = await db.Seeker.find({ uid });
+    const userInfo = await Seeker.find({ uid });
     const { saved } = userInfo[0];
     console.log('saved', saved);
     const notInIds = (id) => {
@@ -75,11 +54,11 @@ module.exports = {
       saved.applied.push(id);
     });
     // console.log('saved', saved);
-    return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
+    return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateJobInterested: async (data) => {
     const { uid, id, level } = data;
-    const userInfo = await db.Seeker.find({ uid });
+    const userInfo = await Seeker.find({ uid });
     const { saved } = userInfo[0];
     // console.log('saved', saved);
     const removeId = (item) => {
@@ -90,9 +69,9 @@ module.exports = {
     saved['extremely interested'] = saved['extremely interested'].filter(removeId);
     saved[level].push(id);
     // console.log('saved', saved);
-    return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
+    return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
-  updateSeekerInterested: (uid, seekerId) => {
-    return db.BlogPost.find({});
+  updateSeekerInterested: ({ uid, seekerId }) => {
+    return BlogPost.find({});
   },
 };
