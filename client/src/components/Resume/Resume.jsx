@@ -6,7 +6,13 @@ import React from 'react';
 // COMPONENT
 function Resume() {
   return (
-    <div>...</div>
+    <div className="uploadResumeContainer">
+      <div className="myResumeHeader" />
+      <div className="uploadResumeActionContainer">
+        <div className="uploadResume">Upload Resume</div>
+        <button className="uploadButton">Upload</button>
+      </div>
+    </div>
   );
 }
 
