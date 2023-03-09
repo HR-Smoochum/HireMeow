@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 import { HStack, Box } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
-import Header from '../Header/Header.jsx'
+import Header from '../Header/Header.jsx';
 import FilterPanel from './FilterPanel.jsx';
 import ResultList from './ResultList.jsx';
 import SearchBar from './SearchBar.jsx';
 import { environmentList, experienceList, employmentList } from './filterValues.js';
-import Header from '../Header/Header.jsx';
 
 // COMPONENT
 function SearchPage() {
