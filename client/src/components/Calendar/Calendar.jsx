@@ -50,7 +50,7 @@ export default function Calendar() {
     if (mode === 'seeker') {
       useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={employers} setEmployers={setEmployers} seeker={seeker}/>);
     } else if (mode === 'employer') {
-      useModal(<EmployerForm employer={currEmployer} />)
+      useModal(<EmployerForm dismissModal={dismissModal} employer={currEmployer} events={events} setEvents={setEvents} />)
     }
   };
   // TODO: if mode is seeker or employer, change calendar appropriately
@@ -58,6 +58,7 @@ export default function Calendar() {
     <div>
       <Header />
       <FullCalendar
+        viewClassNames='calendar-layout'
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         weekends={true}

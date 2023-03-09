@@ -74,4 +74,10 @@ module.exports = {
   updateSeekerInterested: ({ uid, seekerId }) => {
     return BlogPost.find({});
   },
+  updateASeekerEvent: (id, seekerEvent) => {
+    return Seeker.updateOne({uid: id}, {$addToSet: seekerEvent})
+  },
+  updateAnEmployerEvent: (id, employerEvent) => {
+    return Employer.updateOne({uid: id}, {$addToSet: employerEvent})
+  },
 };
