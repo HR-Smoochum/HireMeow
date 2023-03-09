@@ -41,6 +41,9 @@ dropDB()
     console.log('successfully deleted collection');
     return loadDB();
   })
+  .catch((err) => {
+    console.log('error deleting collection', err);
+  })
   .then(() => {
     console.log('successfully loaded data');
     process.exit();
