@@ -52,8 +52,7 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/seekers" element={<Search />} />
-            <Route path="/jobs" element={<Search />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/myjobs" element={<SavedJobs />} />
             <Route path="/myseekers" element={<SavedSeekers />} />
             <Route path="/notes" element={<Notes />} />
