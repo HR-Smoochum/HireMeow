@@ -1,6 +1,6 @@
 const seekersData = [
   {
-    id: 1,
+    uid: 1,
     firstName: 'Meow',
     lastName: 'Angelou',
     industry: 'Arts & Literature',
@@ -87,9 +87,26 @@ const seekersData = [
         text: 'Met with a freelance editor to review my writing portfolio and get feedback on my work.',
       },
     ],
+    saved: {
+      interested: [3, 5, 12],
+      veryInterested: [1, 8, 11],
+      extremelyInterested: [9, 16, 19],
+      applied: [2, 7],
+      interviewedFor: [4],
+    },
+    events: [
+      {
+        title: 'Interview with Cat Publishing Co',
+        date: '2023-03-20T16:00:00Z',
+      },
+      {
+        title: 'Networking Event for Writers',
+        date: '2023-04-08T21:30:00Z',
+      },
+    ],
   },
   {
-    id: 2,
+    uid: 2,
     firstName: 'Catniss',
     lastName: 'Everdeen',
     industry: 'Gastronomy',
@@ -164,9 +181,26 @@ const seekersData = [
         text: 'Received an offer from the cat food company and accepted the position!\nExcited to start my new job as a food critic and try out some new cat food recipes',
       },
     ],
+    saved: {
+      interested: [2, 6, 10],
+      veryInterested: [1, 5],
+      extremelyInterested: [7, 13],
+      applied: [9, 11, 15],
+      interviewedFor: [8, 12],
+    },
+    events: [
+      {
+        title: 'Interview with WhiskerFoods',
+        date: '2023-03-15T17:00:00Z',
+      },
+      {
+        title: 'Tasting event at MeowMix Co',
+        date: '2023-04-03T16:30:00Z',
+      },
+    ],
   },
   {
-    id: 3,
+    uid: 3,
     firstName: 'Mouse',
     lastName: 'Ketcher',
     industry: 'Home Maintenance',
@@ -239,9 +273,26 @@ const seekersData = [
         text: 'Received a job offer from Pawsitively Pest Control and accepted the position\nExcited to start my new job as a Pest Exterminator and help keep homes and buildings pest-free!',
       },
     ],
+    saved: {
+      interested: [1, 3, 7],
+      veryInterested: [2, 8, 14],
+      extremelyInterested: [10, 15],
+      applied: [5],
+      interviewedFor: [6, 12, 17],
+    },
+    events: [
+      {
+        title: 'Interview with Furry Friends Exterminators',
+        date: '2023-03-18T17:00:00Z',
+      },
+      {
+        title: 'Interview with Cat Control Solutions',
+        date: '2023-03-24T19:30:00Z',
+      },
+    ],
   },
   {
-    id: 4,
+    uid: 4,
     firstName: 'Sir',
     lastName: 'Pursalot',
     resume: {
@@ -312,18 +363,35 @@ const seekersData = [
         text: 'Received a job offer from Avian Adventures and accepted the position\nExcited to start my new job as an Ornithologist and continue learning about local bird species!',
       },
     ],
+    saved: {
+      interested: [4, 6, 9],
+      veryInterested: [1, 7],
+      extremelyInterested: [12, 16],
+      applied: [3, 11],
+      interviewedFor: [2, 5, 8],
+    },
+    event: [
+      {
+        title: 'Interview with BirdWatchers',
+        date: '2023-03-17T17:30:00Z',
+      },
+      {
+        title: 'Interview with Catnap Co',
+        date: '2023-04-03T20:00:00Z',
+      },
+    ],
   },
   {
-    id: 5,
-    firstName: 'Kit',
-    lastName: 'Kat',
+    uid: 5,
+    firstName: 'Garth',
+    lastName: 'Field',
     industry: 'Health & Wellness',
     resume: {
-      name: 'Kit Kat',
+      name: 'Garth Field',
       title: 'Sleep Specialist',
       contact: {
         phone: '555-555-5555',
-        email: 'kitkat@example.com',
+        email: 'garfield@lasagna.com',
         address: {
           street: '456 Elm St',
           city: 'Anytown',
@@ -392,9 +460,26 @@ const seekersData = [
         text: 'Received a job offer from Sleep Solutions and accepted the position\nExcited to start my new job as a Sleep Specialist and help clients achieve better sleep!',
       },
     ],
+    saved: {
+      interested: [2, 5],
+      veryInterested: [1, 4, 6],
+      extremelyInterested: [11, 14, 17],
+      applied: [7, 9],
+      interviewedFor: [3, 12],
+    },
+    events: [
+      {
+        title: 'Interview with Purrfect Sleep Clinic',
+        date: '2023-03-20T17:30:00Z',
+      },
+      {
+        title: 'Interview with Feline Sleep Solutions',
+        date: '2023-04-04T16:00:00Z',
+      },
+    ],
   },
   {
-    id: 6,
+    uid: 6,
     firstName: 'Tabbytha',
     lastName: 'Whiskers',
     industry: 'Home Maintenance',
@@ -466,6 +551,303 @@ const seekersData = [
       {
         title: 'Day 21',
         text: 'Received a job offer from Scratch \'n Claw Furniture Removal and accepted the position\nExcited to start my new job as a Furniture Deconstruction Specialist and put my clawing skills to work!',
+      },
+    ],
+    saved: {
+      interested: [1, 8, 12],
+      veryInterested: [3, 10],
+      extremelyInterested: [5, 15, 18],
+      applied: [2],
+      interviewedFor: [6, 13],
+    },
+    events: [
+      {
+        title: 'Interview with Purrfect Paws',
+        date: '2023-03-24T17:00:00Z',
+      },
+      {
+        title: 'Interview with Feline Furnishings',
+        date: '2023-04-03T16:30:00Z',
+      },
+    ],
+  },
+  {
+    uid: 7,
+    firstName: 'Allie',
+    lastName: 'Field',
+    industry: 'Health & Wellness',
+    resume: {
+      name: 'Allie Field',
+      title: 'Professional Lap Warmer',
+      contact: {
+        phone: '555-555-5555',
+        email: 'allieField@example.com',
+        address: {
+          street: '123 Main St',
+          city: 'Anytown',
+          state: 'CA',
+          zip: '12345',
+        },
+      },
+      skills: [
+        'Expert at warming laps',
+        'Excellent customer service skills',
+        'Ability to remain calm and peaceful',
+        'Knowledge of various relaxation techniques',
+      ],
+      experience: [
+        {
+          title: 'Professional Lap Warmer',
+          company: 'Cozy Cats Wellness Center',
+          startDate: 'January 2022',
+          endDate: 'Present',
+          responsibilities: [
+            'Warm laps of clients and provide a peaceful and calming presence',
+            'Ensure clients are comfortable and relaxed during their visit',
+            'Offer advice on relaxation techniques and self-care practices',
+            'Maintain a clean and peaceful environment for clients',
+          ],
+        },
+        {
+          title: 'Meditation Assistant',
+          company: 'Mellow Mindfulness Studio',
+          startDate: 'May 2021',
+          endDate: 'December 2021',
+          responsibilities: [
+            'Assist meditation instructors with classes',
+            'Greet and check in clients, answer questions about classes and services',
+            'Ensure a peaceful and welcoming environment for clients',
+            'Clean and prepare the studio before and after classes',
+          ],
+        },
+      ],
+      education: [
+        {
+          degree: 'Certificate in Relaxation Techniques',
+          institution: 'Anytown Community College',
+          completionDate: 'May 2021',
+        },
+      ],
+    },
+    notes: [
+      {
+        title: 'Day 1',
+        text: 'Polished my resume and cover letter\nResearched lap warming job openings in the area\nApplied to several job postings',
+      },
+      {
+        title: 'Day 7',
+        text: 'Received an email from Cozy Cats Wellness Center to schedule an interview\nResearched the company and prepared answers to common lap warming interview questions\nReviewed my experience and qualifications for the position',
+      },
+      {
+        title: 'Day 14',
+        text: 'Had a great interview with Cozy Cats Wellness Center and received positive feedback\nSent a follow-up email thanking the interviewer for their time and reiterating my interest in the position\nContinued to search for other job openings and submit applications',
+      },
+      {
+        title: 'Day 21',
+        text: 'Received a job offer from Cozy Cats Wellness Center and accepted the position\nExcited to start my new job as a Professional Lap Warmer and help others find relaxation and peace!',
+      },
+    ],
+    saved: {
+      interested: [2, 5, 7],
+      veryInterested: [9, 13],
+      extremelyInterested: [12, 17, 20],
+      applied: [3],
+      interviewedFor: [6, 10],
+    },
+    events: [
+      {
+        title: 'Interview with Furry Friends Inc',
+        date: '2023-03-28T17:00:00Z',
+      },
+      {
+        title: 'Interview with Purrfect Palace',
+        date: '2023-04-03T16:30:00Z',
+      },
+    ],
+  },
+  {
+    uid: 8,
+    firstName: 'Dolly',
+    lastName: 'Purrton',
+    industry: 'Arts & Literature',
+    resume: {
+      name: 'Dolly Purrton',
+      title: 'Vocal Artist',
+      contact: {
+        phone: '555-555-5555',
+        email: 'dolly@example.com',
+        address: {
+          street: '456 Elm St',
+          city: 'Anytown',
+          state: 'CA',
+          zip: '12345',
+        },
+      },
+      skills: [
+        'Proficient in multiple musical styles',
+        'Strong vocal range and control',
+        'Experience with live performance and studio recording',
+        'Ability to collaborate with other musicians and producers',
+      ],
+      experience: [
+        {
+          title: 'Lead Vocalist',
+          company: 'The Feline Fours',
+          startDate: 'January 2020',
+          endDate: 'Present',
+          responsibilities: [
+            'Performing live shows at various venues and events',
+            'Collaborating with band members to develop and arrange music',
+            'Recording vocals for studio albums',
+            'Participating in promotional events and interviews',
+          ],
+        },
+        {
+          title: 'Backup Vocalist',
+          company: 'Whisker Records',
+          startDate: 'June 2018',
+          endDate: 'December 2019',
+          responsibilities: [
+            'Providing backup vocals for various recording projects',
+            'Assisting with songwriting and arranging',
+            'Attending recording and mixing sessions',
+          ],
+        },
+      ],
+      education: [
+        {
+          degree: 'Bachelor of Fine Arts in Music',
+          institution: 'Garthty College',
+          completionDate: 'May 2018',
+        },
+      ],
+    },
+    notes: [
+      {
+        title: 'Day 1',
+        text: 'Polished my resume and cover letter\nResearched vocal artist job openings in the area\nApplied to several job postings',
+      },
+      {
+        title: 'Day 7',
+        text: 'Received an email from The Meow-tropolitan Opera to schedule an audition\nPracticed vocal exercises and repertoire\nReviewed my experience and qualifications for the position',
+      },
+      {
+        title: 'Day 14',
+        text: 'Had a successful audition with The Meow-tropolitan Opera and received positive feedback\nSent a follow-up email thanking the audition panel for their time and expressing my continued interest in the company\nContinued to search for other job openings and submit applications',
+      },
+      {
+        title: 'Day 21',
+        text: 'Received a job offer from The Meow-tropolitan Opera and accepted the position\nExcited to start my new job as a Lead Vocalist and showcase my musical talent!',
+      },
+    ],
+    saved: {
+      interested: [4, 9, 11],
+      veryInterested: [2, 7],
+      extremelyInterested: [14, 16, 19],
+      applied: [1, 6],
+      interviewedFor: [3, 12],
+    },
+    events: [
+      {
+        title: 'Interview with Whisker Records',
+        date: '2023-03-15T18:00:00Z',
+      },
+      {
+        title: 'Audition for The Feline Fours',
+        date: '2023-03-22T17:00:00Z',
+      },
+    ],
+  },
+  {
+    uid: 10,
+    firstName: 'Kit',
+    lastName: 'Pawter',
+    industry: 'Nature & Environment',
+    resume: {
+      name: 'Kit Pawter',
+      title: 'Dog Badgerer',
+      contact: {
+        phone: '555-555-5555',
+        email: 'kitpawter@example.com',
+        address: {
+          street: '123 Forest Rd',
+          city: 'Greenwood',
+          state: 'WA',
+          zip: '98056',
+        },
+      },
+      skills: [
+        'Expert in tracking and capturing dogs',
+        'Experience with various breeds and sizes of dogs',
+        'Ability to work independently or as part of a team',
+        'Knowledge of local dog populations and behaviors',
+      ],
+      experience: [
+        {
+          title: 'Dog Badgerer',
+          company: 'Wildlife Rescue Society',
+          startDate: 'June 2021',
+          endDate: 'Present',
+          responsibilities: [
+            'Received reports of stray dogs in the area and investigated sightings',
+            'Set up traps and bait to capture stray dogs',
+            'Collaborated with local animal shelters and rescue organizations to relocate captured dogs',
+            'Educated the public on responsible pet ownership and dog safety',
+          ],
+        },
+        {
+          title: 'Volunteer',
+          company: 'Seattle Humane Society',
+          startDate: 'January 2019',
+          endDate: 'May 2021',
+          responsibilities: [
+            'Assisted with dog socialization and training',
+            'Provided care for dogs awaiting adoption',
+            'Participated in adoption events and fundraisers',
+          ],
+        },
+      ],
+      education: [
+        {
+          degree: 'Bachelor of Science in Zoology',
+          institution: 'University of Washington',
+          completionDate: 'May 2018',
+        },
+      ],
+    },
+    notes: [
+      {
+        title: 'Day 1',
+        text: 'Polished my resume and cover letter\nResearched dog badgerer job openings in the area\nApplied to several job postings',
+      },
+      {
+        title: 'Day 7',
+        text: 'Received an email from Wildlife Rescue Society to schedule an interview\nResearched the organization and prepared answers to common dog badgerer interview questions\nReviewed my experience and qualifications for the position',
+      },
+      {
+        title: 'Day 14',
+        text: 'Had a great interview with Wildlife Rescue Society and received positive feedback\nSent a follow-up email thanking the interviewer for their time and reiterating my interest in the position\nContinued to search for other job openings and submit applications',
+      },
+      {
+        title: 'Day 21',
+        text: 'Received a job offer from Wildlife Rescue Society and accepted the position\nExcited to start my new job as a Dog Badgerer and help keep the local dog population safe!',
+      },
+    ],
+    saved: {
+      interested: [2, 7, 14],
+      veryInterested: [4, 9],
+      extremelyInterested: [11, 16, 19],
+      applied: [1],
+      interviewedFor: [5, 12],
+    },
+    events: [
+      {
+        title: 'Interview with Feline Protection Agency',
+        date: '2023-03-24T18:00:00Z',
+      },
+      {
+        title: 'Interview with Doggone Adventures',
+        date: '2023-04-07T15:30:00Z',
       },
     ],
   },
