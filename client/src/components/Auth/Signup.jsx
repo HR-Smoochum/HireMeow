@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
+import Header from '../Header/Header.jsx';
 
 // LOCAL IMPORTS
 
@@ -43,44 +44,47 @@ function Signup() {
   }
 
   return (
-    <Card maxW="500px" margin="auto">
-      <CardBody>
-        <Center>
-          <Heading as="h1" size="xl">Sign Up</Heading>
-        </Center>
-        {error && (
-          <Alert status="error">{error}</Alert>
-        )}
-        <form onSubmit={handleSubmit}>
-          <FormControl>
-            <FormLabel>Email</FormLabel>
-            <Input type="email" id="1" value={email} onChange={handleEmailChange} required />
-            <FormLabel>Password</FormLabel>
-            <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
-            <FormLabel>Confirm Password</FormLabel>
-            <Input type="password" id="3" value={passwordConfirm} onChange={handlePasswordConfirmChange} required />
-            <Center p={4}>
-              <RadioGroup onChange={setUser} value={user}>
-                <Stack direction="row">
-                  <Radio value="jobSeeker">Job Seeker</Radio>
-                  <Radio value="employer">Employer</Radio>
-                </Stack>
-              </RadioGroup>
-            </Center>
-            <Center>
-              <Button disabled={loading} type="submit">Sign Up</Button>
-            </Center>
-          </FormControl>
-        </form>
-        <Center p={4}>
-          <div>
-            Already have an account?
-            {' '}
-            <Link to="/login">Log in here</Link>
-          </div>
-        </Center>
-      </CardBody>
-    </Card>
+    <>
+      <Header />
+      <Card maxW="500px" margin="auto">
+        <CardBody>
+          <Center>
+            <Heading as="h1" size="xl">Sign Up</Heading>
+          </Center>
+          {error && (
+            <Alert status="error">{error}</Alert>
+          )}
+          <form onSubmit={handleSubmit}>
+            <FormControl>
+              <FormLabel>Email</FormLabel>
+              <Input type="email" id="1" value={email} onChange={handleEmailChange} required />
+              <FormLabel>Password</FormLabel>
+              <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
+              <FormLabel>Confirm Password</FormLabel>
+              <Input type="password" id="3" value={passwordConfirm} onChange={handlePasswordConfirmChange} required />
+              <Center p={4}>
+                <RadioGroup onChange={setUser} value={user}>
+                  <Stack direction="row">
+                    <Radio value="jobSeeker">Job Seeker</Radio>
+                    <Radio value="employer">Employer</Radio>
+                  </Stack>
+                </RadioGroup>
+              </Center>
+              <Center>
+                <Button disabled={loading} type="submit">Sign Up</Button>
+              </Center>
+            </FormControl>
+          </form>
+          <Center p={4}>
+            <div>
+              Already have an account?
+              {' '}
+              <Link to="/login">Log in here</Link>
+            </div>
+          </Center>
+        </CardBody>
+      </Card>
+    </>
   );
 }
 
