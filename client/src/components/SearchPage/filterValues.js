@@ -55,9 +55,9 @@ export const environmentList = [
   },
   {
     id: 2,
-    value: 'on-site',
+    value: 'onsite',
     checked: false,
-    label: 'On-site',
+    label: 'Onsite',
   },
   {
     id: 3,
