@@ -1,13 +1,11 @@
 // LIBRARY IMPORTS
 import React, {
-  useState, useContext, useRef, useEffect,
+  useState, useRef, useEffect,
 } from 'react';
 import { HStack, Box } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
 import Header from '../../Header/Header.jsx';
-import JobContext from '../../Utilities/JobContext.js';
-
 import FilterPanel from './FilterPanel.jsx';
 import ResultList from './ResultList.jsx';
 import SearchBar from '../SearchBar.jsx';
@@ -17,7 +15,6 @@ import jobListingsData from '../../Utilities/sampleJobListingData.js';
 // COMPONENT
 function SearchPage() {
   // SET STATES
-  const { allJobs } = useContext(JobContext);
   const [experiences, setExperiences] = useState(experienceList);
   const [environments, setEnvironments] = useState(environmentList);
   const [employments, setEmployments] = useState(employmentList);
@@ -25,9 +22,9 @@ function SearchPage() {
   const [searchInput, setSearchInput] = useState('');
   const [searchPageList, setSearchPageList] = useState(jobListingsData);
   const jobsRef = useRef([]);
-  jobsRef.current = jobListingsData; // CHANGE THIS ONCE OTHER FEATURES WORK!!
+  jobsRef.current = jobListingsData;
 
-  // HOOKS
+  // EVENT HANDLERS
   const handleExperienceChecked = (id) => {
     const experienceStateList = experiences;
     const changeCheckedExperiences = experienceStateList.map((job) => {
@@ -97,6 +94,7 @@ function SearchPage() {
     setSearchPageList(filteredList);
   };
 
+  // HOOKS
   useEffect(() => {
     applyFilters();
   }, [experiences, employments, environments, searchInput, selectedSalary]);

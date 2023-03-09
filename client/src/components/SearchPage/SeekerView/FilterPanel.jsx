@@ -8,7 +8,9 @@ import CheckboxList from '../CheckboxList.jsx';
 import SalarySlider from '../Slider.jsx';
 
 // COMPONENT
-function FilterPanel({ handleExperienceChecked, handleEmploymentChecked, handleEnvironmentChecked }) {
+function FilterPanel({
+  handleExperienceChecked, handleEmploymentChecked, handleEnvironmentChecked, handleChangeSalary,
+}) {
   return (
     <VStack align="flex-start">
       <Heading as="h4" size="sm">Experience Level</Heading>
@@ -18,7 +20,7 @@ function FilterPanel({ handleExperienceChecked, handleEmploymentChecked, handleE
       <Heading as="h4" size="sm">Work Environment</Heading>
       <CheckboxList options={environmentList} handleChecked={handleEnvironmentChecked} />
       <Heading as="h4" size="sm">Salary</Heading>
-      <SalarySlider />
+      <SalarySlider changeSalary={handleChangeSalary} />
     </VStack>
   );
 }
