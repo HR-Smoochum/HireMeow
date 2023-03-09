@@ -5,16 +5,6 @@ import {
   Box, Button, Center, Heading, Tag,
 } from '@chakra-ui/react';
 
-// Job = {
-//   id: 1,
-//   title: 'software engineer',
-//   location: 'seattle',
-//   employment: 'remote',
-//   experience: 'entry level',
-//   date: '3/1/2023',
-//   logo: 'https://images.app.goo.gl/SW3mMuphfe114aZT9',
-//   company: 'google',
-// }
 export default function JobCard({ Job, setShowMore, handleSingleApply }) {
   return (
     <Box>

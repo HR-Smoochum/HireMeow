@@ -52,55 +52,39 @@ export default function CardDashboard() {
     return axios.get('http://localhost:3000/jobsByIdArray', { params: { ids: arr } });
   };
   const getAllJobs = () => {
-    if (interested.length !== 0) {
-      axiosFunc(interested).then((results) => {
-        setInterestedJobs(results.data);
-      }).catch((err) => {
-        console.error('get jobs from db err', err);
-      });
-    } else {
-      setInterestedJobs([]);
-    }
-    if (veryInterested.length !== 0) {
-      axiosFunc(veryInterested).then((results) => {
-        setVeryInterestedJobs(results.data);
-      }).catch((err) => {
-        console.error('get jobs from db err', err);
-      });
-    } else {
-      setVeryInterestedJobs([]);
-    }
-    if (extremelyInterested.length !== 0) {
-      axiosFunc(extremelyInterested).then((results) => {
-        setExtremelyInterestedJobs(results.data);
-      }).catch((err) => {
-        console.error('get jobs from db err', err);
-      });
-    } else {
-      setExtremelyInterestedJobs([]);
-    }
-    if (applied.length !== 0) {
-      axiosFunc(applied).then((results) => {
-        setAppliedJobs(results.data);
-      }).catch((err) => {
-        console.error('get jobs from db err', err);
-      });
-    }
-    if (interviewed.length !== 0) {
-      axiosFunc(interviewed).then((results) => {
-        setInterviewedJobs(results.data);
-      }).catch((err) => {
-        console.error('get jobs from db err', err);
-      });
-    }
+    axiosFunc(interested).then((results) => {
+      setInterestedJobs(results.data);
+    }).catch((err) => {
+      console.error('get jobs from db err', err);
+    });
+    axiosFunc(veryInterested).then((results) => {
+      setVeryInterestedJobs(results.data);
+    }).catch((err) => {
+      console.error('get jobs from db err', err);
+    });
+    axiosFunc(extremelyInterested).then((results) => {
+      setExtremelyInterestedJobs(results.data);
+    }).catch((err) => {
+      console.error('get jobs from db err', err);
+    });
+    axiosFunc(applied).then((results) => {
+      setAppliedJobs(results.data);
+    }).catch((err) => {
+      console.error('get jobs from db err', err);
+    });
+    axiosFunc(interviewed).then((results) => {
+      setInterviewedJobs(results.data);
+    }).catch((err) => {
+      console.error('get jobs from db err', err);
+    });
   };
   useEffect(() => {
     getAllJobs();
   }, [interested, veryInterested, extremelyInterested, applied, interviewed]);
 
-  // console.log('interested', interestedJobs);
-  // console.log('very interested', veryInterestedJobs);
-  // console.log('extremely interested', extremelyInterestedJobs);
+  // console.log('interested Jobs', interestedJobs);
+  // console.log('very interested Jobs', veryInterestedJobs);
+  // console.log('extremely interested Jobs', extremelyInterestedJobs);
   // console.log('applied', appliedJobs);
   // console.log('interviewed', interviewedJobs);
   // console.log('interested', interested);
@@ -157,6 +141,19 @@ export default function CardDashboard() {
     });
   };
 
+  const handleInterested = (e, jobId) => {
+    // console.log(e.target.value);
+    // update job's interested level
+    const url = 'http://localhost:3000/jobInterested';
+    axios.put(url, { uid: 1, id: jobId, level: e.target.value }).then((results) => {
+      console.log('update interested level', results);
+      getAllJobsId();
+      getAllJobs();
+    }).catch((err) => {
+      console.error('update interested level err', err);
+    });
+  };
+
   return (
     <>
       <Header />
@@ -173,7 +170,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 interestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
                 }
                 ))
               }
@@ -186,7 +183,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 veryInterestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
                 }
                 ))
               }
@@ -199,7 +196,7 @@ export default function CardDashboard() {
             <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 extremelyInterestedJobs.map(((Job, index) => {
-                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} />;
+                  return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
                 }
                 ))
               }

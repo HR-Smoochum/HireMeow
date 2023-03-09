@@ -9,20 +9,13 @@ import { HiEllipsisVertical, HiChevronDoubleDown } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 import JobDetail from './JobDetail.jsx';
 
-export default function JobCard({ Job, handleCheck, handleSingleApply }) {
+export default function JobCard({
+  Job, handleCheck, handleSingleApply, handleInterested,
+}) {
   const [showMore, setShowMore] = useState(0);
 
   const handleDetail = () => {
     setShowMore(1);
-  };
-  const handleInterested = (e) => {
-    console.log(e.target);
-    // update job's interested level
-    // if (e.target.value === 'very interested') {
-
-    // } else {
-
-    // }
   };
 
   return (
@@ -55,15 +48,15 @@ export default function JobCard({ Job, handleCheck, handleSingleApply }) {
                         variant="ghost"
                       />
                       <MenuList>
-                        <MenuItem bg="brand.green" value="interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="interested">
                           <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
                           Interested
                         </MenuItem>
-                        <MenuItem onClick={handleInterested} value="very interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="very interested">
                           <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
                           Very Interested
                         </MenuItem>
-                        <MenuItem onClick={handleInterested} value="extremely interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="extremely interested">
                           <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
                           Extremely Interested
                         </MenuItem>

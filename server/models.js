@@ -69,11 +69,23 @@ module.exports = {
     ids.forEach((id) => {
       saved.applied.push(id);
     });
-    console.log('saved', saved);
+    // console.log('saved', saved);
     return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
-  updateJobInterested: (uid, jobId) => {
-    return db.BlogPost.find({});
+  updateJobInterested: async (data) => {
+    const { uid, id, level } = data;
+    const userInfo = await db.Seeker.find({ uid });
+    const { saved } = userInfo[0];
+    // console.log('saved', saved);
+    const removeId = (item) => {
+      return id !== item;
+    };
+    saved.interested = saved.interested.filter(removeId);
+    saved['very interested'] = saved['very interested'].filter(removeId);
+    saved['extremely interested'] = saved['extremely interested'].filter(removeId);
+    saved[level].push(id);
+    // console.log('saved', saved);
+    return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateSeekerInterested: (uid, seekerId) => {
     return db.BlogPost.find({});

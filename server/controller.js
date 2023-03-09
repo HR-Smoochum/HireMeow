@@ -49,13 +49,14 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   updateJobApplied: (req, res) => {
-    console.log('updateJobApplied query', req.body);
+    // console.log('updateJobApplied query', req.body);
     models.updateJobApplied(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
   updateJobInterested: (req, res) => {
-    models.updateJobInterested()
+    console.log('updateJobInterested query', req.body);
+    models.updateJobInterested(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
