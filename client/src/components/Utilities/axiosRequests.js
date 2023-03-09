@@ -14,7 +14,7 @@ const authServerURL = `http://${SITE_URL}:${PORT}`;
  * @param {string} endpoint - Endpoint to be used
  * @returns an Axios Request Promise
 * */
-const get = (endpoint) => axios.get(`${authServerURL}/${endpoint}`);
+const get = (endpoint) => axios.get(`${authServerURL}${endpoint}`);
 
 /**
  * Make an Axios Post Request.
@@ -25,7 +25,7 @@ const get = (endpoint) => axios.get(`${authServerURL}/${endpoint}`);
  * @param {json} json - Data to be posted
  * @returns an Axios Request Promise
  * */
-const post = (endpoint, data) => axios.post(`${authServerURL}/${endpoint}`, data);
+const post = (endpoint, data) => axios.post(`${authServerURL}${endpoint}`, data);
 
 /**
  * Fire an Axios Delete Request.
@@ -36,7 +36,7 @@ const post = (endpoint, data) => axios.post(`${authServerURL}/${endpoint}`, data
  * @param {json} json - Data to be deleted
  * @returns an Axios Request Promise
  * */
-const del = (endpoint, data) => axios.delete(`${authServerURL}/${endpoint}`, data);
+const del = (endpoint, data) => axios.delete(`${authServerURL}${endpoint}`, data);
 
 /**
  * Fire an Axios Put Request.
@@ -48,7 +48,7 @@ const del = (endpoint, data) => axios.delete(`${authServerURL}/${endpoint}`, dat
  * @returns an Axios Request Promise
  * */
 
-const put = (endpoint, data) => axios.put(`${authServerURL}/${endpoint}`, data);
+const put = (endpoint, data) => axios.put(`${authServerURL}${endpoint}`, data);
 
 export {
   get,
