@@ -25,17 +25,7 @@ export default function Header() {
 
   const handleHome = (e) => {
     e.preventDefault();
-    if (mode === 'seeker') {
-      navigate('/jobs');
-    }
-
-    if (mode === 'employer') {
-      navigate('/seekers');
-    }
-
-    if (mode === 'guest') {
-      navigate('/jobs');
-    }
+    navigate('/search');
   };
 
   useEffect(() => {
