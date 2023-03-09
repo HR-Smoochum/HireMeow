@@ -14,7 +14,7 @@ import Blog from './Blog/Blog.jsx';
 import Resume from './Resume/Resume.jsx';
 import SavedJobs from './MyJobPostings/CardDashboard';
 import SavedSeekers from './MyJobPostings/JobSeekerCard';
-import Search from './SearchPage/SearchPage.jsx';
+import Search from './SearchPage/SeekerView/SearchPage.jsx';
 
 // COMPONENT
 function App() {
