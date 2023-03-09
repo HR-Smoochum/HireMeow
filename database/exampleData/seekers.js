@@ -1,4 +1,4 @@
-const seekerData = [
+const seekers = [
   {
     uid: 1,
     firstName: 'Meow',
@@ -759,6 +759,99 @@ const seekerData = [
     ],
   },
   {
+    uid: 9,
+    firstName: 'Luna',
+    lastName: 'Whiskerkins',
+    industry: 'Animal Care',
+    resume: {
+      name: 'Luna Whiskerkins',
+      title: 'Cat Caretaker',
+      contact: {
+        phone: '555-555-5555',
+        email: 'lunawhiskerkins@example.com',
+        address: {
+          street: '123 Feline Lane',
+          city: 'Kittyville',
+          state: 'CA',
+          zip: '12345',
+        },
+      },
+      skills: [
+        'Expert in feline behavior and care',
+        'Experience working with cats of all breeds and ages',
+        'Ability to administer medication and provide basic medical care',
+        'Knowledge of grooming and nutrition for cats',
+      ],
+      experience: [
+        {
+          title: 'Cat Caretaker',
+          company: 'Kitty Haven',
+          startDate: 'June 2021',
+          endDate: 'Present',
+          responsibilities: [
+            'Provide daily care for cats, including feeding, grooming, and litter box cleaning',
+            'Administer medication as needed and provide basic medical care',
+            'Interact with cats to promote socialization and playtime',
+            'Maintain a clean and organized environment for the cats',
+          ],
+        },
+        {
+          title: 'Volunteer',
+          company: 'Feline Friends',
+          startDate: 'January 2019',
+          endDate: 'May 2021',
+          responsibilities: [
+            'Assist with daily care for cats awaiting adoption',
+            'Provide socialization and playtime for cats',
+            'Assist with adoption events and fundraisers',
+          ],
+        },
+      ],
+      education: [
+        {
+          degree: 'Associate of Applied Science in Veterinary Technology',
+          institution: 'Cat Care Institute',
+          completionDate: 'May 2018',
+        },
+      ],
+    },
+    notes: [
+      {
+        title: 'Day 1',
+        text: 'Polished my resume and cover letter\nResearched cat caretaker job openings in the area\nApplied to several job postings',
+      },
+      {
+        title: 'Day 7',
+        text: 'Received an email from Kitty Haven to schedule an interview\nResearched the organization and prepared answers to common cat caretaker interview questions\nReviewed my experience and qualifications for the position',
+      },
+      {
+        title: 'Day 14',
+        text: 'Had a great interview with Kitty Haven and received positive feedback\nSent a follow-up email thanking the interviewer for their time and reiterating my interest in the position\nContinued to search for other job openings and submit applications',
+      },
+      {
+        title: 'Day 21',
+        text: 'Received a job offer from Kitty Haven and accepted the position\nExcited to start my new job as a Cat Caretaker and help provide loving care for cats!',
+      },
+    ],
+    saved: {
+      interested: [2, 7, 14],
+      veryInterested: [4, 9],
+      extremelyInterested: [11, 16, 19],
+      applied: [1],
+      interviewedFor: [5, 12],
+    },
+    events: [
+      {
+        title: 'Interview with Whisker Watchers',
+        date: '2023-03-24T18:00:00Z',
+      },
+      {
+        title: 'Interview with Purrfect Pet Care',
+        date: '2023-04-07T15:30:00Z',
+      },
+    ],
+  },
+  {
     uid: 10,
     firstName: 'Kit',
     lastName: 'Pawter',
@@ -853,6 +946,4 @@ const seekerData = [
   },
 ];
 
-module.exports = {
-  seekerData,
-};
+module.exports = seekers;
