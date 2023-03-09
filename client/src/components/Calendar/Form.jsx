@@ -30,6 +30,9 @@ export default function Form({
     }
     console.log('this is data', data);
     axios.put(`seekers/${seeker.uid}`, data)
+      .then((res) => {
+        return axios.get(`seekers/${seeker.uid}`)
+      })
       .then((res) => setEvents(res.data.events))
       .catch((err) => console.log(err));
   };

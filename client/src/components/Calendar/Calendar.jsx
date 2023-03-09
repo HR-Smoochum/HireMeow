@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
 import Form from './Form.jsx';
@@ -20,19 +20,35 @@ export default function Calendar() {
   const {events, setEvents} = useContext(calendarContext);
   const [employers, setEmployers] = useState([]);
 
+  useEffect(() => {
+    if (mode === 'seeker') {
+      axios.get(`/seekers/${seeker.uid}`)
+        .then((res) => {
+          console.log(res.data[0].events); 
+          setEvents([...res.data[0].events]);
+          // return axios.get('/employers')
+        })
+        .catch((err) => console.log(err))
+    }
+    if (mode === 'employer') {
+      axios.get(`/employers/${employer.uid}`)
+        .then((res) => setEvents([...res.data[0].events]))
+        .catch((err) => console.log(err));
+    }
+  }, []);
 
-  console.log('this is the current mode, ', mode);
+
   const handleCalEvent = () => {
     if (mode === 'seeker') {
       axios.get('/employers')
       .then(res => {
         console.log('these are employers, ', res.data);
         setEmployers(res.data);
+        setEvents(res.data.events);
         useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={res.data} setEmployers={setEmployers} seeker={seeker}/>);
       })
       .catch(err => { throw err; });
-      
-    } else {
+    } else if (mode === 'employer') {
       console.log('TODO, make employer component');
     }
   };
