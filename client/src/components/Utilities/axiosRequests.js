@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const authServerURL = `http://${process.env.SITE_URL}:${process.env.PORT}`;
+// default values if not defined in .env
+const PORT = process.env.PORT || 3000;
+const SITE_URL = process.env.SITE_URL || 'localhost';
+
+const authServerURL = `http://${SITE_URL}:${PORT}`;
 
 /**
  * Make an Axios Get Request.
@@ -48,8 +52,27 @@ const del = function deleteByEndpoint(endpoint, json) {
   return axios.delete(`${authServerURL}/${endpoint}`, config);
 };
 
+/**
+ * Fire an Axios Put Request.
+ *
+ * It takes a data json, and a string value to append to the endpoint,
+ * which should match the server endpoint pattern.
+ * @param {string} endpoint - Endpoint to be used
+ * @param {json} json - Data to be updated
+ * @returns an Axios Request Promise
+ * */
+
+const put = function putByEndpoint(endpoint, json) {
+  const config = {
+    data: json,
+  };
+
+  return axios.put(`${authServerURL}/${endpoint}`, config);
+};
+
 export {
   get,
   post,
   del,
+  put,
 };
