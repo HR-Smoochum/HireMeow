@@ -37,6 +37,16 @@ module.exports = {
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
+  updateASeekerEvent: (req, res) => {
+    const interviewEvent = {
+      title: req.body.employer,
+      date: req.body.interviewTime,
+    };
+    console.log('this is backend interviewEvent', interviewEvent);
+    models.updateASeekerEvent(req.params.uid, { events: interviewEvent })
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
   getJobsByIdArray: (req, res) => {
     // console.log('getJobsByIdArray query', req.query);
     models.getJobsByIdArray(req.query.ids)

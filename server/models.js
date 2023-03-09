@@ -28,27 +28,6 @@ module.exports = {
     return BlogPost.find({});
   },
 
-  // These are functions used within the database/savedJobsAndSeekers
-  // Should be deleted later
-  createInDb: (items, callback) => {
-    Seeker.create(items)
-      .then((res) => {
-        callback(null, res);
-      })
-      .catch((err) => {
-        callback(err);
-      });
-  },
-
-  clearDb: () => {
-    Seeker.deleteMany()
-      .then(() => {
-        console.log('Collection cleared');
-      })
-      .catch((err) => {
-        console.log('Unable to clear collection', err);
-      });
-  },
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },
@@ -92,7 +71,7 @@ module.exports = {
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateSeekerInterested: async (data) => {
-    console.log('data', data);
+    // console.log('data', data);
     const { uid, id, level } = data;
     const userInfo = await Employer.find({ uid });
     const { saved } = userInfo[0];
