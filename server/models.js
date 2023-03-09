@@ -1,52 +1,98 @@
-const mongoose = require('mongoose'); // not necessary, mongoose already required from db import
-const db = require('../database');
+const {
+  Seeker,
+  Employer,
+  Job,
+  BlogPost,
+} = require('../database/index.js');
 
 module.exports = {
   getAllSeekers: () => {
-    return db.Seeker.find({});
+    return Seeker.find({});
   },
   getASeeker: (id) => {
-    return db.Seeker.find({ uid: id });
+    return Seeker.find({ uid: id });
   },
   getAllEmployers: () => {
-    return db.Employer.find({});
+    return Employer.find({});
   },
   getAnEmployer: (id) => {
-    return db.Employer.find({ uid: id });
+    return Employer.find({ uid: id });
   },
   getAllJobs: () => {
-    return db.Job.find({});
+    return Job.find({});
   },
   getAJob: (jobId) => {
-    return db.Job.find({ id: jobId });
+    return Job.find({ id: jobId });
   },
   getAllBlogPosts: () => {
-    return db.BlogPost.find({});
+    return BlogPost.find({});
   },
-  updateASeekerEvent: (id, seekerEvent) => {
-    return db.Seeker.updateOne({uid: id}, {$addToSet: seekerEvent})
-  },
-  // THESE 2 MODELS ARE SPECIFICALLY FOR DATA LOADING:
-  // to create relevant documents - update as needed
+
+  // These are functions used within the database/savedJobsAndSeekers
+  // Should be deleted later
   createInDb: (items, callback) => {
-    items.forEach((item) => {
-      db.Seeker.create(item)
-        .then((res) => {
-          callback(null, res);
-        })
-        .catch((err) => {
-          callback(err);
-        });
-    });
+    Seeker.create(items)
+      .then((res) => {
+        callback(null, res);
+      })
+      .catch((err) => {
+        callback(err);
+      });
   },
-  // to clear relevant collections - update as needed
+
   clearDb: () => {
-    db.Employer.deleteMany()
+    Seeker.deleteMany()
       .then(() => {
         console.log('Collection cleared');
       })
       .catch((err) => {
         console.log('Unable to clear collection', err);
       });
+  },
+  getJobsByIdArray: (ids) => {
+    return db.Job.find({ id: { $in: ids } });
+  },
+  getSeekersByIdArray: (query) => {
+    const { uid, jobId } = query;
+    return db.BlogPost.find({});
+  },
+  updateJobApplied: async (data) => {
+    const { uid, ids } = data;
+    const userInfo = await db.Seeker.find({ uid });
+    const { saved } = userInfo[0];
+    console.log('saved', saved);
+    const notInIds = (id) => {
+      console.log(typeof (id));
+      if (ids.includes(id)) {
+        return false;
+      }
+      return true;
+    };
+    saved.interested = saved.interested.filter(notInIds);
+    saved['very interested'] = saved['very interested'].filter(notInIds);
+    saved['extremely interested'] = saved['extremely interested'].filter(notInIds);
+    ids.forEach((id) => {
+      saved.applied.push(id);
+    });
+    // console.log('saved', saved);
+    return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
+  },
+  updateJobInterested: async (data) => {
+    const { uid, id, level } = data;
+    const userInfo = await db.Seeker.find({ uid });
+    const { saved } = userInfo[0];
+    // console.log('saved', saved);
+    const removeId = (item) => {
+      return id !== item;
+    };
+    saved.interested = saved.interested.filter(removeId);
+    saved['very interested'] = saved['very interested'].filter(removeId);
+    saved['extremely interested'] = saved['extremely interested'].filter(removeId);
+    saved[level].push(id);
+    // console.log('saved', saved);
+    return db.Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
+  },
+  updateSeekerInterested: (uid, seekerId) => {
+    return db.BlogPost.find({});
   },
 };

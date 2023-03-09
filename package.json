@@ -6,7 +6,8 @@
   "scripts": {
     "client-dev": "webpack --watch",
     "server-dev": "nodemon server/index.js",
-    "start": "npx live-server ./client/dist"
+    "start": "npx live-server ./client/dist",
+    "seed": "node database/seed.js"
   },
   "repository": {
     "type": "git",
