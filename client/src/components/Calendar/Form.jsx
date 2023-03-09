@@ -4,8 +4,10 @@ import axios from 'axios';
 export default function Form({
   dismissModal, appliedIds, events, setEvents, employers, setEmployers, seeker
 }) {
-  function getMatchingEmployers(appliedIds, employersData) {
 
+  console.log('this is employers', employers);
+
+  function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
       if (appliedIds.includes(employer.uid)) {

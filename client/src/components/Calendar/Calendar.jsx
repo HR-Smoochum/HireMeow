@@ -26,7 +26,10 @@ export default function Calendar() {
         .then((res) => {
           console.log(res.data[0].events); 
           setEvents([...res.data[0].events]);
-          // return axios.get('/employers')
+          return axios.get('/employers')
+        })
+        .then((res) => {
+          setEmployers(res.data);
         })
         .catch((err) => console.log(err))
     }
@@ -40,14 +43,7 @@ export default function Calendar() {
 
   const handleCalEvent = () => {
     if (mode === 'seeker') {
-      axios.get('/employers')
-      .then(res => {
-        console.log('these are employers, ', res.data);
-        setEmployers(res.data);
-        setEvents(res.data.events);
-        useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={res.data} setEmployers={setEmployers} seeker={seeker}/>);
-      })
-      .catch(err => { throw err; });
+      useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={employers} setEmployers={setEmployers} seeker={seeker}/>);
     } else if (mode === 'employer') {
       console.log('TODO, make employer component');
     }
