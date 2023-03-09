@@ -8,7 +8,6 @@ import FilterPanel from './FilterPanel.jsx';
 import ResultList from './ResultList.jsx';
 import SearchBar from './SearchBar.jsx';
 import { environmentList, experienceList, employmentList } from './filterValues.js';
-// import Header from '../Header/Header.jsx';
 
 // COMPONENT
 function SearchPage() {
