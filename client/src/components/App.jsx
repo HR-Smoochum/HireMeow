@@ -8,13 +8,13 @@ import PrivateRoute from './Auth/PrivateRoute';
 // LOCAL IMPORTS
 import Login from './Auth/Login.jsx';
 import Signup from './Auth/Signup.jsx';
-import SearchPage from './SearchPage/SearchPage.jsx';
 import Notes from './Notes/Notes.jsx';
 import Calendar from './Calendar/Calendar.jsx';
 import Blog from './Blog/Blog.jsx';
 import Resume from './Resume/Resume.jsx';
 import SavedJobs from './MyJobPostings/CardDashboard';
 import SavedSeekers from './MyJobPostings/JobSeekerCard';
+import Search from './SearchPage/SearchPage.jsx';
 
 // COMPONENT
 function App() {
@@ -46,14 +46,16 @@ function App() {
               path="/"
               element={(
                 <PrivateRoute>
-                  <SearchPage />
+                  <Search />
                 </PrivateRoute>
               )}
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/jobs" element={<SavedJobs />} />
-            <Route path="/seekers" element={<SavedSeekers />} />
+            <Route path="/seekers" element={<Search />} />
+            <Route path="/jobs" element={<Search />} />
+            <Route path="/myjobs" element={<SavedJobs />} />
+            <Route path="/myseekers" element={<SavedSeekers />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/blog" element={<Blog />} />
