@@ -20,7 +20,7 @@ const load = (data) => {
 // Navigate to this directory (cd database) in your terminal and run this file via node
 // model.clearDb();
 
-load(seekerData.seekerData);
+// load(blogData.blogData);
 // load(employerData.employerData);
 // load(jobData.jobData);
-// load(blogData.blogData);
+load(seekerData.seekerData);

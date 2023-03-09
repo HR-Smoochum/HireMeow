@@ -23,11 +23,14 @@ module.exports = {
   getAllBlogPosts: () => {
     return db.BlogPost.find({});
   },
+  updateASeekerEvent: (id, seekerEvent) => {
+    return db.Seeker.updateOne({uid: id}, {$addToSet: seekerEvent})
+  },
   // THESE 2 MODELS ARE SPECIFICALLY FOR DATA LOADING:
   // to create relevant documents - update as needed
   createInDb: (items, callback) => {
     items.forEach((item) => {
-      db.Employer.create(item)
+      db.Seeker.create(item)
         .then((res) => {
           callback(null, res);
         })

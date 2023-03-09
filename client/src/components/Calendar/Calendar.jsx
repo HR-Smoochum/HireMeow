@@ -11,25 +11,32 @@ import {
 } from '@chakra-ui/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
-// mockEvent:
-// const events = [
-//   { title: 'Meeting', start: new Date(), end: new Date() }
-// ];
 
 // TODO: Button to create event modal, required field to select a job from their 'applied' list from seeker, job title & time
-// After scheduling an event, notification is linked to it
 
 export default function Calendar() {
   const { useModal, dismissModal } = useContext(modalContext);
-  const { seeker } = useContext(JobContext);
+  const { seeker, employer, mode } = useContext(JobContext);
   const {events, setEvents} = useContext(calendarContext);
-  const formComponent = <Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} />;
+  const [employers, setEmployers] = useState([]);
 
 
+  console.log('this is the current mode, ', mode);
   const handleCalEvent = () => {
-    return useModal(formComponent);
+    if (mode === 'seeker') {
+      axios.get('/employers')
+      .then(res => {
+        console.log('these are employers, ', res.data);
+        setEmployers(res.data);
+        useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={res.data} setEmployers={setEmployers} seeker={seeker}/>);
+      })
+      .catch(err => { throw err; });
+      
+    } else {
+      console.log('TODO, make employer component');
+    }
   };
-
+  // TODO: if mode is seeker or employer, change calendar appropriately
   return (
     <div>
       <Header />
