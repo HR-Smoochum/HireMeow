@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const authServerURL = `http://${process.env.SITE_URL}:${process.env.PORT}`;
+// default values if not defined in .env
+const PORT = process.env.PORT || 3000;
+const SITE_URL = process.env.SITE_URL || 'localhost';
+
+const authServerURL = `http://${SITE_URL}:${PORT}`;
 
 /**
  * Make an Axios Get Request.
@@ -10,9 +14,7 @@ const authServerURL = `http://${process.env.SITE_URL}:${process.env.PORT}`;
  * @param {string} endpoint - Endpoint to be used
  * @returns an Axios Request Promise
 * */
-const get = function getByEndpoint(endpoint) {
-  return axios.get(`${authServerURL}/${endpoint}`);
-};
+const get = (endpoint) => axios.get(`${authServerURL}${endpoint}`);
 
 /**
  * Make an Axios Post Request.
@@ -23,13 +25,7 @@ const get = function getByEndpoint(endpoint) {
  * @param {json} json - Data to be posted
  * @returns an Axios Request Promise
  * */
-const post = function postByEndpoint(endpoint, json) {
-  const config = {
-    data: json,
-  };
-
-  return axios.post(`${authServerURL}/${endpoint}`, config);
-};
+const post = (endpoint, data) => axios.post(`${authServerURL}${endpoint}`, data);
 
 /**
  * Fire an Axios Delete Request.
@@ -40,16 +36,23 @@ const post = function postByEndpoint(endpoint, json) {
  * @param {json} json - Data to be deleted
  * @returns an Axios Request Promise
  * */
-const del = function deleteByEndpoint(endpoint, json) {
-  const config = {
-    data: json,
-  };
+const del = (endpoint, data) => axios.delete(`${authServerURL}${endpoint}`, data);
 
-  return axios.delete(`${authServerURL}/${endpoint}`, config);
-};
+/**
+ * Fire an Axios Put Request.
+ *
+ * It takes a data json, and a string value to append to the endpoint,
+ * which should match the server endpoint pattern.
+ * @param {string} endpoint - Endpoint to be used
+ * @param {json} json - Data to be updated
+ * @returns an Axios Request Promise
+ * */
+
+const put = (endpoint, data) => axios.put(`${authServerURL}${endpoint}`, data);
 
 export {
   get,
   post,
   del,
+  put,
 };

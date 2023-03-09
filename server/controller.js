@@ -9,7 +9,7 @@ module.exports = {
   getASeeker: (req, res) => {
     console.log('here???');
     models.getASeeker(req.params.uid)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getEmployers: (req, res) => {
@@ -19,7 +19,7 @@ module.exports = {
   },
   getAnEmployer: (req, res) => {
     models.getAnEmployer(req.params.uid)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getJobs: (req, res) => {
@@ -29,7 +29,7 @@ module.exports = {
   },
   getAJob: (req, res) => {
     models.getAJob(req.params.id)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getBlogPosts: (req, res) => {
