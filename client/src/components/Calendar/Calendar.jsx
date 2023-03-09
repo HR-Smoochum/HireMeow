@@ -25,8 +25,8 @@ export default function Calendar() {
     if (mode === 'seeker') {
       axios.get(`/seekers/${seeker.uid}`)
         .then((res) => {
-          console.log(res.data[0].events); 
-          setEvents([...res.data[0].events]);
+          console.log('this is axios seekers res.data', res.data.events); 
+          setEvents([...res.data.events]);
           return axios.get('/employers')
         })
         .then((res) => {
@@ -37,9 +37,9 @@ export default function Calendar() {
     if (mode === 'employer') {
       axios.get(`/employers/${employer.uid}`)
         .then((res) => {
-          console.log('this is current employer', res.data[0]);
-          setEvents([...res.data[0].events]);
-          setCurrEmployer(res.data[0]);
+          console.log('this is current employer', res.data);
+          setEvents([...res.data.events]);
+          setCurrEmployer(res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -53,7 +53,6 @@ export default function Calendar() {
       useModal(<EmployerForm dismissModal={dismissModal} employer={currEmployer} events={events} setEvents={setEvents} />)
     }
   };
-  // TODO: if mode is seeker or employer, change calendar appropriately
   return (
     <div>
       <Header />

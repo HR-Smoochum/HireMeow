@@ -25,7 +25,6 @@ export default function Form({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const data = {};
     for (const [key, val] of new FormData(e.target)) {
       data[key] = val;
@@ -35,7 +34,7 @@ export default function Form({
       .then((res) => {
         return axios.get(`seekers/${seeker.uid}`)
       })
-      .then((res) => {setEvents(res.data[0].events); dismissModal()})
+      .then((res) => {setEvents(res.data.events); dismissModal()})
       .catch((err) => console.log(err));
   };
   return (

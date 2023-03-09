@@ -45,7 +45,7 @@ export default function EmployerForm({
       .then(() => {
         return axios.get(`employers/${employer.uid}`)
       })
-      .then((res) => { setEvents(res.data[0].events); dismissModal() })
+      .then((res) => { setEvents(res.data.events); dismissModal() })
       .catch((err) => console.log(err));
   };
 
