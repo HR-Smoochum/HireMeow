@@ -15,6 +15,7 @@ import CalendarContext from './Utilities/calendarContext';
 // COMPONENT
 function AppHolder() {
   // STATES
+  const [mode, setMode] = useState('employer'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
@@ -28,22 +29,22 @@ function AppHolder() {
   // HOOKS
   function getSeeker() {
     return request.get(`/seeker/${seekerID}`)
-      .then((response) => response.data)
+      .then((response) => setSeeker(response.data))
       .catch((error) => { console.error(error); });
   }
   function getEmployer() {
     return request.get(`/employer/${employerID}`)
-      .then((response) => response.data)
+      .then((response) => setEmployer(response.data))
       .catch((error) => { console.error(error); });
   }
   function getAJob() {
     return request.get(`/job/${jobID}`)
-      .then((response) => response.data)
+      .then((response) => setAJob(response.data))
       .catch((error) => { console.error(error); });
   }
   function getAllJobs() {
     return request.get('/jobs')
-      .then((response) => response.data)
+      .then((response) => setAllJobs(response.data))
       .catch((error) => { console.error(error); });
   }
 
@@ -78,8 +79,8 @@ function AppHolder() {
   // }, [seekerID, employerID, jobID]);
 
   const providerValues = useMemo(() => ({
-    seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
-  }), [seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
+    mode, setMode, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
+  }), [mode, seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
 
 
   return (

@@ -1,4 +1,4 @@
-const jobListingsData = [
+const jobData = [
   {
     id: 1,
     title: 'Horticulturist',
@@ -281,4 +281,6 @@ const jobListingsData = [
   },
 ];
 
-export default jobListingsData;
+module.exports = {
+  jobData,
+};

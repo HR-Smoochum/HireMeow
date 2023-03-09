@@ -2,42 +2,76 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/jobsite');
 
-const seeker = mongoose.Schema({
-  uid: Number,
-  first_name: String,
-  last_name: String,
-  industry: String,
-  resume: Object,
-  notes: Array,
-  saved: Object,
-  /* example saved object
-  { interested: [123, 431, 454, 343], very interested: [6, 9, 17], extremely interested: [234, 4234, 343], applied: [43,56,23], interviewed for: [45, 8, 2]}
-  */
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log('Connected to database');
 });
 
+const seeker = mongoose.Schema({
+  uid: {
+    type: Number,
+    unique: true,
+  },
+  first_name: String,
+  last_name: String,
+  industry: String,
+  resume: Object, // {title: '', skills:''}
+  notes: Array,
+  saved: Object,
+  events: Array,
+});
+/* e.g
+saved: {
+  interested: [12, 4, 14, 3],
+  veryInterested: [6, 9, 17],
+  extremelyInterested: [13, 1, 5],
+  applied: [2, 7, 10],
+  interviewedFor: [11, 8, 16]
+}
+events: [
+  {title: 'Interview with BirdWatchers', date: '2023-03-17T00:30:00Z'},
+  {title: 'Interview with Catnap Co', date: '2023-03-21T21:30:00Z'}
+]
+*/
+
 const employer = mongoose.Schema({
-  uid: Number,
+  uid: {
+    type: Number,
+    unique: true,
+  },
   first_name: String,
   last_name: String,
   industry: String,
   notes: Array,
-  saved: Object, // candidates they have saved
+  saved: Object,
+  events: Array,
 });
 
 const job = mongoose.Schema({
-  id: Number,
+  id: {
+    type: Number,
+    unique: true,
+  },
   title: String,
+  company: String,
+  logo: String,
   description: String,
   industry: String,
   location: String,
   experience: String,
-  environment: String, // remote/in person
   salary: String,
-  employment: String,
+  employment: String, // full time/part time
+  environment: String, // remote or onsite
   date: Date,
+  logo: String,
 });
 
 const blogPost = mongoose.Schema({
+  id: {
+    type: Number,
+    unique: true,
+  },
   uid: Number,
   title: String,
   description: String,

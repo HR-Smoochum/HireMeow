@@ -1,4 +1,4 @@
-const seekersData = [
+const seekerData = [
   {
     uid: 1,
     firstName: 'Meow',
@@ -853,4 +853,6 @@ const seekersData = [
   },
 ];
 
-export default seekersData;
+module.exports = {
+  seekerData,
+};

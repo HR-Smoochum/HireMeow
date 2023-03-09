@@ -5,15 +5,25 @@ module.exports = {
   getAllSeekers: () => {
     return db.Seeker.find({});
   },
+  getASeeker: (id) => {
+    return db.Seeker.find({ uid: id });
+  },
   getAllEmployers: () => {
     return db.Employer.find({});
+  },
+  getAnEmployer: (id) => {
+    return db.Employer.find({ uid: id });
   },
   getAllJobs: () => {
     return db.Job.find({});
   },
+  getAJob: (jobId) => {
+    return db.Job.find({ id: jobId });
+  },
   getAllBlogPosts: () => {
     return db.BlogPost.find({});
   },
+  // THESE 2 MODELS ARE SPECIFICALLY FOR DATA LOADING:
   // to create relevant documents - update as needed
   createInDb: (items, callback) => {
     items.forEach((item) => {
@@ -30,10 +40,10 @@ module.exports = {
   clearDb: () => {
     db.Employer.deleteMany()
       .then(() => {
-        console.log('cleared');
+        console.log('Collection cleared');
       })
       .catch((err) => {
-        console.log('unable to clear, with error ', err);
+        console.log('Unable to clear collection', err);
       });
   },
 };
