@@ -44,4 +44,21 @@ module.exports = {
         console.log('Unable to clear collection', err);
       });
   },
+  getJobsByIdArray: (ids) => {
+    return db.Job.find({ id: { $in: ids } });
+  },
+  getSeekersByIdArray: (query) => {
+    const { uid, jobId } = query;
+    return db.BlogPost.find({});
+  },
+  updateJobApplied: (query) => {
+    const { uid, jobId } = query;
+    return db.BlogPost.find({});
+  },
+  updateJobInterested: (uid, jobId) => {
+    return db.BlogPost.find({});
+  },
+  updateEmployerInterested: (uid, seekerId) => {
+    return db.BlogPost.find({});
+  },
 };

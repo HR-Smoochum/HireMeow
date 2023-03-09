@@ -9,17 +9,7 @@ import { HiEllipsisVertical, HiChevronDoubleDown } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 import JobDetail from './JobDetail.jsx';
 
-// Job = {
-//   id: 1,
-//   title: 'software engineer',
-//   location: 'seattle',
-//   employment: 'remote',
-//   experience: 'entry level',
-//   date: '3/1/2023',
-//   logo: 'https://images.app.goo.gl/SW3mMuphfe114aZT9',
-//   company: 'google',
-// }
-export default function JobCard({ Job, index, handleCheck }) {
+export default function JobCard({ Job, handleCheck }) {
   const [showMore, setShowMore] = useState(0);
 
   const handleDetail = () => {
@@ -40,8 +30,8 @@ export default function JobCard({ Job, index, handleCheck }) {
       {
         showMore === 0 && (
           <Box>
-            <input type="checkbox" id={index} style={{ width: '15px', height: '15px', color: 'brand.light' }} onChange={handleCheck} />
-            <label htmlFor={index}>
+            <input type="checkbox" id={Job.id} style={{ width: '15px', height: '15px', color: 'brand.light' }} onChange={handleCheck} />
+            <label htmlFor={Job.id}>
               <Card maxW="md">
                 <CardHeader>
                   <Flex spacing="8">
@@ -102,8 +92,8 @@ export default function JobCard({ Job, index, handleCheck }) {
         showMore === 1
         && (
           <Box>
-            <input type="checkbox" id={index} style={{ width: '15px', height: '15px', color: 'brand.light' }} />
-            <label htmlFor={index}>
+            <input type="checkbox" id={Job.id} style={{ width: '15px', height: '15px', color: 'brand.light' }} />
+            <label htmlFor={Job.id}>
               <JobDetail Job={Job} setShowMore={setShowMore} />
             </label>
           </Box>
