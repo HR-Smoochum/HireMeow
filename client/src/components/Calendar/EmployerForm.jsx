@@ -53,9 +53,9 @@ export default function EmployerForm({
   return (
     <form className="container" onSubmit={(e) => { handleSubmit(e); }}>
       <div className="tab">
-        <button className="tablinks" onClick={() => setInterestLevel('interested')}>Interested</button>
-        <button className="tablinks" onClick={() => setInterestLevel('veryInterested')}>Very Interested</button>
-        <button className="tablinks" onClick={() => setInterestLevel('extremelyInterested')}>Extremely Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('interested')}}>Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('veryInterested')}}>Very Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('extremelyInterested')}}>Extremely Interested</button>
      </div>
       <label>
         Candidates:
