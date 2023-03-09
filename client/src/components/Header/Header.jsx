@@ -7,6 +7,7 @@ import {
   Heading,
   Spacer,
   Menu,
+  MenuList,
   MenuButton,
   Button,
 } from '@chakra-ui/react';
@@ -58,7 +59,9 @@ export default function Header() {
           <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
             <AiOutlineMenu />
           </MenuButton>
-          <Navigation mode={mode} />
+          <MenuList>
+            <Navigation mode={mode} />
+          </MenuList>
         </Menu>
         { mode !== 'guest' ? <Notifications /> : null }
         <Menu>
