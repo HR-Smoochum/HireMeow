@@ -1,18 +1,20 @@
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useContext } from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
 import JobCard from '../Shared/ListCard.jsx';
+import JobContext from '../Utilities/JobContext.js';
 
 // COMPONENT
-function ResultList({ allJobs }) {
+function ResultList({ searchPageList }) {
   // SET STATES/CONSTANTS
-  console.log('allJobs prop: ', allJobs);
+  const { allJobs } = useContext(JobContext);
+
   return (
     <SimpleGrid spacing={6} templateColumns="repeat(2, minmax(15rem, 1fr))" bg="brand.green">
       {
-        allJobs.map(((job) => {
+        searchPageList.map(((job) => {
           return <JobCard job={job} key={job.id} />;
         }
         ))

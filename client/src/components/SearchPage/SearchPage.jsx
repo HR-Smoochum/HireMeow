@@ -1,5 +1,7 @@
 // LIBRARY IMPORTS
-import React, { useState, useContext, useRef } from 'react';
+import React, {
+  useState, useContext, useRef, useEffect,
+} from 'react';
 import { HStack, Box } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
@@ -14,13 +16,13 @@ import jobListingsData from '../Utilities/sampleJobListingData.js';
 // COMPONENT
 function SearchPage() {
   // SET STATES
+  const { allJobs } = useContext(JobContext);
   const [experiences, setExperiences] = useState(experienceList);
   const [environments, setEnvironments] = useState(environmentList);
   const [employments, setEmployments] = useState(employmentList);
   const [selectedSalary, setSelectedSalary] = useState([0, 100]);
   const [searchInput, setSearchInput] = useState('');
-  const [searchPageList, setSearchPageList] = useState(allJobs);
-  const { allJobs } = useContext(JobContext);
+  const [searchPageList, setSearchPageList] = useState(jobListingsData);
   const jobsRef = useRef([]);
   jobsRef.current = jobListingsData; // CHANGE THIS ONCE OTHER FEATURES WORK!!
 
@@ -59,7 +61,7 @@ function SearchPage() {
       .map((item) => item.label.toLowerCase());
 
     if (experiencesChecked.length) {
-      filteredList = filteredList.filter((job) => experiencesChecked.includes(job.experience));
+      filteredList = filteredList.filter((job) => experiencesChecked.includes(job.experience.toLowerCase()));
     }
 
     // Environments Filter
@@ -68,7 +70,7 @@ function SearchPage() {
       .map((item) => item.label.toLowerCase());
 
     if (environmentsChecked.length) {
-      filteredList = filteredList.filter((job) => environmentsChecked.includes(job.environment));
+      filteredList = filteredList.filter((job) => environmentsChecked.includes(job.environment.toLowerCase()));
     }
 
     // Employment Filter
@@ -77,7 +79,7 @@ function SearchPage() {
       .map((item) => item.label.toLowerCase());
 
     if (employmentsChecked.length) {
-      filteredList = filteredList.filter((job) => employmentsChecked.includes(job.employment));
+      filteredList = filteredList.filter((job) => employmentsChecked.includes(job.employment.toLowerCase()));
     }
 
     // Search Filter
@@ -89,25 +91,30 @@ function SearchPage() {
     const minSalary = selectedSalary[0];
     const maxSalary = selectedSalary[1];
 
-    filteredList = filteredList.filter(
-      (job) => (job.salary) / 1000 >= minSalary && (job.salary) / 1000 <= maxSalary
-    );
+    filteredList = filteredList.filter((job) => ((job.salary) / 1000 >= minSalary && (job.salary) / 1000 <= maxSalary));
 
     setSearchPageList(filteredList);
   };
+
+  useEffect(() => {
+    applyFilters();
+  }, [experiences, employments, environments, searchInput, selectedSalary]);
 
   return (
     <Box m="1rem" bg="brand.green">
       <Header />
       <SearchBar setSearchInput={setSearchInput} />
-      <HStack justify="flex-start">
+      <HStack justify="flex-start" align="flex-start">
         <FilterPanel
           handleExperienceChecked={handleExperienceChecked}
           handleEnvironmentChecked={handleEnvironmentChecked}
           handleEmploymentChecked={handleEmploymentChecked}
           handleChangeSalary={handleChangeSalary}
+          experiences={experiences}
+          environments={environments}
+          employments={employments}
         />
-        <ResultList allJobs={searchPageList} />
+        <ResultList searchPageList={searchPageList} />
       </HStack>
     </Box>
   );
