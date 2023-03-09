@@ -5,13 +5,14 @@
 
 // LIBRARY IMPORTS
 import React, { useState, useEffect } from 'react';
+import OuterModal from './OuterModal.jsx';
 import { createPortal } from 'react-dom';
 // LOCAL IMPORTS
 
 // COMPONENT
 export default function Modal({ children, isOpen }) {
   return createPortal(
-    isOpen && children,
+    isOpen && <OuterModal>{children}</OuterModal>,
     document.getElementById('modal-portal')
   );
 }

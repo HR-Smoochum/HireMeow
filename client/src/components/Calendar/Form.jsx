@@ -35,7 +35,7 @@ export default function Form({
       .then((res) => {
         return axios.get(`seekers/${seeker.uid}`)
       })
-      .then((res) => setEvents(res.data.events))
+      .then((res) => {setEvents(res.data[0].events); dismissModal()})
       .catch((err) => console.log(err));
   };
   return (
