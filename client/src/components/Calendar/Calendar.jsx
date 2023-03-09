@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
 import Form from './Form.jsx';
+import EmployerForm from './EmployerForm.jsx';
 import JobContext from '../Utilities/JobContext.js';
 import modalContext from '../Utilities/modalContext.js';
 import calendarContext from '../Utilities/calendarContext.js';
@@ -11,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
-
 // TODO: Button to create event modal, required field to select a job from their 'applied' list from seeker, job title & time
 
 export default function Calendar() {
@@ -19,6 +19,7 @@ export default function Calendar() {
   const { seeker, employer, mode } = useContext(JobContext);
   const {events, setEvents} = useContext(calendarContext);
   const [employers, setEmployers] = useState([]);
+  const [currEmployer, setCurrEmployer] = useState({});
 
   useEffect(() => {
     if (mode === 'seeker') {
@@ -35,7 +36,11 @@ export default function Calendar() {
     }
     if (mode === 'employer') {
       axios.get(`/employers/${employer.uid}`)
-        .then((res) => setEvents([...res.data[0].events]))
+        .then((res) => {
+          console.log('this is current employer', res.data[0]);
+          setEvents([...res.data[0].events]);
+          setCurrEmployer(res.data[0]);
+        })
         .catch((err) => console.log(err));
     }
   }, []);
@@ -45,7 +50,7 @@ export default function Calendar() {
     if (mode === 'seeker') {
       useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={employers} setEmployers={setEmployers} seeker={seeker}/>);
     } else if (mode === 'employer') {
-      console.log('TODO, make employer component');
+      useModal(<EmployerForm employer={currEmployer} />)
     }
   };
   // TODO: if mode is seeker or employer, change calendar appropriately
