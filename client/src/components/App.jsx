@@ -50,7 +50,7 @@ function App() {
                 </PrivateRoute>
               )}
             />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<SearchPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/seekers" element={<Search />} />
             <Route path="/jobs" element={<Search />} />
