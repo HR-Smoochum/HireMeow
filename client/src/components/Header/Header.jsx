@@ -55,14 +55,14 @@ export default function Header() {
       <Spacer />
       <Flex gap="2">
         <Menu>
-          <MenuButton as={Button}>
+          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
             <AiOutlineMenu />
           </MenuButton>
           <Navigation mode={mode} />
         </Menu>
         { mode !== 'guest' ? <Notifications /> : null }
         <Menu>
-          <MenuButton as={Button}>
+          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
             <CgProfile />
           </MenuButton>
           <Options mode={mode} firstName={firstName} />
