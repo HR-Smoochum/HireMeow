@@ -15,4 +15,12 @@ router.get('/jobs', controller.getJobs);
 router.get('/jobs/:id', controller.getAJob);
 router.get('/blogposts', controller.getBlogPosts);
 
+// get job or seekers in id array
+router.get('/jobsByIdArray', controller.getJobsByIdArray);
+router.get('/seekersByIdArray', controller.getSeekersByIdArray);
+// update saved jobs or saved seeker's status
+router.put('/jobsToApplied', controller.updateJobApplied);
+router.put('/jobInterested', controller.updateJobInterested);
+router.put('/seekerInterested', controller.updateSeekerInterested);
+
 module.exports = router;

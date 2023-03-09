@@ -13,9 +13,6 @@ export default function Navigation({ mode }) {
   if (mode === 'employer') {
     return (
       <MenuList>
-        <MenuItem onClick={(e) => handleClick(e, '/seekers')}>All Seekers</MenuItem>
-        <MenuDivider />
-        <MenuItem onClick={(e) => handleClick(e, '/myseekers')}>My Seekers</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/calendar')}>My Calendar</MenuItem>
         <MenuDivider />

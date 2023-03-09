@@ -7,6 +7,7 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   getASeeker: (req, res) => {
+    console.log('here???');
     models.getASeeker(req.params.uid)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
@@ -33,6 +34,34 @@ module.exports = {
   },
   getBlogPosts: (req, res) => {
     models.getAllBlogPosts()
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
+  getJobsByIdArray: (req, res) => {
+    // console.log('getJobsByIdArray query', req.query);
+    models.getJobsByIdArray(req.query.ids)
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
+  getSeekersByIdArray: (req, res) => {
+    models.getSeekersByIdArray(req.query)
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
+  updateJobApplied: (req, res) => {
+    // console.log('updateJobApplied query', req.body);
+    models.updateJobApplied(req.body)
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
+  updateJobInterested: (req, res) => {
+    console.log('updateJobInterested query', req.body);
+    models.updateJobInterested(req.body)
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
+  updateSeekerInterested: (req, res) => {
+    models.updateSeekerInterested()
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },

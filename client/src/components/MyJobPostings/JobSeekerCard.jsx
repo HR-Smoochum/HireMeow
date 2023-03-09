@@ -5,6 +5,7 @@ import {
   SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel,
 } from '@chakra-ui/react';
 import SeekerCard from './SeekerCard.jsx';
+import Header from '../Header/Header.jsx';
 
 // LOCAL IMPORTS
 
@@ -60,28 +61,31 @@ export default function JobSeekerCard() {
   ];
 
   return (
-
-    <Tabs isFitted variant="unstyled">
-      <TabList>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Very Interested</Tab>
-        <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Extremely Interested</Tab>
-      </TabList>
-      <TabPanels p="2rem">
-        <TabPanel>
-          <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
-            {
-              InterestedSeeker.map(((seeker, index) => {
-                return <SeekerCard seeker={seeker} key={index} />;
+    <>
+      <Header />
+      <Tabs isFitted variant="unstyled">
+        <TabList>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Very Interested</Tab>
+          <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Extremely Interested</Tab>
+        </TabList>
+        <TabPanels p="2rem">
+          <TabPanel>
+            <SimpleGrid spacing={6} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+              {
+                InterestedSeeker.map(((seeker, index) => {
+                  return <SeekerCard seeker={seeker} key={index} />;
+                }
+                ))
               }
-              ))
-            }
-          </SimpleGrid>
-        </TabPanel>
-        <TabPanel>Are 1, 2, 3</TabPanel>
-        <TabPanel>Red, yellow and blue.</TabPanel>
-      </TabPanels>
-    </Tabs>
+            </SimpleGrid>
+          </TabPanel>
+          <TabPanel>Are 1, 2, 3</TabPanel>
+          <TabPanel>Red, yellow and blue.</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
+
   );
 }
 
