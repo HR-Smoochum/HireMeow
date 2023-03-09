@@ -39,12 +39,12 @@ export default function Header() {
 
   useEffect(() => {
     if (mode === 'seeker') {
-      setFirstName(seeker.firstName);
+      setFirstName(seeker.first_name);
     }
     if (mode === 'employer') {
-      setFirstName(employer.firstName);
+      setFirstName(employer.first_name);
     }
-  }, [mode, seeker.firstName, employer.firstName]);
+  }, [mode, seeker.first_name, employer.first_name]);
 
   return (
     <Flex p="30" alignItems="center" maxHeight="md">

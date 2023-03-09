@@ -1,8 +1,8 @@
 const seekersData = [
   {
     uid: 1,
-    firstName: 'Meow',
-    lastName: 'Angelou',
+    first_name: 'Meow',
+    last_name: 'Angelou',
     industry: 'Arts & Literature',
     resume: {
       name: 'Meow Angelou',
@@ -107,8 +107,8 @@ const seekersData = [
   },
   {
     uid: 2,
-    firstName: 'Catniss',
-    lastName: 'Everdeen',
+    first_name: 'Catniss',
+    last_name: 'Everdeen',
     industry: 'Gastronomy',
     resume: {
       name: 'Catniss Everdeen',
@@ -201,8 +201,8 @@ const seekersData = [
   },
   {
     uid: 3,
-    firstName: 'Mouse',
-    lastName: 'Ketcher',
+    first_name: 'Mouse',
+    last_name: 'Ketcher',
     industry: 'Home Maintenance',
     resume: {
       name: 'Mouse Ketcher',
@@ -293,8 +293,8 @@ const seekersData = [
   },
   {
     uid: 4,
-    firstName: 'Sir',
-    lastName: 'Pursalot',
+    first_name: 'Sir',
+    last_name: 'Pursalot',
     resume: {
       name: 'Sir Pursalot',
       title: 'Ornithologist',
@@ -383,8 +383,8 @@ const seekersData = [
   },
   {
     uid: 5,
-    firstName: 'Garth',
-    lastName: 'Field',
+    first_name: 'Garth',
+    last_name: 'Field',
     industry: 'Health & Wellness',
     resume: {
       name: 'Garth Field',
@@ -480,8 +480,8 @@ const seekersData = [
   },
   {
     uid: 6,
-    firstName: 'Tabbytha',
-    lastName: 'Whiskers',
+    first_name: 'Tabbytha',
+    last_name: 'Whiskers',
     industry: 'Home Maintenance',
     resume: {
       name: 'Tabbytha Whiskers',
@@ -573,8 +573,8 @@ const seekersData = [
   },
   {
     uid: 7,
-    firstName: 'Allie',
-    lastName: 'Field',
+    first_name: 'Allie',
+    last_name: 'Field',
     industry: 'Health & Wellness',
     resume: {
       name: 'Allie Field',
@@ -667,8 +667,8 @@ const seekersData = [
   },
   {
     uid: 8,
-    firstName: 'Dolly',
-    lastName: 'Purrton',
+    first_name: 'Dolly',
+    last_name: 'Purrton',
     industry: 'Arts & Literature',
     resume: {
       name: 'Dolly Purrton',
@@ -760,8 +760,8 @@ const seekersData = [
   },
   {
     uid: 10,
-    firstName: 'Kit',
-    lastName: 'Pawter',
+    first_name: 'Kit',
+    last_name: 'Pawter',
     industry: 'Nature & Environment',
     resume: {
       name: 'Kit Pawter',
