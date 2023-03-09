@@ -25,8 +25,8 @@ export default function JobSeekerCard() {
       // console.log('get employer info', results.data);
       if (results.data.length !== 0) {
         setInterested(results.data[0].saved.interested);
-        setVeryInterested(results.data[0].saved['very interested']);
-        setExtremelyInterested(results.data[0].saved['extremely interested']);
+        setVeryInterested(results.data[0].saved.veryInterested);
+        setExtremelyInterested(results.data[0].saved.extremelyInterested);
       }
     }).catch((err) => {
       console.error('get seeker from db err', err);

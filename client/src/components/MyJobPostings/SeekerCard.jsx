@@ -36,11 +36,11 @@ export default function SeekerCard({ seeker, handleInterested }) {
                 <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
                 Interested
               </MenuItem>
-              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="very interested">
+              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="veryInterested">
                 <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
                 Very Interested
               </MenuItem>
-              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="extremely interested">
+              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="extremelyInterested">
                 <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
                 Extremely Interested
               </MenuItem>
