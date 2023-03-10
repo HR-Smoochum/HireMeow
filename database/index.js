@@ -10,16 +10,18 @@ db.once('open', () => {
 
 const seeker = mongoose.Schema({
   uid: {
-    type: Number,
+    type: String,
     unique: true,
   },
   first_name: String,
   last_name: String,
+  photo: String,
   industry: String,
   resume: Object, // {title: '', skills:''}
   notes: Array,
   saved: Object,
   events: Array,
+  resumeFilePath: String,
 });
 /* e.g
 saved: {
@@ -37,7 +39,7 @@ events: [
 
 const employer = mongoose.Schema({
   uid: {
-    type: Number,
+    type: String,
     unique: true,
   },
   first_name: String,
