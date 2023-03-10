@@ -579,8 +579,8 @@ const seekers = [
   },
   {
     uid: 7,
-    firstName: 'Allie',
-    lastName: 'Kat',
+    first_name: 'Allie',
+    last_name: 'Kat',
     photo: 'https://source.unsplash.com/IuJc2qh2TcA',
     industry: 'Health & Wellness',
     resume: {
