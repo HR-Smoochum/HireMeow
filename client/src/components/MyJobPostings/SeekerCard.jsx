@@ -14,7 +14,7 @@ export default function SeekerCard({ seeker, handleInterested }) {
       <CardHeader>
         <Flex spacing="8">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+            <Avatar name="Dan Abrahmov" src={seeker.photo} />
             <Box>
               <Heading size="sm">
                 {seeker.first_name}
