@@ -35,18 +35,20 @@ export default function Form({
       .catch((err) => console.log(err));
   };
   return (
-    <form className="container" onSubmit={(e) => { handleSubmit(e); }}>
-      <label>
-        Applied Jobs:
-        <select onChange={handleSelection} name="employer">
-          {appliedEmployers.map((ele) => <option key={ele.uid}>{`${ele.first_name} ${ele.last_name}`}</option>)}
-        </select>
-      </label>
-      <label>Schedule a time:</label>
-
-      <input type="datetime-local" name="interviewTime" />
-
-      <button type="submit">Submit</button>
+    <form className="formContainer" onSubmit={(e) => { handleSubmit(e); }}>
+      <div className="formContent">
+        <div className="formField">
+          <div className="fieldLabel">Applied Jobs:</div>
+          <select className="fieldInput" onChange={handleSelection} name="employer">
+            {appliedEmployers.map((ele) => <option key={ele.uid}>{`${ele.first_name} ${ele.last_name}`}</option>)}
+          </select>
+        </div>
+        <div className="formField">
+          <div className="fieldLabel">Schedule a time:</div>
+          <input className="fieldInput" type="datetime-local" name="interviewTime" />
+        </div>
+        <button className="formSubmitButton" type="submit">Submit</button>
+      </div>
     </form>
   );
 }
