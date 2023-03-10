@@ -19,9 +19,9 @@ function Example() {
       </h2>
       <p>
         {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-        Welcome, {seeker.firstName} {seeker.lastName}, your ID is {seekerID}! <br />
+        Welcome, {seeker.first_name} {seeker.last_name}, your ID is {seekerID}! <br />
         {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-        An Employer you might be interested is: {employer.firstName} {employer.lastName}. <br />
+        An Employer you might be interested is: {employer.first_name} {employer.last_name}. <br />
         {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
         A job you might be interested in is: {aJob.title}.
       </p>
