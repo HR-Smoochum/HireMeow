@@ -21,6 +21,10 @@ router.get('/blogposts', controller.getBlogPosts);
 router.post('/resumeData', upload.single('file'), controller.postResume);
 router.get('/getResume', controller.getResume);
 
+// post user data
+router.post('/seekers/signup', controller.postSeeker);
+router.post('/employers/signup', controller.postEmployer);
+
 // get job or seekers in id array
 router.get('/jobsByIdArray', controller.getJobsByIdArray);
 router.get('/seekersByIdArray', controller.getSeekersByIdArray);

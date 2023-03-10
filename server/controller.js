@@ -114,4 +114,22 @@ module.exports = {
       }
     });
   },
+  postSeeker: (req, res) => {
+    models.postSeeker(req.body)
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  },
+  postEmployer: (req, res) => {
+    models.postEmployer(req.body)
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  },
 };
