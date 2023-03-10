@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import JobContext from '../Utilities/JobContext.js';
+
 
 export default function Form({
   dismissModal, appliedIds, events, setEvents, employers, setEmployers, seeker
 }) {
+  const { allJobs } = useContext(JobContext);
+
   function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
-      if (appliedIds.includes(Number(employer.uid))) {
+      if (appliedIds.includes(Number(employer.id))) {
         employerIndustries.push(employer);
       }
     });
     return employerIndustries;
   }
-  const appliedEmployers = getMatchingEmployers(appliedIds, employers);
+  const appliedEmployers = getMatchingEmployers(appliedIds, allJobs);
   const [employer, setEmployer] = useState(appliedEmployers[0]);
 
   const handleSelection = (e) => {
@@ -40,7 +44,7 @@ export default function Form({
         <div className="formField">
           <div className="fieldLabel">Applied Jobs:</div>
           <select className="fieldInput" onChange={handleSelection} name="employer">
-            {appliedEmployers.map((ele) => <option key={ele.uid}>{`${ele.first_name} ${ele.last_name}`}</option>)}
+            {appliedEmployers.map((ele) => <option key={ele.id}>{`${ele.title} @ ${ele.company}`}</option>)}
           </select>
         </div>
         <div className="formField">
