@@ -11,7 +11,7 @@ export default function AppliedAndInterviewedJobDetail({ Job, setShowMore}) {
       <Heading as="h4" size="md">
         {Job.title}
       </Heading>
-      <Tag bg="brand.green" mb="30px">{Job.company}</Tag>
+      <Tag bg="brand.green" mb="30px" mt="8px">{Job.company}</Tag>
       <Box onClick={() => setShowMore(0)}>
         {Job.description}
       </Box>
