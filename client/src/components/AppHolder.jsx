@@ -3,11 +3,8 @@ import React, { useEffect, useState, useMemo } from 'react';
 
 // LOCAL IMPORTS
 import App from './App.jsx';
-import * as request from './Utilities/axiosRequests.js';
+import { get } from './Utilities/axiosRequests.js';
 import JobContext from './Utilities/JobContext.js';
-import employersData from './Utilities/sampleEmployerData.js';
-import seekersData from './Utilities/sampleSeekerData.js';
-import jobListingsData from './Utilities/sampleJobListingData.js';
 import Modal from './Shared/Modal.jsx';
 import ModalContext from './Utilities/modalContext';
 import CalendarContext from './Utilities/calendarContext';
@@ -15,50 +12,67 @@ import CalendarContext from './Utilities/calendarContext';
 // COMPONENT
 function AppHolder() {
   // STATES
-  const [mode, setMode] = useState('employer'); // ['guest', 'seeker', 'employer']
+  const [mode, setMode] = useState('seeker'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
-  const [seeker, setSeeker] = useState(seekersData[0]);
-  const [employer, setEmployer] = useState(employersData[0]);
-  const [aJob, setAJob] = useState(jobListingsData[0]);
-  const [allJobs, setAllJobs] = useState(jobListingsData);
+  const [seekers, setSeekers] = useState([]);
+
+  const [seeker, setSeeker] = useState({});
+  const [employer, setEmployer] = useState({});
+  const [aJob, setAJob] = useState({});
+  const [allJobs, setAllJobs] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState([]);
   const [events, setEvents] = useState([]);
-  // HOOKS
-  function getSeeker() {
-    return request.get(`/seeker/${seekerID}`)
-      .then((response) => setSeeker(response.data))
-      .catch((error) => { console.error(error); });
-  }
-  function getEmployer() {
-    return request.get(`/employer/${employerID}`)
-      .then((response) => setEmployer(response.data))
-      .catch((error) => { console.error(error); });
-  }
-  function getAJob() {
-    return request.get(`/job/${jobID}`)
-      .then((response) => setAJob(response.data))
-      .catch((error) => { console.error(error); });
-  }
-  function getAllJobs() {
-    return request.get('/jobs')
-      .then((response) => setAllJobs(response.data))
-      .catch((error) => { console.error(error); });
-  }
 
-  const updateAllData = async () => {
-    const dataSeeker = await getSeeker();
-    const dataEmployer = await getEmployer();
-    const dataAJob = await getAJob();
-    const dataAllJobs = await getAllJobs();
-    setSeeker(dataSeeker);
-    setEmployer(dataEmployer);
-    setAJob(dataAJob);
-    setAllJobs(dataAllJobs);
+  // AXIOS REQUESTS
+  const getAllSeekers = () => {
+    return get('/seekers')
+      .then(({ data }) => { setSeekers(data); })
+      .catch((err) => { console.error('eror getting all seekers', err); });
   };
 
+  const getSeeker = () => {
+    return get(`/seekers/${seekerID}`)
+      .then(({ data }) => setSeeker(data))
+      .catch((err) => { console.error('error getting seeker', seekerID, err); });
+  };
+
+  const getEmployer = () => {
+    return get(`/employers/${employerID}`)
+      .then(({ data }) => setEmployer(data))
+      .catch((err) => { console.error('error getting employer', employerID, err); });
+  };
+
+  const getAJob = () => {
+    return get(`/jobs/${jobID}`)
+      .then(({ data }) => setAJob(data))
+      .catch((err) => { console.error('error getting job', jobID, err); });
+  };
+
+  const getAllJobs = () => {
+    return get('/jobs')
+      .then(({ data }) => setAllJobs(data))
+      .catch((err) => { console.error('error getting all jobs', err); });
+  };
+
+  // updates all the data at load
+  useEffect(() => {
+    const requests = [
+      getAllSeekers(),
+      getSeeker(),
+      getEmployer(),
+      getAJob(),
+      getAllJobs(),
+    ];
+
+    Promise.all(requests)
+      .then(() => { console.log('successfully loaded data'); })
+      .catch((err) => { console.log('error updating all data', err); });
+  }, []);
+
+  // modal functions
   const useModal = (content) => {
     if (!modalIsOpen) {
       setModalContent(content);
@@ -72,21 +86,14 @@ function AppHolder() {
     setModalIsOpen(false);
   };
 
-  // WE'LL KEEP THIS COMMENTED OUT UNTIL OUR SERVER ROUTES + DB ARE UP AND RUNNING
-  // useEffect(() => {
-  //   updateAllData()
-  //     .catch((error) => console.error(error));
-  // }, [seekerID, employerID, jobID]);
-
   const providerValues = useMemo(() => ({
-    mode, setMode, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
-  }), [mode, seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
-
+    mode, setMode, seekers, setSeekers, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
+  }), [mode, seekers, seekerID, employerID, jobID, seeker, employer, aJob, allJobs]);
 
   return (
     <div>
       <ModalContext.Provider value={{useModal, dismissModal}}>
-        <CalendarContext.Provider value ={{events, setEvents}}>
+        <CalendarContext.Provider value={{events, setEvents}}>
           <JobContext.Provider value={providerValues}>
             <Modal isOpen={modalIsOpen}>
               {modalContent}

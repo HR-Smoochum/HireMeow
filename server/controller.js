@@ -9,7 +9,7 @@ module.exports = {
   getASeeker: (req, res) => {
     console.log('here???');
     models.getASeeker(req.params.uid)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getEmployers: (req, res) => {
@@ -19,7 +19,7 @@ module.exports = {
   },
   getAnEmployer: (req, res) => {
     models.getAnEmployer(req.params.uid)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getJobs: (req, res) => {
@@ -29,7 +29,7 @@ module.exports = {
   },
   getAJob: (req, res) => {
     models.getAJob(req.params.id)
-      .then((dbRes) => res.send(dbRes))
+      .then((dbRes) => res.send(dbRes[0]))
       .catch((err) => res.status(400).send(err));
   },
   getBlogPosts: (req, res) => {
@@ -47,6 +47,16 @@ module.exports = {
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
+  updateAnEmployerEvent: (req, res) => {
+    const interviewEvent = {
+      title: req.body.candidate,
+      date: req.body.interviewTime,
+    };
+    console.log('this is backend interviewEvent', interviewEvent);
+    models.updateAnEmployerEvent(req.params.uid, { events: interviewEvent })
+      .then((dbRes) => res.send(dbRes))
+      .catch((err) => res.status(400).send(err));
+  },
   getJobsByIdArray: (req, res) => {
     // console.log('getJobsByIdArray query', req.query);
     models.getJobsByIdArray(req.query.ids)
@@ -54,7 +64,8 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   getSeekersByIdArray: (req, res) => {
-    models.getSeekersByIdArray(req.query)
+    console.log('getSeekersByIdArray', req.query.ids);
+    models.getSeekersByIdArray(req.query.ids)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
@@ -65,13 +76,13 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   updateJobInterested: (req, res) => {
-    console.log('updateJobInterested query', req.body);
+    // console.log('updateJobInterested query', req.body);
     models.updateJobInterested(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },
   updateSeekerInterested: (req, res) => {
-    models.updateSeekerInterested()
+    models.updateSeekerInterested(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
   },

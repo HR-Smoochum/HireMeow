@@ -573,15 +573,15 @@ const seekers = [
   },
   {
     uid: 7,
-    first_name: 'Allie',
-    last_name: 'Field',
+    firstName: 'Allie',
+    lastName: 'Kat',
     industry: 'Health & Wellness',
     resume: {
-      name: 'Allie Field',
+      name: 'Allie Kat',
       title: 'Professional Lap Warmer',
       contact: {
         phone: '555-555-5555',
-        email: 'allieField@example.com',
+        email: 'allieKat@example.com',
         address: {
           street: '123 Main St',
           city: 'Anytown',
@@ -854,16 +854,16 @@ const seekers = [
   {
     uid: 10,
     first_name: 'Kit',
-    last_name: 'Pawter',
+    last_lame: 'Clawlins',
     industry: 'Nature & Environment',
     resume: {
-      name: 'Kit Pawter',
+      name: 'Kit Clawlins',
       title: 'Dog Badgerer',
       contact: {
         phone: '555-555-5555',
-        email: 'kitpawter@example.com',
+        email: 'kitclawlins@catmail.com',
         address: {
-          street: '123 Forest Rd',
+          street: '123 Furrest Rd',
           city: 'Greenwood',
           state: 'WA',
           zip: '98056',

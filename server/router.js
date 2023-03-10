@@ -10,6 +10,7 @@ const router = express.Router();
 router.get('/seekers', controller.getSeekers);
 router.get('/seekers/:uid', controller.getASeeker);
 router.put('/seekers/:uid', controller.updateASeekerEvent);
+router.put('/employers/:uid', controller.updateAnEmployerEvent);
 router.get('/employers', controller.getEmployers);
 router.get('/employers/:uid', controller.getAnEmployer);
 router.get('/jobs', controller.getJobs);

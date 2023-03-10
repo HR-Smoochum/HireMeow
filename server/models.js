@@ -31,25 +31,24 @@ module.exports = {
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },
-  getSeekersByIdArray: (query) => {
-    const { uid, jobId } = query;
-    return BlogPost.find({});
+  getSeekersByIdArray: (ids) => {
+    return Seeker.find({ uid: { $in: ids } });
   },
   updateJobApplied: async (data) => {
     const { uid, ids } = data;
     const userInfo = await Seeker.find({ uid });
     const { saved } = userInfo[0];
-    console.log('saved', saved);
+    // console.log('saved', saved);
     const notInIds = (id) => {
-      console.log(typeof (id));
+      // console.log(typeof (id));
       if (ids.includes(id)) {
         return false;
       }
       return true;
     };
     saved.interested = saved.interested.filter(notInIds);
-    saved['very interested'] = saved['very interested'].filter(notInIds);
-    saved['extremely interested'] = saved['extremely interested'].filter(notInIds);
+    saved.veryInterested = saved.veryInterested.filter(notInIds);
+    saved.extremelyInterested = saved.extremelyInterested.filter(notInIds);
     ids.forEach((id) => {
       saved.applied.push(id);
     });
@@ -65,13 +64,32 @@ module.exports = {
       return id !== item;
     };
     saved.interested = saved.interested.filter(removeId);
-    saved['very interested'] = saved['very interested'].filter(removeId);
-    saved['extremely interested'] = saved['extremely interested'].filter(removeId);
+    saved.veryInterested = saved.veryInterested.filter(removeId);
+    saved.extremelyInterested = saved.extremelyInterested.filter(removeId);
     saved[level].push(id);
     // console.log('saved', saved);
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
-  updateSeekerInterested: ({ uid, seekerId }) => {
-    return BlogPost.find({});
+  updateSeekerInterested: async (data) => {
+    // console.log('data', data);
+    const { uid, id, level } = data;
+    const userInfo = await Employer.find({ uid });
+    const { saved } = userInfo[0];
+    // console.log('saved', saved);
+    const removeId = (item) => {
+      return id !== item;
+    };
+    saved.interested = saved.interested.filter(removeId);
+    saved.veryInterested = saved.veryInterested.filter(removeId);
+    saved.extremelyInterested = saved.extremelyInterested.filter(removeId);
+    saved[level].push(id);
+    // console.log('saved', saved);
+    return Employer.findOneAndUpdate({ uid }, { saved }, { new: true });
+  },
+  updateASeekerEvent: (id, seekerEvent) => {
+    return Seeker.updateOne({uid: id}, {$addToSet: seekerEvent})
+  },
+  updateAnEmployerEvent: (id, employerEvent) => {
+    return Employer.updateOne({uid: id}, {$addToSet: employerEvent})
   },
 };

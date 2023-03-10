@@ -9,11 +9,9 @@ import axios from 'axios';
 import JobCard from './JobCard.jsx';
 import Header from '../Header/Header.jsx';
 import AppliedAndInterviewedJobs from './AppliedAndInterviewedJobs.jsx';
-// import { useNavigate } from 'react-router-dom';
 
 // COMPONENT
 export default function CardDashboard() {
-  // 查询当前job seeker用户的saved参数，找出保存的所有相关的Jobs信息
   const [checked, setChecked] = useState([]);
   const [interested, setInterested] = useState([]);// store interested job id array
   const [veryInterested, setVeryInterested] = useState([]);
@@ -27,7 +25,6 @@ export default function CardDashboard() {
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [interviewedJobs, setInterviewedJobs] = useState([]);
 
-  // const navigate = useNavigate();
   const [checkboxes, setCheckboxes] = useState([]);
 
   const getAllJobsId = () => {
@@ -35,10 +32,10 @@ export default function CardDashboard() {
     axios.get(`http://localhost:3000/seekers/${uid}`).then((results) => {
       if (results.data.length !== 0) {
         setInterested(results.data[0].saved.interested);
-        setVeryInterested(results.data[0].saved['very interested']);
-        setExtremelyInterested(results.data[0].saved['extremely interested']);
+        setVeryInterested(results.data[0].saved.veryInterested);
+        setExtremelyInterested(results.data[0].saved.extremelyInterested);
         setApplied(results.data[0].saved.applied);
-        setInterviewed(results.data[0].saved['interviewed for']);
+        setInterviewed(results.data[0].saved.interviewedFor);
       }
     }).catch((err) => {
       console.error('get seeker from db err', err);
@@ -51,45 +48,25 @@ export default function CardDashboard() {
   const axiosFunc = (arr) => {
     return axios.get('http://localhost:3000/jobsByIdArray', { params: { ids: arr } });
   };
-  const getAllJobs = () => {
-    axiosFunc(interested).then((results) => {
-      setInterestedJobs(results.data);
-    }).catch((err) => {
-      console.error('get jobs from db err', err);
-    });
-    axiosFunc(veryInterested).then((results) => {
-      setVeryInterestedJobs(results.data);
-    }).catch((err) => {
-      console.error('get jobs from db err', err);
-    });
-    axiosFunc(extremelyInterested).then((results) => {
-      setExtremelyInterestedJobs(results.data);
-    }).catch((err) => {
-      console.error('get jobs from db err', err);
-    });
-    axiosFunc(applied).then((results) => {
-      setAppliedJobs(results.data);
-    }).catch((err) => {
-      console.error('get jobs from db err', err);
-    });
-    axiosFunc(interviewed).then((results) => {
-      setInterviewedJobs(results.data);
-    }).catch((err) => {
-      console.error('get jobs from db err', err);
-    });
+  const getAllJobs = async () => {
+    const iJobs = await axiosFunc(interested);
+    setInterestedJobs(iJobs.data);
+
+    const vJobs = await axiosFunc(veryInterested);
+    setVeryInterestedJobs(vJobs.data);
+
+    const eJobs = await axiosFunc(extremelyInterested);
+    setExtremelyInterestedJobs(eJobs.data);
+
+    const aJobs = await axiosFunc(applied);
+    setAppliedJobs(aJobs.data);
+
+    const interviewJobs = await axiosFunc(interviewed);
+    setInterviewedJobs(interviewJobs.data);
   };
   useEffect(() => {
     getAllJobs();
   }, [interested, veryInterested, extremelyInterested, applied, interviewed]);
-
-  // console.log('interested Jobs', interestedJobs);
-  // console.log('very interested Jobs', veryInterestedJobs);
-  // console.log('extremely interested Jobs', extremelyInterestedJobs);
-  // console.log('applied', appliedJobs);
-  // console.log('interviewed', interviewedJobs);
-  // console.log('interested', interested);
-  // console.log('very interested', veryInterested);
-  // console.log('extremely interested', extremelyInterested);
 
   const handleCheck = (e) => {
     const idNum = parseInt(e.target.id, 10);
@@ -126,7 +103,6 @@ export default function CardDashboard() {
       getAllJobsId();
       getAllJobs();
       setChecked([]);
-      // navigate('/jobs');
     }).catch((err) => {
       console.log('change to applied err', err);
     });
