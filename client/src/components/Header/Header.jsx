@@ -52,7 +52,7 @@ export default function Header() {
       <Spacer />
       <Flex gap="2">
         <Menu>
-          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
+          <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
             <AiOutlineMenu />
           </MenuButton>
           <MenuList>
@@ -61,7 +61,7 @@ export default function Header() {
         </Menu>
         { mode !== 'guest' ? <Notifications /> : null }
         <Menu>
-          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
+          <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
             <CgProfile />
           </MenuButton>
           <Options mode={mode} firstName={firstName} />

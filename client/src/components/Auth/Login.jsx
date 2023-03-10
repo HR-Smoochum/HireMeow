@@ -2,7 +2,7 @@
 // LIBRARY IMPORTS
 import React, { useState, useContext } from 'react';
 import {
-  FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
+  FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center, Box,
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ function Login() {
   return (
     <>
       <Header />
-      <Card maxW="500px" margin="auto">
+      <Card bg="brand.light" maxW="500px" margin="auto">
         <CardBody>
           <Center>
             <Heading as="h1" size="xl">Log In</Heading>
@@ -59,13 +59,13 @@ function Login() {
               <Center p={4}>
                 <RadioGroup onChange={setUser} value={user}>
                   <Stack direction="row">
-                    <Radio value="seeker">Job Seeker</Radio>
-                    <Radio value="employer">Employer</Radio>
+                    <Radio colorScheme="green" value="seeker">Job Seeker</Radio>
+                    <Radio colorScheme="green" value="employer">Employer</Radio>
                   </Stack>
                 </RadioGroup>
               </Center>
               <Center>
-                <Button disabled={loading} type="submit">Log In</Button>
+                <Button bg="brand.green" disabled={loading} type="submit">Log In</Button>
               </Center>
             </FormControl>
           </form>

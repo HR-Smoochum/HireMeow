@@ -102,7 +102,7 @@ function SearchPage() {
   }, [experiences, employments, environments, searchInput, selectedSalary]);
 
   return (
-    <Box m="1rem" bg="brand.green">
+    <Box m="1rem" bg="brand.offWhite">
       <Header />
       <SearchBar setSearchInput={setSearchInput} />
       <HStack justify="flex-start" align="flex-start">

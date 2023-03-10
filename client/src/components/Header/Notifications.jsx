@@ -37,7 +37,7 @@ function Notifications() {
 
   return (
     <Menu>
-      <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
+      <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
         <IoNotificationsSharp />
       </MenuButton>
       <MenuList>
