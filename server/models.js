@@ -32,6 +32,14 @@ module.exports = {
       resumeFilePath: `${path}`,
     });
   },
+  postSeeker: (user) => {
+    console.log(user);
+    return Seeker.create(user);
+  },
+  postEmployer: (user) => {
+    console.log(user);
+    return Employer.create(user);
+  },
 
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
