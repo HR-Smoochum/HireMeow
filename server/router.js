@@ -1,6 +1,7 @@
 // LIBRARY IMPORTS
 const express = require('express');
 const multer = require('multer');
+
 const upload = multer({ dest: './database/uploads/' });
 
 // LOCAL IMPORTS

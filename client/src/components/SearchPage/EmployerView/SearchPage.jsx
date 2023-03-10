@@ -1,6 +1,6 @@
 // LIBRARY IMPORTS
 import React, {
-  useState, useRef, useEffect,
+  useState, useRef, useEffect, useContext,
 } from 'react';
 import { VStack } from '@chakra-ui/react';
 
@@ -8,15 +8,16 @@ import { VStack } from '@chakra-ui/react';
 import Header from '../../Header/Header.jsx';
 import ResultList from './ResultList.jsx';
 import SearchBar from '../SearchBar.jsx';
-import seekersData from '../../Utilities/sampleSeekerData.js';
+import JobContext from '../../Utilities/JobContext.js';
 
 // COMPONENT
 function SearchPage() {
   // SET STATES
+  const { seekers } = useContext(JobContext);
   const [searchInput, setSearchInput] = useState('');
-  const [searchPageList, setSearchPageList] = useState(seekersData);
+  const [searchPageList, setSearchPageList] = useState(seekers);
   const seekersRef = useRef([]);
-  seekersRef.current = seekersData;
+  seekersRef.current = seekers;
 
   // HOOKS
   const applyFilters = () => {

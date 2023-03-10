@@ -1,17 +1,16 @@
-/* eslint-disable react/prop-types */
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Card, CardHeader, CardBody, Text, Heading, Flex, Box, IconButton, Menu, MenuButton, MenuList, MenuItem, Icon, Avatar,
 } from '@chakra-ui/react';
 import { IoMdPaw } from 'react-icons/io';
 import { HiEllipsisVertical } from 'react-icons/hi2';
 
-function SeekerCard({ seeker }) {
-  const handleInterested = (e) => {
-    console.log(e.target);
-  };
+// LOCAL IMPORTS
+import JobContext from '../../Utilities/JobContext.js';
 
+function SeekerCard({ seeker, handleInterested }) {
+  const { employerID } = useContext(JobContext);
   return (
     <Card maxW="md" bg="brand.lightOff">
       <CardHeader>
@@ -35,15 +34,15 @@ function SeekerCard({ seeker }) {
               variant="ghost"
             />
             <MenuList>
-              <MenuItem bg="brand.green" value="interested">
+              <MenuItem bg="brand.green" onClick={(e) => handleInterested(e, employerID, seeker.uid)} value="interested">
                 <Icon as={IoMdPaw} color="brand.yellow" mr="3px" />
                 Interested
               </MenuItem>
-              <MenuItem onClick={handleInterested} value="very interested">
+              <MenuItem onClick={(e) => handleInterested(e, employerID, seeker.uid)} value="veryInterested">
                 <Icon as={IoMdPaw} color="brand.teal" mr="3px" />
                 Very Interested
               </MenuItem>
-              <MenuItem onClick={handleInterested} value="extremely interested">
+              <MenuItem onClick={(e) => handleInterested(e, employerID, seeker.uid)} value="extremelyInterested">
                 <Icon as={IoMdPaw} color="brand.purple" mr="3px" />
                 Extremely Interested
               </MenuItem>
