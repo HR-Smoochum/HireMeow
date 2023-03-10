@@ -51,9 +51,6 @@ export default function SeekerCard({ seeker, handleInterested }) {
         </Flex>
       </CardHeader>
       <CardBody>
-        <Text>
-          {seeker.resume.skills.length !== 0 && seeker.resume.skills[0]}
-        </Text>
         {
           seeker.resume.skills.map((skill, index) => {
             return <Skill skill={skill} key={index} />;
