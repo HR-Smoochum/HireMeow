@@ -1,5 +1,5 @@
 // LIBRARY IMPORTS
-import React, { useContext } from 'react';
+import React from 'react';
 import { SimpleGrid, useToast } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
@@ -8,6 +8,7 @@ import { put } from '../../Utilities/axiosRequests.js';
 
 // COMPONENT
 function ResultList({ searchPageList }) {
+  // SET STATES/CONSTANTS
   const toast = useToast();
 
   // HANDLE EVENTS
