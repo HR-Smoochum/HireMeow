@@ -19,12 +19,10 @@ function Login() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState('seeker');
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
   const { setMode } = useContext(JobContext);
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
   // eslint-disable-next-line consistent-return
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,8 +36,6 @@ function Login() {
     }
     setLoading(false);
     setMode(user);
-    // console.log(currentUser);
-    // console.log(currentUser.uid);
     navigate('/');
   }
 
@@ -57,9 +53,9 @@ function Login() {
           <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel>Email</FormLabel>
-              <Input type="email" id="1" value={email} onChange={handleEmailChange} required />
+              <Input type="email" id="1" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <FormLabel>Password</FormLabel>
-              <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
+              <Input type="password" id="2" value={password} onChange={(e) => setPassword(e.target.value)} required />
               <Center p={4}>
                 <RadioGroup onChange={setUser} value={user}>
                   <Stack direction="row">

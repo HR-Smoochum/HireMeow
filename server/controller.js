@@ -115,7 +115,6 @@ module.exports = {
     });
   },
   postSeeker: (req, res) => {
-    console.log(req.body);
     models.postSeeker(req.body)
       .then(() => {
         res.sendStatus(201);

@@ -53,11 +53,10 @@ function Signup() {
       };
       if (user === 'seeker') {
         axios.post('/seekers/signup', userData);
-      } else if (user === 'employer') {
+      } else {
         axios.post('/employers/signup', userData);
       }
     }
-    // console.log(currentUser.uid);
     navigate('/login');
   }
 
