@@ -1,5 +1,5 @@
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useContext } from 'react';
 import { extendTheme, ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './Auth/contexts/AuthContext';
@@ -16,6 +16,18 @@ import SavedJobs from './MyJobPostings/CardDashboard';
 import SavedSeekers from './MyJobPostings/JobSeekerCard';
 import JobSearch from './SearchPage/SeekerView/SearchPage.jsx';
 import SeekerSearch from './SearchPage/EmployerView/SearchPage.jsx';
+import JobContext from './Utilities/JobContext.js';
+
+function Home() {
+  const { mode } = useContext(JobContext);
+  if (mode === 'employer') {
+    return <SeekerSearch />;
+  }
+
+  if (mode === 'seeker') {
+    return <JobSearch />;
+  }
+}
 
 // COMPONENT
 function App() {
@@ -47,7 +59,7 @@ function App() {
               path="/"
               element={(
                 <PrivateRoute>
-                  <JobSearch />
+                  <Home />
                 </PrivateRoute>
               )}
             />

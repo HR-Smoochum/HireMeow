@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence,
 } from 'firebase/auth';
 import { auth } from '../firebase';
+import JobContext from '../../Utilities/JobContext.js';
 
 const AuthContext = React.createContext();
 
@@ -13,6 +14,7 @@ export function useAuth() {
 
 // eslint-disable-next-line react/prop-types
 export function AuthProvider({ children }) {
+  const { setMode } = useContext(JobContext);
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -26,6 +28,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
+    setMode('guest');
     return signOut(auth);
   }
 
