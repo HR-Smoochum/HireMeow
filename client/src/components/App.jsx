@@ -14,7 +14,8 @@ import Blog from './Blog/Blog.jsx';
 import Resume from './Resume/Resume.jsx';
 import SavedJobs from './MyJobPostings/CardDashboard';
 import SavedSeekers from './MyJobPostings/JobSeekerCard';
-import Search from './SearchPage/SearchPage.jsx';
+import JobSearch from './SearchPage/SeekerView/SearchPage.jsx';
+import SeekerSearch from './SearchPage/EmployerView/SearchPage.jsx';
 
 // COMPONENT
 function App() {
@@ -46,14 +47,14 @@ function App() {
               path="/"
               element={(
                 <PrivateRoute>
-                  <Search />
+                  <JobSearch />
                 </PrivateRoute>
               )}
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/seekers" element={<Search />} />
-            <Route path="/jobs" element={<Search />} />
+            <Route path="/alljobs" element={<JobSearch />} />
+            <Route path="/allseekers" element={<SeekerSearch />} />
             <Route path="/myjobs" element={<SavedJobs />} />
             <Route path="/myseekers" element={<SavedSeekers />} />
             <Route path="/notes" element={<Notes />} />

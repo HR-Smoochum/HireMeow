@@ -27,7 +27,23 @@ module.exports = {
   getAllBlogPosts: () => {
     return BlogPost.find({});
   },
-
+  getNotes: () => {
+    return Seeker.find({});
+  },
+  postResume: (file, path, seekerName) => {
+    return Seeker.updateOne({ uid: seekerName }, {
+      resumeFilePath: `${path}`,
+    });
+  },
+  postSeeker: (user) => {
+    return Seeker.create(user);
+  },
+  postEmployer: (user) => {
+    return Employer.create(user);
+  },
+  getResumeId: (seekerId) => {
+    return Seeker.find({ uid: seekerId });
+  },
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },
@@ -56,8 +72,10 @@ module.exports = {
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateJobInterested: async (data) => {
+    // console.log('data: ', data);
     const { uid, id, level } = data;
     const userInfo = await Seeker.find({ uid });
+    // console.log('userInfo: ', userInfo);
     const { saved } = userInfo[0];
     // console.log('saved', saved);
     const removeId = (item) => {
@@ -85,5 +103,11 @@ module.exports = {
     saved[level].push(id);
     // console.log('saved', saved);
     return Employer.findOneAndUpdate({ uid }, { saved }, { new: true });
+  },
+  updateASeekerEvent: (id, seekerEvent) => {
+    return Seeker.updateOne({ uid: id }, { $addToSet: seekerEvent });
+  },
+  updateAnEmployerEvent: (id, employerEvent) => {
+    return Employer.updateOne({ uid: id }, { $addToSet: employerEvent });
   },
 };

@@ -4,9 +4,6 @@ import axios from 'axios';
 export default function Form({
   dismissModal, appliedIds, events, setEvents, employers, setEmployers, seeker
 }) {
-
-  console.log('this is employers', employers);
-
   function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
@@ -25,7 +22,6 @@ export default function Form({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const data = {};
     for (const [key, val] of new FormData(e.target)) {
       data[key] = val;
@@ -35,22 +31,24 @@ export default function Form({
       .then((res) => {
         return axios.get(`seekers/${seeker.uid}`)
       })
-      .then((res) => {setEvents(res.data[0].events); dismissModal()})
+      .then((res) => {setEvents(res.data.events); dismissModal()})
       .catch((err) => console.log(err));
   };
   return (
-    <form className="container" onSubmit={(e) => { handleSubmit(e); }}>
-      <label>
-        Applied Jobs:
-        <select onChange={handleSelection} name="employer">
-          {appliedEmployers.map((ele, i) => <option key={ele.id}>{`${ele.first_name} ${ele.last_name}`}</option>)}
-        </select>
-      </label>
-      <label>Schedule a time:</label>
-
-      <input type="datetime-local" name="interviewTime" />
-
-      <button type="submit">Submit</button>
+    <form className="formContainer" onSubmit={(e) => { handleSubmit(e); }}>
+      <div className="formContent">
+        <div className="formField">
+          <div className="fieldLabel">Applied Jobs:</div>
+          <select className="fieldInput" onChange={handleSelection} name="employer">
+            {appliedEmployers.map((ele) => <option key={ele.uid}>{`${ele.first_name} ${ele.last_name}`}</option>)}
+          </select>
+        </div>
+        <div className="formField">
+          <div className="fieldLabel">Schedule a time:</div>
+          <input className="fieldInput" type="datetime-local" name="interviewTime" />
+        </div>
+        <button className="formSubmitButton" type="submit">Submit</button>
+      </div>
     </form>
   );
 }

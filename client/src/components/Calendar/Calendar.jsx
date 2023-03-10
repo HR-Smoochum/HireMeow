@@ -25,8 +25,7 @@ export default function Calendar() {
     if (mode === 'seeker') {
       axios.get(`/seekers/${seeker.uid}`)
         .then((res) => {
-          console.log(res.data[0].events); 
-          setEvents([...res.data[0].events]);
+          setEvents([...res.data.events]);
           return axios.get('/employers')
         })
         .then((res) => {
@@ -37,9 +36,8 @@ export default function Calendar() {
     if (mode === 'employer') {
       axios.get(`/employers/${employer.uid}`)
         .then((res) => {
-          console.log('this is current employer', res.data[0]);
-          setEvents([...res.data[0].events]);
-          setCurrEmployer(res.data[0]);
+          setEvents([...res.data.events]);
+          setCurrEmployer(res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -50,14 +48,16 @@ export default function Calendar() {
     if (mode === 'seeker') {
       useModal(<Form dismissModal={dismissModal} appliedIds={seeker.saved.applied} events={events} setEvents={setEvents} employers={employers} setEmployers={setEmployers} seeker={seeker}/>);
     } else if (mode === 'employer') {
-      useModal(<EmployerForm employer={currEmployer} />)
+      useModal(<EmployerForm dismissModal={dismissModal} employer={currEmployer} events={events} setEvents={setEvents} />)
+    } else if (mode === 'guest') {
+      useModal(<div className="container">Hello Guest, please create an account to use this calendar feature! Thank you!</div>)
     }
   };
-  // TODO: if mode is seeker or employer, change calendar appropriately
   return (
     <div>
       <Header />
       <FullCalendar
+        viewClassNames='calendar-layout'
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         weekends={true}
