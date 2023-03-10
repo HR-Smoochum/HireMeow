@@ -7,7 +7,7 @@ export default function EmployerForm({
 }) {
   const [interestlevel, setInterestLevel] = useState('interested');
   const [applicants, setApplicants] = useState({});
-  
+
   useEffect(() => {
     axios.get('/seekers')
       .then((res) => {
@@ -40,12 +40,11 @@ export default function EmployerForm({
     for (const [key, val] of new FormData(e.target)) {
       data[key] = val;
     }
-    console.log('this is data', data);
     axios.put(`employers/${employer.uid}`, data)
       .then(() => {
         return axios.get(`employers/${employer.uid}`)
       })
-      .then((res) => { setEvents(res.data[0].events); dismissModal() })
+      .then((res) => { setEvents(res.data.events); dismissModal() })
       .catch((err) => console.log(err));
   };
 

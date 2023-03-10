@@ -53,8 +53,8 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/seekers" element={<JobSearch />} />
-            <Route path="/jobs" element={<SeekerSearch />} />
+            <Route path="/alljobs" element={<JobSearch />} />
+            <Route path="/allseekers" element={<SeekerSearch />} />
             <Route path="/myjobs" element={<SavedJobs />} />
             <Route path="/myseekers" element={<SavedSeekers />} />
             <Route path="/notes" element={<Notes />} />
@@ -69,3 +69,4 @@ function App() {
 }
 
 export default App;
+

@@ -17,7 +17,6 @@ function AppHolder() {
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
   const [seekers, setSeekers] = useState([]);
-
   const [seeker, setSeeker] = useState({});
   const [employer, setEmployer] = useState({});
   const [aJob, setAJob] = useState({});

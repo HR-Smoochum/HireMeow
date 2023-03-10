@@ -21,6 +21,7 @@ const seeker = mongoose.Schema({
   notes: Array,
   saved: Object,
   events: Array,
+  resumeFilePath: String,
 });
 /* e.g
 saved: {
