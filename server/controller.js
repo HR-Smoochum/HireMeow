@@ -1,6 +1,9 @@
+// LIBRARY IMPORTS
 const path = require('path');
-const models = require('./models.js');
 const fs = require('fs');
+
+// LOCAL IMPORTS
+const models = require('./models.js');
 
 module.exports = {
   getSeekers: (req, res) => {
