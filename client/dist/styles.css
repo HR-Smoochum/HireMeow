@@ -312,7 +312,7 @@
 .uploadResumeActionContainer {
   width: 30em;
   height: 12em;
-  border: 0.1em solid black;
+  border: 0.1em solid lightgray;
   margin: 1em 2em;
   display: flex;
   flex-direction: column;
@@ -322,14 +322,19 @@
 
 .uploadResume {
   font-size: 1.5em;
-  background-color: #e2e0e0;
+  background-color: #ACC196;
   width: 100%;
 }
 
 .uploadResumeButton {
   padding: .3em 1em;
-  border: solid .1em black;
+  border: solid .1em #919191;
   margin: 1em 10em;
+  border-radius: .5em;
+}
+
+.uploadResumeButton:hover {
+  background-color: #919191;
 }
 
 .inputResume {
@@ -355,7 +360,7 @@
 }
 
 .resumeImageContainer {
- border: .15em solid #626060;
+ border: 0.1em solid lightgray;
  width: 40.2em;
  height: 42em;
 }
@@ -364,6 +369,7 @@
   text-align: center;
   padding: 1em;
   font-size: 2em;
+}
 /* ============================
    Modal styles
    ============================
