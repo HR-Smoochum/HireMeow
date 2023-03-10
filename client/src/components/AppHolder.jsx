@@ -69,7 +69,7 @@ function AppHolder() {
     Promise.all(requests)
       .then(() => { console.log('successfully loaded data'); })
       .catch((err) => { console.log('error updating all data', err); });
-  }, []);
+  }, [seekerID, employerID]);
 
   // modal functions
   const useModal = (content) => {
@@ -84,6 +84,8 @@ function AppHolder() {
   const dismissModal = () => {
     setModalIsOpen(false);
   };
+  console.log(seekerID, employerID);
+  console.log(mode);
 
   const providerValues = useMemo(() => ({
     mode, setMode, seekers, setSeekers, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
