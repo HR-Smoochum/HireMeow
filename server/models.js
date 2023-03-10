@@ -72,10 +72,8 @@ module.exports = {
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateJobInterested: async (data) => {
-    // console.log('data: ', data);
     const { uid, id, level } = data;
     const userInfo = await Seeker.find({ uid });
-    // console.log('userInfo: ', userInfo);
     const { saved } = userInfo[0];
     // console.log('saved', saved);
     const removeId = (item) => {
@@ -95,19 +93,19 @@ module.exports = {
     const { saved } = userInfo[0];
     // console.log('saved', saved);
     const removeId = (item) => {
-      return id !== item;
+      return parseInt(id, 10) !== item;
     };
     saved.interested = saved.interested.filter(removeId);
     saved.veryInterested = saved.veryInterested.filter(removeId);
     saved.extremelyInterested = saved.extremelyInterested.filter(removeId);
-    saved[level].push(id);
+    saved[level].push(parseInt(id, 10));
     // console.log('saved', saved);
     return Employer.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateASeekerEvent: (id, seekerEvent) => {
-    return Seeker.updateOne({ uid: id }, { $addToSet: seekerEvent });
+    return Seeker.updateOne({uid: id}, {$addToSet: seekerEvent})
   },
   updateAnEmployerEvent: (id, employerEvent) => {
-    return Employer.updateOne({ uid: id }, { $addToSet: employerEvent });
+    return Employer.updateOne({uid: id}, {$addToSet: employerEvent})
   },
 };

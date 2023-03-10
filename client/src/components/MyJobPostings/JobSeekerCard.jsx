@@ -24,9 +24,9 @@ export default function JobSeekerCard() {
     axios.get(`http://localhost:3000/employers/${uid}`).then((results) => {
       // console.log('get employer info', results.data);
       if (results.data.length !== 0) {
-        setInterested(results.data[0].saved.interested);
-        setVeryInterested(results.data[0].saved.veryInterested);
-        setExtremelyInterested(results.data[0].saved.extremelyInterested);
+        setInterested(results.data.saved.interested);
+        setVeryInterested(results.data.saved.veryInterested);
+        setExtremelyInterested(results.data.saved.extremelyInterested);
       }
     }).catch((err) => {
       console.error('get seeker from db err', err);
