@@ -10,7 +10,7 @@ db.once('open', () => {
 
 const seeker = mongoose.Schema({
   uid: {
-    type: Number,
+    type: String,
     unique: true,
   },
   first_name: String,
@@ -38,7 +38,7 @@ events: [
 
 const employer = mongoose.Schema({
   uid: {
-    type: Number,
+    type: String,
     unique: true,
   },
   first_name: String,
