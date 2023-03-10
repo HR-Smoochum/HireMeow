@@ -11,8 +11,6 @@ import ResultList from './ResultList.jsx';
 import SearchBar from '../SearchBar.jsx';
 import JobContext from '../../Utilities/JobContext.js';
 import { environmentList, experienceList, employmentList } from '../filterValues.js';
-import jobListingsData from '../../Utilities/sampleJobListingData.js';
-import { useAuth } from '../../Auth/contexts/AuthContext';
 
 // COMPONENT
 function SearchPage() {
@@ -26,15 +24,6 @@ function SearchPage() {
   const [searchPageList, setSearchPageList] = useState(allJobs);
   const jobsRef = useRef([]);
   jobsRef.current = allJobs;
-  const { currentUser } = useAuth();
-  const { mode, setSeekerID, setEmployerID } = useContext(JobContext);
-
-  // Set user ID
-  if (mode === 'employer') {
-    setEmployerID(currentUser.uid);
-  } else if (mode === 'seeker') {
-    setSeekerID(currentUser.uid);
-  }
 
   // EVENT HANDLERS
 
