@@ -32,7 +32,9 @@ module.exports = {
       resumeFilePath: `${path}`,
     });
   },
-
+  getResumeId: (seekerId) => {
+    return Seeker.find({ uid: seekerId });
+  },
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },

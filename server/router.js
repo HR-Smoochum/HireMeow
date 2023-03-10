@@ -19,6 +19,7 @@ router.get('/jobs', controller.getJobs);
 router.get('/jobs/:id', controller.getAJob);
 router.get('/blogposts', controller.getBlogPosts);
 router.post('/resumeData', upload.single('file'), controller.postResume);
+router.get('/getResumeId', controller.getResumeId);
 router.get('/getResume', controller.getResume);
 
 // get job or seekers in id array
