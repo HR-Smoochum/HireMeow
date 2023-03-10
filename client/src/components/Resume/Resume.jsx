@@ -29,17 +29,21 @@ function Resume() {
         'content-type': 'multipart/form-data',
       },
     })
-      .then((res) => {
-        console.log('upload successful ', res);
+      .then(() => {
+        Axios.get('/getResume')
+          .then(() => {
+            setResumePresent(!resumePresent);
+          });
       })
       .catch((err) => {
         console.log('upload failed ', err);
       });
 
-    Axios.get('/getResume')
-      .then((res) => {
-        setResumePresent(!resumePresent);
-      });
+    // // TODO: send current user's id in request
+    // Axios.get('/getResume')
+    //   .then((res) => {
+    //     setResumePresent(!resumePresent);
+    //   });
   };
 
   return (
