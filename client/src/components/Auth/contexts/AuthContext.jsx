@@ -21,13 +21,8 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    setPersistence(auth, browserSessionPersistence)
-      .then(() => {
-        return signInWithEmailAndPassword(auth, email, password);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setPersistence(auth, browserSessionPersistence);
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   function logout() {
