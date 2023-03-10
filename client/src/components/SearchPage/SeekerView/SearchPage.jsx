@@ -2,7 +2,7 @@
 import React, {
   useState, useRef, useEffect, useContext,
 } from 'react';
-import { HStack, Box } from '@chakra-ui/react';
+import { HStack, Box, useToast } from '@chakra-ui/react';
 
 // LOCAL IMPORTS
 import Header from '../../Header/Header.jsx';
@@ -26,6 +26,7 @@ function SearchPage() {
   jobsRef.current = allJobs;
 
   // EVENT HANDLERS
+
   const handleExperienceChecked = (id) => {
     const experienceStateList = experiences;
     const changeCheckedExperiences = experienceStateList.map((job) => {

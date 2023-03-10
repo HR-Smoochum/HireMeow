@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/prop-types */
 // LIBRARY IMPORTS
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import {
   Card, CardHeader, CardBody, Text, Heading, Flex, Image, Box, IconButton, Menu, MenuButton, MenuList, MenuItem, Icon, Center,
 } from '@chakra-ui/react';
 import { HiEllipsisVertical, HiChevronDoubleDown } from 'react-icons/hi2';
 import { IoMdPaw } from 'react-icons/io';
+
+// LOCAL IMPORTS
+import JobContext from '../../Utilities/JobContext.js';
 // import JobDetail from './JobDetail.jsx';
 
 function JobCard({
@@ -17,6 +19,7 @@ function JobCard({
   // const handleDetail = () => {
   //   setShowMore(1);
   // };
+  const { seekerID } = useContext(JobContext);
 
   return (
     <Box>
@@ -43,7 +46,7 @@ function JobCard({
                 variant="ghost"
               />
               <MenuList>
-                <MenuItem value="interested">
+                <MenuItem onClick={(e) => handleInterested(e, seekerID, job.id)} value="interested">
                   <Icon as={IoMdPaw} color="brand.yellow" mr="3px" />
                   Interested
                 </MenuItem>
