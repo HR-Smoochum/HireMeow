@@ -33,7 +33,7 @@ function SearchPage() {
   }, [searchInput]);
 
   return (
-    <VStack m="1rem" bg="brand.green">
+    <VStack m="1rem" bg="brand.offWhite">
       <Header />
       <SearchBar setSearchInput={setSearchInput} />
       <ResultList searchPageList={searchPageList} />
