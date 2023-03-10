@@ -6,8 +6,8 @@ import React from 'react';
 // COMPONENT
 function NoteCard({ note, handleNote }) {
   return (
-    <div className="noteContainer">
-      <button type="button" className="noteTitle" value={note} onClick={handleNote}>{note.title}</button>
+    <div className="noteContainer" onClick={handleNote}>
+      <button type="button" className="noteTitle" value={note}>{note.title}</button>
     </div>
   );
 }

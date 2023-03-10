@@ -55,20 +55,23 @@ function Notes() {
   return (
     <div className="notesComponent">
       <Header />
-      <div className="notesTitle">My Notes</div>
-      <div className="notesListContainer">
-        <div className="notesList">
+      <div className="notesContainer">My Notes</div>
+      <div className="noteItemsContainer">
+        <div className="notesListContainer">
+          <div className="notesListHeader">Notes</div>
           {noteList.length > 0
             ? noteList.map((note, i) => {
               return <NoteCard note={note} key={i} handleNote={handleNote} />;
             }) : null}
         </div>
-        <div className="currentNote">
-          <div className="currentNoteTitle">{currentNote.title}</div>
-          <div className="currentNoteDescription">{currentNote.text}</div>
+        <div className="currentCreateNote">
+          <div className="currentNote">
+            <div className="currentNoteTitle">{currentNote.title}</div>
+            <div className="currentNoteDescription">{currentNote.text}</div>
+          </div>
+          <NewNote handleNewNote={handleNewNote} />
         </div>
       </div>
-      <NewNote handleNewNote={handleNewNote} />
     </div>
   );
 }
