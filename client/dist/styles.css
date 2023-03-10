@@ -22,6 +22,12 @@
   width: 50vw;
 }
 
+.formContainer--employer {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 2rem 0;
+}
+
 .formContent {
   display: flex;
   flex-direction: column;
@@ -39,9 +45,35 @@
 }
 
 .formSubmitButton:hover {
-  cursor: pointer;
   box-shadow: inset 0 0 25px 5px rgba(0, 0, 0, 0.1);
   color: #4f5f60;
+  cursor: pointer;
+}
+
+.tab {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.tablinks {
+  display: block;
+  font-weight: bold;
+  flex: 1 1 0;
+  padding: 1rem 0;
+}
+
+.tablinks:hover,
+.tablinks:active {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(220, 220, 220);
+}
+
+.tablinks--active,
+.tablinks--active:hover,
+.tablinks--active:active {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
 }
 
 /* ============================

@@ -12,7 +12,7 @@ import CalendarContext from './Utilities/calendarContext';
 // COMPONENT
 function AppHolder() {
   // STATES
-  const [mode, setMode] = useState('seeker'); // ['guest', 'seeker', 'employer']
+  const [mode, setMode] = useState('employer'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
