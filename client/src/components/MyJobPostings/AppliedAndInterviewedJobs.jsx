@@ -20,7 +20,7 @@ export default function AppliedAndInterviewedJobs({ Job }) {
       {
         showMore === 0 && (
           <Box>
-            <Card maxW="md">
+            <Card w="sm" maxW="md">
               <CardHeader>
                 <Flex spacing="8">
                   <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">

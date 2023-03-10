@@ -26,7 +26,7 @@ export default function JobCard({
           <Box>
             <input type="checkbox" id={Job.id} style={{ width: '15px', height: '15px', color: 'brand.light' }} onChange={handleCheck} />
             <label htmlFor={Job.id}>
-              <Card maxW="md">
+              <Card w="sm" maxW="md">
                 <CardHeader>
                   <Flex spacing="8">
                     <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
