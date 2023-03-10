@@ -32,6 +32,12 @@ module.exports = {
       resumeFilePath: `${path}`,
     });
   },
+  postSeeker: (user) => {
+    return Seeker.create(user);
+  },
+  postEmployer: (user) => {
+    return Employer.create(user);
+  },
   getResumeId: (seekerId) => {
     return Seeker.find({ uid: seekerId });
   },
