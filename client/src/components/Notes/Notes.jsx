@@ -1,5 +1,6 @@
 // LIBRARY IMPORTS
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import Header from '../Header/Header.jsx';
 
 // LOCAL IMPORTS
@@ -9,27 +10,20 @@ import NewNote from './NewNote.jsx';
 function Notes() {
   const [currentNoteTitle, setCurrentNoteTitle] = useState('');
   const [currentNote, setCurrentNote] = useState({
-    title: 'Pro Tips',
-    description: 'make sure to come prepared with all of the relevant information',
+    title: 'Day 1',
+    text: 'Polished my resume and cover letter\nMade a list of ornithology job openings and checked their requirements\nSent my resume and cover letter to a few companies',
   });
-  const [noteList, setNoteList] = useState([
-    {
-      title: 'Pro Tips',
-      description: 'make sure to come prepared with all of the relevant information',
-    },
-    {
-      title: 'Best Practices',
-      description: 'this is a great place to do really great work. Always try to make sure they know that you really care about working at their company',
-    },
-    {
-      title: 'Skills',
-      description: 'really smart obviously and also really into chasing birds',
-    },
-    {
-      title: 'Key Contacts',
-      description: 'Mrs. Meowinson, 552-555-2244, meowinson@meows.com',
-    },
-  ]);
+  const [noteList, setNoteList] = useState([]);
+
+  const getNotes = () => {
+    Axios.get('/getNotes')
+      .then((res) => {
+        setNoteList(res.data.notes);
+      })
+      .catch((err) => {
+        console.log('request to server failed with error ', err);
+      });
+  };
 
   const handleNote = (e) => {
     e.preventDefault();
@@ -38,7 +32,7 @@ function Notes() {
       if (note.title === currentNoteTitle) {
         setCurrentNote({
           title: currentNoteTitle,
-          description: note.description,
+          text: note.text,
         });
       }
     });
@@ -49,28 +43,35 @@ function Notes() {
     const newDescription = content.split('\n')[1];
     const newNote = {
       title: newTitle,
-      description: newDescription,
+      text: newDescription,
     };
     setNoteList([...noteList, newNote]);
   };
 
+  useEffect(() => {
+    getNotes();
+  }, []);
+
   return (
     <div className="notesComponent">
       <Header />
-      <div className="notesTitle">My Notes</div>
-      <div className="notesListContainer">
-        <div className="notesList">
+      <div className="notesContainer">My Notes</div>
+      <div className="noteItemsContainer">
+        <div className="notesListContainer">
+          <div className="notesListHeader">Notes</div>
           {noteList.length > 0
             ? noteList.map((note, i) => {
               return <NoteCard note={note} key={i} handleNote={handleNote} />;
             }) : null}
         </div>
-        <div className="currentNote">
-          <div className="currentNoteTitle">{currentNote.title}</div>
-          <div className="currentNoteDescription">{currentNote.description}</div>
+        <div className="currentCreateNote">
+          <div className="currentNote">
+            <div className="currentNoteTitle">{currentNote.title}</div>
+            <div className="currentNoteDescription">{currentNote.text}</div>
+          </div>
+          <NewNote handleNewNote={handleNewNote} />
         </div>
       </div>
-      <NewNote handleNewNote={handleNewNote} />
     </div>
   );
 }

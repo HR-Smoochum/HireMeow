@@ -83,7 +83,8 @@
 
 .toolbarContainer {
   display: flex;
-  padding: .5em;
+  padding: .5em .5em 0 .5em;
+  border-bottom: .1em solid #919191;
 }
 
 .bold {
@@ -117,8 +118,8 @@
 }
 
 .editorContentArea {
-  /* border-top: .2em solid #c9c9c9 ; */
   border-bottom: .1em solid #313131 ;
+  padding: .5em 0 0 1em;
 }
 
 .createResume {
@@ -143,56 +144,111 @@
   row-gap: 2em;
 }
 
-.notesListContainer {
-  border: .1em solid black;
+.noteItemsContainer {
   display: flex;
-  column-gap: 15em;
-  margin: 0em 10em;
+  column-gap: 2em;
+  margin: 2em auto;
+
 }
 
 .notesTitle {
   text-align: center;
 }
 
-.notesList {
-  margin: 2em;
+.notesListContainer {
+  text-align: center;
+  font-size: 2.5em;
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  height: 10em;
+  border: .1em solid lightgray;
+  border-radius: .5em;
+}
+
+.currentCreateNote {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  width: 50em;
+  align-items: center;
 }
 
 .currentNote {
-  background-color: #c9c9c9;
-  width: 30em;
-  margin: 2em;
+  border: 0.2em solid lightgray;
+  border-radius: .5em;
 }
 
 .currentNoteTitle {
-  background-color: #626060;
-  color: #f7f7f7;
   text-align: center;
   font-weight: bold;
+  font-size: 1.5em;
   margin: 0 0 2em 0;
   padding: 1em 0 0 0;
 }
 
 .currentNoteDescription {
   padding: 0 2em 2em 2em;
+  font-size: 1.5em;
 }
 
+
+.noteContainer:hover {
+  background-color: #eaeaea;
+}
+
+.notesListHeader {
+  background-color: #ACC196;
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  color: #f7f7f7;
+}
 
 /* ============================
    New Note
    ============================
 */
 
+.notesContainer {
+  border-top: 0.07em solid lightslategray;
+  border-bottom: 0.07em solid lightslategray;
+  display: flex;
+  justify-content: center;
+  column-gap: 4em;
+  align-items: center;
+  height: 3em;
+  margin: 0 2em;
+  font-size: 1.5em;
+}
+
 .newNoteContainer {
-  border: .1em solid black;
   display: flex;
   flex-direction: column;
-  margin: 0em 10em 0 30em;
+  width: 50em;
+  border: .2em solid lightgray;
+  border-radius: .5em;
 }
 
 .noteHeader {
   text-align: center;
-  background-color: #c9c9c9;
+  height: 3em;
+  background-color: #ACC196;
+  border-top-right-radius: .4em;
+  border-top-left-radius: .4em;
+  padding: .6em;
+  font-weight: bold;
+  color: #f7f7f7;
+}
+
+.createNote {
+  margin: 1em 2em 1em 20em;
+  border: .1em solid black;
+  border-radius: .2em;
+  vertical-align: center;
+}
+
+.createNote:hover {
+  background-color: lightgrey;
 }
 
 /* ============================
@@ -315,10 +371,6 @@
    ============================
 */
 
-.uploadResumeContainer {
-
-}
-
 .myResumeHeader {
   font-size: 2em;
   border-top: 0.03em solid lightslategray;
@@ -330,7 +382,7 @@
 .uploadResumeActionContainer {
   width: 30em;
   height: 12em;
-  border: 0.1em solid black;
+  border: 0.1em solid lightgray;
   margin: 1em 2em;
   display: flex;
   flex-direction: column;
@@ -340,14 +392,19 @@
 
 .uploadResume {
   font-size: 1.5em;
-  background-color: #e2e0e0;
+  background-color: #ACC196;
   width: 100%;
 }
 
 .uploadResumeButton {
   padding: .3em 1em;
-  border: solid .1em black;
+  border: solid .1em #919191;
   margin: 1em 10em;
+  border-radius: .5em;
+}
+
+.uploadResumeButton:hover {
+  background-color: #919191;
 }
 
 .inputResume {
@@ -373,7 +430,7 @@
 }
 
 .resumeImageContainer {
- border: .15em solid #626060;
+ border: 0.1em solid lightgray;
  width: 40.2em;
  height: 42em;
 }

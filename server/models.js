@@ -27,6 +27,9 @@ module.exports = {
   getAllBlogPosts: () => {
     return BlogPost.find({});
   },
+  getNotes: () => {
+    return Seeker.find({});
+  },
   postResume: (file, path, seekerName) => {
     return Seeker.updateOne({ uid: seekerName }, {
       resumeFilePath: `${path}`,
@@ -38,7 +41,9 @@ module.exports = {
   postEmployer: (user) => {
     return Employer.create(user);
   },
-
+  getResumeId: (seekerId) => {
+    return Seeker.find({ uid: seekerId });
+  },
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },
