@@ -12,8 +12,8 @@ function ResultList({ searchPageList }) {
   return (
     <SimpleGrid spacing={6} templateColumns="repeat(2, minmax(15rem, 1fr))" bg="brand.green">
       {
-        searchPageList.map(((job) => {
-          return <SeekerCard job={job} key={job.id} />;
+        searchPageList.map(((seeker) => {
+          return <SeekerCard seeker={seeker} key={seeker.id} />;
         }
         ))
       }

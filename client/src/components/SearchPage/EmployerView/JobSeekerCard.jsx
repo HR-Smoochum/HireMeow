@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 // LIBRARY IMPORTS
 import React from 'react';
@@ -8,15 +7,6 @@ import {
 import { IoMdPaw } from 'react-icons/io';
 import { HiEllipsisVertical } from 'react-icons/hi2';
 
-// Seeker = {
-//   uid: 4,
-//   first_name: 'Ava',
-//   last_name: 'Wong',
-//   industry: 'Software Engineer',
-//   resume: {},
-//   notes: [],
-//   saved: {},
-// }
 function SeekerCard({ seeker }) {
   const handleInterested = (e) => {
     console.log(e.target);
@@ -34,7 +24,7 @@ function SeekerCard({ seeker }) {
                 &nbsp;
                 {seeker.last_name}
               </Heading>
-              <Text>{seeker.industry}</Text>
+              <Text>{seeker.resume.title}</Text>
             </Box>
           </Flex>
           <Menu>
