@@ -27,6 +27,9 @@ module.exports = {
   getAllBlogPosts: () => {
     return BlogPost.find({});
   },
+  getNotes: () => {
+    return Seeker.find({});
+  },
   postResume: (file, path, seekerName) => {
     return Seeker.updateOne({ uid: seekerName }, {
       resumeFilePath: `${path}`,
@@ -38,7 +41,9 @@ module.exports = {
   postEmployer: (user) => {
     return Employer.create(user);
   },
-
+  getResumeId: (seekerId) => {
+    return Seeker.find({ uid: seekerId });
+  },
   getJobsByIdArray: (ids) => {
     return Job.find({ id: { $in: ids } });
   },
@@ -67,10 +72,13 @@ module.exports = {
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateJobInterested: async (data) => {
-    const { uid, id, level } = data;
+    console.log('data: ', data);
+    let { uid, id, level } = data;
+    uid = 2;
     const userInfo = await Seeker.find({ uid });
+    console.log('userInfo: ', userInfo);
     const { saved } = userInfo[0];
-    // console.log('saved', saved);
+    console.log('saved', saved);
     const removeId = (item) => {
       return id !== item;
     };
@@ -78,7 +86,7 @@ module.exports = {
     saved.veryInterested = saved.veryInterested.filter(removeId);
     saved.extremelyInterested = saved.extremelyInterested.filter(removeId);
     saved[level].push(id);
-    // console.log('saved', saved);
+    console.log('saved', saved);
     return Seeker.findOneAndUpdate({ uid }, { saved }, { new: true });
   },
   updateSeekerInterested: async (data) => {

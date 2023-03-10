@@ -1,6 +1,6 @@
+const path = require('path');
 const models = require('./models.js');
 const fs = require('fs');
-const path = require('path');
 
 module.exports = {
   getSeekers: (req, res) => {
@@ -78,7 +78,7 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   updateJobInterested: (req, res) => {
-    // console.log('updateJobInterested query', req.body);
+    console.log('updateJobInterested query', req.body);
     models.updateJobInterested(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
@@ -100,8 +100,22 @@ module.exports = {
       })
       .catch((err) => res.status(400).send(err));
   },
+  getResumeId: (req, res) => {
+    models.getResumeId(4)
+      .then((response) => {
+        const resumeId = response[0].resumeFilePath;
+        res.send(resumeId);
+      })
+      .catch((err) => {
+        console.log('could not retrieve from database ', err);
+      });
+  },
   getResume: (req, res) => {
-    // TODO: determine how we are going to send the file name;
+    // TODO: server dynamic file based on UID
+    // create variable to store requestedFilePath
+    // find the current user in the database
+      // find that user's resume link
+      // set requestedFilePath equal to that resume link
     const requestedFile = '44a6779349ed5a664ed26e0cb98d1cc0';
     const relevantFilePath = path.join(__dirname, '../database/uploads/', requestedFile);
 
@@ -113,6 +127,18 @@ module.exports = {
         res.end(content);
       }
     });
+  },
+  getNotes: (req, res) => {
+    models.getNotes()
+      .then((response) => {
+        const fourth = response.filter((seeker) => {
+          return seeker.uid === '4';
+        });
+        res.send(fourth[0]);
+      })
+      .catch((err) => {
+        console.log('unable to query database, error: ', err);
+      });
   },
   postSeeker: (req, res) => {
     models.postSeeker(req.body)
