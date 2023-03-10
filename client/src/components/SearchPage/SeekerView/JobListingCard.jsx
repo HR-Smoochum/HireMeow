@@ -23,7 +23,7 @@ function JobCard({
 
   return (
     <Box>
-      <Card maxW="md">
+      <Card maxW="md" bg="#E7EDE1">
         <CardHeader>
           <Flex spacing="8">
             <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
@@ -63,12 +63,9 @@ function JobCard({
           </Flex>
         </CardHeader>
         <CardBody>
-          <Text>
-            {job.description.substring(0, 100)}
+          <Text h="50px">
+            {job.description.substring(0, 80)}
           </Text>
-          <Center>
-            <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" />
-          </Center>
         </CardBody>
       </Card>
     </Box>
