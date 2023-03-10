@@ -84,8 +84,6 @@ function AppHolder() {
   const dismissModal = () => {
     setModalIsOpen(false);
   };
-  console.log(seekerID, employerID);
-  console.log(mode);
 
   const providerValues = useMemo(() => ({
     mode, setMode, seekers, setSeekers, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,

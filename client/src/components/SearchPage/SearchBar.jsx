@@ -26,7 +26,7 @@ function SearchBar({ setSearchInput }) {
         borderStyle="solid"
         borderColor="brand.black"
         borderRadius="1rem"
-        bg="brand.light"
+        bg="brand.lightOff"
         p=".5rem .5rem"
       >
         <Input
