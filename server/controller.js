@@ -1,6 +1,9 @@
+// LIBRARY IMPORTS
 const path = require('path');
-const models = require('./models.js');
 const fs = require('fs');
+
+// LOCAL IMPORTS
+const models = require('./models.js');
 
 module.exports = {
   getSeekers: (req, res) => {
@@ -78,7 +81,7 @@ module.exports = {
       .catch((err) => res.status(400).send(err));
   },
   updateJobInterested: (req, res) => {
-    console.log('updateJobInterested query', req.body);
+    // console.log('updateJobInterested query', req.body);
     models.updateJobInterested(req.body)
       .then((dbRes) => res.send(dbRes))
       .catch((err) => res.status(400).send(err));
