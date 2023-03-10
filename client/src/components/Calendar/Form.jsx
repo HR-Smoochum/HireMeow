@@ -7,7 +7,7 @@ export default function Form({
   function getMatchingEmployers(appliedIds, employersData) {
     const employerIndustries = [];
     employersData.forEach((employer) => {
-      if (appliedIds.includes(employer.uid)) {
+      if (appliedIds.includes(Number(employer.uid))) {
         employerIndustries.push(employer);
       }
     });
