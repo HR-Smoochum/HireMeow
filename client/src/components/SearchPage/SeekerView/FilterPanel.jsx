@@ -12,7 +12,7 @@ function FilterPanel({
   handleExperienceChecked, handleEmploymentChecked, handleEnvironmentChecked, handleChangeSalary,
 }) {
   return (
-    <VStack align="flex-start">
+    <VStack align="flex-start" margin="1rem">
       <Heading as="h4" size="sm">Experience Level</Heading>
       <CheckboxList options={experienceList} handleChecked={handleExperienceChecked} />
       <Heading as="h4" size="sm">Type of Employment</Heading>

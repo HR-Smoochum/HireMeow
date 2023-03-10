@@ -12,7 +12,7 @@ import CalendarContext from './Utilities/calendarContext';
 // COMPONENT
 function AppHolder() {
   // STATES
-  const [mode, setMode] = useState('guest'); // ['guest', 'seeker', 'employer']
+  const [mode, setMode] = useState('seeker'); // ['guest', 'seeker', 'employer']
   const [seekerID, setSeekerID] = useState(1);
   const [employerID, setEmployerID] = useState(1);
   const [jobID, setJobID] = useState(1);
@@ -84,8 +84,6 @@ function AppHolder() {
   const dismissModal = () => {
     setModalIsOpen(false);
   };
-  console.log(seekerID, employerID);
-  console.log(mode);
 
   const providerValues = useMemo(() => ({
     mode, setMode, seekers, setSeekers, seekerID, setSeekerID, employerID, setEmployerID, jobID, setJobID, seeker, setSeeker, employer, setEmployer, aJob, setAJob, allJobs, setAllJobs,
