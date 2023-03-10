@@ -34,7 +34,7 @@ function SeekerCard({ seeker, handleInterested }) {
               variant="ghost"
             />
             <MenuList>
-              <MenuItem bg="brand.green" onClick={(e) => handleInterested(e, employerID, seeker.uid)} value="interested">
+              <MenuItem onClick={(e) => handleInterested(e, employerID, seeker.uid)} value="interested">
                 <Icon as={IoMdPaw} color="brand.yellow" mr="3px" />
                 Interested
               </MenuItem>
