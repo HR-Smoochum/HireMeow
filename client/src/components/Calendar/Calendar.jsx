@@ -50,7 +50,7 @@ export default function Calendar() {
     } else if (mode === 'employer') {
       useModal(<EmployerForm dismissModal={dismissModal} employer={currEmployer} events={events} setEvents={setEvents} />)
     } else if (mode === 'guest') {
-      useModal(<div className="container">Hello Guest, please create an account to use this calendar feature! Thank you!</div>)
+      useModal(<div className="formContainer">Hello Guest, please create an account to use this calendar feature! Thank you!</div>)
     }
   };
   return (
