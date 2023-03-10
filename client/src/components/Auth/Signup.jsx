@@ -2,7 +2,7 @@
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
 import {
-  FormControl, FormLabel, FormHelperText, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
+  FormControl, FormLabel, Input, Card, CardBody, Button, Alert, Radio, RadioGroup, Stack, Heading, Center,
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -26,6 +26,54 @@ function Signup() {
   const { signup, currentUser } = useAuth();
   const navigate = useNavigate();
 
+  const postUser = () => {
+    const { uid } = currentUser;
+    const userData = {
+      uid,
+      first_name: first,
+      last_name: last,
+      photo: '',
+      industry,
+      resume: {
+        name: '',
+        title: '',
+        contact: {
+          phone: '',
+          email: '',
+        },
+        skills: [],
+        experience: [],
+        education: [],
+        awards: [],
+      },
+      notes: [],
+      saved: {
+        interested: [],
+        veryInterested: [],
+        extremelyInterested: [],
+        applied: [],
+        interviewedFor: [],
+      },
+      events: [],
+    };
+    if (user === 'seeker') {
+      axios.post('/seekers/signup', userData)
+        .then(() => {
+          navigate('/login');
+        })
+        .catch((err) => {
+          console.log('Error posting seeker ', err);
+        });
+    } else {
+      axios.post('/employers/signup', userData)
+        .then(() => {
+          navigate('/login');
+        })
+        .catch((err) => {
+          console.log('Error posting employer ', err);
+        });
+    }
+  };
   // eslint-disable-next-line consistent-return
   async function handleSubmit(e) {
     e.preventDefault();
@@ -42,22 +90,7 @@ function Signup() {
       return setError('Failed to create account');
     }
     setLoading(false);
-    // post user object to db
-    if (currentUser) {
-      const { uid } = currentUser;
-      const userData = {
-        uid,
-        first_name: first,
-        last_name: last,
-        industry,
-      };
-      if (user === 'seeker') {
-        axios.post('/seekers/signup', userData);
-      } else {
-        axios.post('/employers/signup', userData);
-      }
-    }
-    navigate('/login');
+    postUser();
   }
 
   return (
@@ -84,7 +117,7 @@ function Signup() {
               <FormLabel>Password</FormLabel>
               <Input type="password" id="5" pattern=".{6,14}" placeholder="Password must be 6-14 characters" value={password} onChange={(e) => setPassword(e.target.value)} required />
               <FormLabel>Confirm Password</FormLabel>
-              <Input type="password" id="6" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} required />
+              <Input type="password" id="6" placeholder="Password must be 6-14 characters" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} required />
               <Center p={4}>
                 <RadioGroup onChange={setUser} value={user}>
                   <Stack direction="row">
