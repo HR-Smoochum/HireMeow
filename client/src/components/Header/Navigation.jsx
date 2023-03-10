@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MenuList, MenuItem, MenuDivider } from '@chakra-ui/react';
+import { MenuItem, MenuDivider } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Navigation({ mode }) {
   const navigate = useNavigate();
+
   const handleClick = (e, path) => {
     e.preventDefault();
     navigate(path);
@@ -12,8 +13,8 @@ export default function Navigation({ mode }) {
 
   if (mode === 'employer') {
     return (
-      <MenuList>
-        <MenuItem onClick={(e) => handleClick(e, '/seekers')}>All Seekers</MenuItem>
+      <>
+        <MenuItem onClick={(e) => handleClick(e, '/search')}>All Seekers</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/myseekers')}>My Seekers</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
@@ -21,14 +22,14 @@ export default function Navigation({ mode }) {
         <MenuItem onClick={(e) => handleClick(e, '/resume')}>My Resume</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/blog')}>Blog</MenuItem>
-      </MenuList>
+      </>
     );
   }
 
   if (mode === 'seeker') {
     return (
-      <MenuList>
-        <MenuItem onClick={(e) => handleClick(e, 'jobs')}>All Jobs</MenuItem>
+      <>
+        <MenuItem onClick={(e) => handleClick(e, '/search')}>All Jobs</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/myjobs')}>My Jobs</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
@@ -36,16 +37,16 @@ export default function Navigation({ mode }) {
         <MenuItem onClick={(e) => handleClick(e, '/resume')}>My Resume</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/blog')}>Blog</MenuItem>
-      </MenuList>
+      </>
     );
   }
 
   return (
-    <MenuList>
-      <MenuItem onClick={(e) => handleClick(e, 'jobs')}>All Jobs</MenuItem>
+    <>
+      <MenuItem onClick={(e) => handleClick(e, '/search')}>All Jobs</MenuItem>
       <MenuDivider />
       <MenuItem onClick={(e) => handleClick(e, '/blog')}>Blog</MenuItem>
-    </MenuList>
+    </>
   );
 }
 

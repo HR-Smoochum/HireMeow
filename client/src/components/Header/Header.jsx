@@ -7,6 +7,7 @@ import {
   Heading,
   Spacer,
   Menu,
+  MenuList,
   MenuButton,
   Button,
 } from '@chakra-ui/react';
@@ -24,27 +25,17 @@ export default function Header() {
 
   const handleHome = (e) => {
     e.preventDefault();
-    if (mode === 'seeker') {
-      navigate('/jobs');
-    }
-
-    if (mode === 'employer') {
-      navigate('/seekers');
-    }
-
-    if (mode === 'guest') {
-      navigate('/jobs');
-    }
+    navigate('/search');
   };
 
   useEffect(() => {
     if (mode === 'seeker') {
-      setFirstName(seeker.firstName);
+      setFirstName(seeker.first_name);
     }
     if (mode === 'employer') {
-      setFirstName(employer.firstName);
+      setFirstName(employer.first_name);
     }
-  }, [mode, seeker.firstName, employer.firstName]);
+  }, [mode, seeker.first_name, employer.first_name]);
 
   return (
     <Flex p="30" alignItems="center" maxHeight="md">
@@ -55,14 +46,16 @@ export default function Header() {
       <Spacer />
       <Flex gap="2">
         <Menu>
-          <MenuButton as={Button}>
+          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
             <AiOutlineMenu />
           </MenuButton>
-          <Navigation mode={mode} />
+          <MenuList>
+            <Navigation mode={mode} />
+          </MenuList>
         </Menu>
         { mode !== 'guest' ? <Notifications /> : null }
         <Menu>
-          <MenuButton as={Button}>
+          <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
             <CgProfile />
           </MenuButton>
           <Options mode={mode} firstName={firstName} />

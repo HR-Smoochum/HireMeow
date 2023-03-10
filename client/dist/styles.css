@@ -1,3 +1,11 @@
+.container {
+    background-color: #799496;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+  }
 /* ============================
    Editor
    ============================
@@ -112,6 +120,7 @@
   margin: 0em 10em 0 30em;
 }
 
+<<<<<<< HEAD
 .noteHeader {
   text-align: center;
   background-color: #c9c9c9;
@@ -304,4 +313,47 @@
   text-align: center;
   padding: 1em;
   font-size: 2em;
+=======
+/* ============================
+   Modal styles
+   ============================
+*/
+
+#modal-portal {
+  position: absolute;
+  z-index: 100;
+}
+
+.outer-modal {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: brightness(0.5);
+}
+
+.inner-modal {
+  position: relative;
+  margin: 0 auto;
+}
+
+.dismiss {
+  position: absolute;
+  padding: 0.5rem;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: transparent;
+  font-size: 1.5rem;
+}
+
+/* ============================
+   Calendar styles
+   ============================
+*/
+.calendar-layout {
+  position: relative;
+  z-index: 0;
+>>>>>>> 1ff708382e9dd3460e8c7636743d35bc42dc7731
 }

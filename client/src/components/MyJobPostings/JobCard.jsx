@@ -9,30 +9,13 @@ import { HiEllipsisVertical, HiChevronDoubleDown } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 import JobDetail from './JobDetail.jsx';
 
-// Job = {
-//   id: 1,
-//   title: 'software engineer',
-//   location: 'seattle',
-//   employment: 'remote',
-//   experience: 'entry level',
-//   date: '3/1/2023',
-//   logo: 'https://images.app.goo.gl/SW3mMuphfe114aZT9',
-//   company: 'google',
-// }
-export default function JobCard({ Job, index, handleCheck }) {
+export default function JobCard({
+  Job, handleCheck, handleSingleApply, handleInterested,
+}) {
   const [showMore, setShowMore] = useState(0);
 
   const handleDetail = () => {
     setShowMore(1);
-  };
-  const handleInterested = (e) => {
-    console.log(e.target);
-    // update job's interested level
-    // if (e.target.value === 'very interested') {
-
-    // } else {
-
-    // }
   };
 
   return (
@@ -40,8 +23,8 @@ export default function JobCard({ Job, index, handleCheck }) {
       {
         showMore === 0 && (
           <Box>
-            <input type="checkbox" id={index} style={{ width: '15px', height: '15px', color: 'brand.light' }} onChange={handleCheck} />
-            <label htmlFor={index}>
+            <input type="checkbox" id={Job.id} style={{ width: '15px', height: '15px', color: 'brand.light' }} onChange={handleCheck} />
+            <label htmlFor={Job.id}>
               <Card maxW="md">
                 <CardHeader>
                   <Flex spacing="8">
@@ -65,15 +48,15 @@ export default function JobCard({ Job, index, handleCheck }) {
                         variant="ghost"
                       />
                       <MenuList>
-                        <MenuItem bg="brand.green" value="interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="interested">
                           <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
                           Interested
                         </MenuItem>
-                        <MenuItem onClick={handleInterested} value="very interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="veryInterested">
                           <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
                           Very Interested
                         </MenuItem>
-                        <MenuItem onClick={handleInterested} value="extremely interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="extremelyInterested">
                           <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
                           Extremely Interested
                         </MenuItem>
@@ -82,10 +65,8 @@ export default function JobCard({ Job, index, handleCheck }) {
                   </Flex>
                 </CardHeader>
                 <CardBody>
-                  <Text>
-                    With Chakra UI, I wanted to sync the speed of development with the speed
-                    of design. I wanted the developer to be just as excited as the designer to
-                    create a screen.
+                  <Text h="50px">
+                    {Job.description.substring(0, 80)}
                   </Text>
                   <Center>
                     <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" onClick={handleDetail} />
@@ -94,7 +75,6 @@ export default function JobCard({ Job, index, handleCheck }) {
               </Card>
 
             </label>
-
           </Box>
         )
       }
@@ -102,10 +82,7 @@ export default function JobCard({ Job, index, handleCheck }) {
         showMore === 1
         && (
           <Box>
-            <input type="checkbox" id={index} style={{ width: '15px', height: '15px', color: 'brand.light' }} />
-            <label htmlFor={index}>
-              <JobDetail Job={Job} setShowMore={setShowMore} />
-            </label>
+            <JobDetail Job={Job} setShowMore={setShowMore} handleSingleApply={handleSingleApply} />
           </Box>
         )
       }

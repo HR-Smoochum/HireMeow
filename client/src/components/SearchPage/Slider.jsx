@@ -1,50 +1,29 @@
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
 import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  SliderMark,
+  Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Box, RangeSlider,
+  RangeSliderTrack,
+  RangeSliderFilledTrack,
+  RangeSliderThumb,
 } from '@chakra-ui/react';
+import { IoMdPaw } from 'react-icons/io';
 
 // LOCAL IMPORTS
 
 // COMPONENT
-function SalarySlider() {
-  // STATES
-  const [sliderValue, setSliderValue] = useState(50);
-
-  const labelStyles = {
-    mt: '2',
-    ml: '-2.5',
-    fontSize: 'sm',
-  };
-
+function SalarySlider({ changeSalary }) {
   return (
-    <Slider onChange={(val) => setSliderValue(val)}>
-      <SliderMark value={0} {...labelStyles}>
-        $0
-      </SliderMark>
-      <SliderMark value={100} {...labelStyles}>
-        $100K
-      </SliderMark>
-      <SliderMark
-        value={sliderValue}
-        textAlign="center"
-        bg="blue.500"
-        color="white"
-        mt="-10"
-        ml="-5"
-        w="12"
-      >
-        ${sliderValue}K
-      </SliderMark>
-      <SliderTrack>
-        <SliderFilledTrack />
-      </SliderTrack>
-      <SliderThumb />
-    </Slider>
+    <RangeSlider onChangeEnd={changeSalary} defaultValue={[30, 80]}>
+      <RangeSliderTrack bg="red.100">
+        <RangeSliderFilledTrack bg="brand.teal" />
+      </RangeSliderTrack>
+      <RangeSliderThumb boxSize={6} index={0}>
+        <Box color="brand.teal" as={IoMdPaw} />
+      </RangeSliderThumb>
+      <RangeSliderThumb boxSize={6} index={1}>
+        <Box color="brand.teal" as={IoMdPaw} />
+      </RangeSliderThumb>
+    </RangeSlider>
   );
 }
 

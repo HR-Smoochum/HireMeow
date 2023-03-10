@@ -27,5 +27,11 @@ module.exports = {
     'max-len': [
       'off',
     ],
+    'react-hooks/exhaustive-deps': [
+      'off',
+    ],
+    'react/prop-types': [
+      'off',
+    ],
   },
 };
