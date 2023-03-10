@@ -6,7 +6,9 @@ import {
   Card, CardHeader, CardBody, Text, Heading, Flex, Box, IconButton, Menu, MenuButton, MenuList, MenuItem, Icon, Avatar,
 } from '@chakra-ui/react';
 import { HiEllipsisVertical } from 'react-icons/hi2';
-import { AiFillHeart } from 'react-icons/ai';
+// import { AiFillHeart } from 'react-icons/ai';
+import { IoMdPaw } from 'react-icons/io';
+import Skill from './Skill.jsx';
 
 export default function SeekerCard({ seeker, handleInterested }) {
   return (
@@ -33,15 +35,15 @@ export default function SeekerCard({ seeker, handleInterested }) {
             />
             <MenuList>
               <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="interested">
-                <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
+                <Icon as={IoMdPaw} color="#ffcccc" mr="3px" />
                 Interested
               </MenuItem>
               <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="veryInterested">
-                <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
+                <Icon as={IoMdPaw} color="#ff8080" mr="3px" />
                 Very Interested
               </MenuItem>
               <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="extremelyInterested">
-                <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
+                <Icon as={IoMdPaw} color="#ff0000" mr="3px" />
                 Extremely Interested
               </MenuItem>
             </MenuList>
@@ -50,9 +52,13 @@ export default function SeekerCard({ seeker, handleInterested }) {
       </CardHeader>
       <CardBody>
         <Text>
-          Skills:
-          {seeker.resume.skills}
+          {seeker.resume.skills.length !== 0 && seeker.resume.skills[0]}
         </Text>
+        {
+          seeker.resume.skills.map((skill, index) => {
+            return <Skill skill={skill} key={index} />;
+          })
+        }
       </CardBody>
     </Card>
   );
