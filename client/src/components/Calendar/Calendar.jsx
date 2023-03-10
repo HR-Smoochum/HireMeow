@@ -1,15 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import FullCalendar from '@fullcalendar/react';
+import {
+  Button, Box,
+} from '@chakra-ui/react';
+
+// LOCAL IMPORTS
 import Form from './Form.jsx';
 import EmployerForm from './EmployerForm.jsx';
 import JobContext from '../Utilities/JobContext.js';
 import modalContext from '../Utilities/modalContext.js';
 import calendarContext from '../Utilities/calendarContext.js';
 import Header from '../Header/Header.jsx';
-import {
-  Button, 
-} from '@chakra-ui/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 // TODO: Button to create event modal, required field to select a job from their 'applied' list from seeker, job title & time
@@ -54,19 +56,19 @@ export default function Calendar() {
     }
   };
   return (
-    <div>
+    <Box padding="1rem">
       <Header />
       <FullCalendar
-        viewClassNames='calendar-layout'
+        viewClassNames="calendar-layout"
         plugins={[dayGridPlugin]}
-        initialView='dayGridMonth'
+        initialView="dayGridMonth"
         weekends={true}
         events={events}
         eventContent={renderEventContent}
         aspectRatio={3}
       />
-      <Button className='createEvent' onClick={handleCalEvent}>Schedule Interview</Button>
-    </div>
+      <Button margin="1rem" className="createEvent" onClick={handleCalEvent}>Schedule Interview</Button>
+    </Box>
   );
 }
 
@@ -78,4 +80,4 @@ function renderEventContent(eventInfo) {
       <i>{eventInfo.event.title}</i>
     </>
   );
-};
+}
