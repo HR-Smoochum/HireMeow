@@ -21,7 +21,7 @@ router.get('/blogposts', controller.getBlogPosts);
 router.post('/resumeData', upload.single('file'), controller.postResume);
 router.get('/getResumeId', controller.getResumeId);
 router.get('/getResume', controller.getResume);
-
+router.get('/getNotes', controller.getNotes);
 // post user data
 router.post('/seekers/signup', controller.postSeeker);
 router.post('/employers/signup', controller.postEmployer);

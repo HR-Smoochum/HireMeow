@@ -128,6 +128,18 @@ module.exports = {
       }
     });
   },
+  getNotes: (req, res) => {
+    models.getNotes()
+      .then((response) => {
+        const fourth = response.filter((seeker) => {
+          return seeker.uid === '4';
+        });
+        res.send(fourth[0]);
+      })
+      .catch((err) => {
+        console.log('unable to query database, error: ', err);
+      });
+  },
   postSeeker: (req, res) => {
     models.postSeeker(req.body)
       .then(() => {

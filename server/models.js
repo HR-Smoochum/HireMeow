@@ -27,6 +27,9 @@ module.exports = {
   getAllBlogPosts: () => {
     return BlogPost.find({});
   },
+  getNotes: () => {
+    return Seeker.find({});
+  },
   postResume: (file, path, seekerName) => {
     return Seeker.updateOne({ uid: seekerName }, {
       resumeFilePath: `${path}`,
