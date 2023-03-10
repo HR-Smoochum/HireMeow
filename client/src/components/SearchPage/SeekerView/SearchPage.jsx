@@ -1,6 +1,6 @@
 // LIBRARY IMPORTS
 import React, {
-  useState, useRef, useEffect,
+  useState, useRef, useEffect, useContext,
 } from 'react';
 import { HStack, Box } from '@chakra-ui/react';
 
@@ -9,20 +9,21 @@ import Header from '../../Header/Header.jsx';
 import FilterPanel from './FilterPanel.jsx';
 import ResultList from './ResultList.jsx';
 import SearchBar from '../SearchBar.jsx';
+import JobContext from '../../Utilities/JobContext.js';
 import { environmentList, experienceList, employmentList } from '../filterValues.js';
-import jobListingsData from '../../Utilities/sampleJobListingData.js';
 
 // COMPONENT
 function SearchPage() {
   // SET STATES
+  const { allJobs } = useContext(JobContext);
   const [experiences, setExperiences] = useState(experienceList);
   const [environments, setEnvironments] = useState(environmentList);
   const [employments, setEmployments] = useState(employmentList);
   const [selectedSalary, setSelectedSalary] = useState([0, 100]);
   const [searchInput, setSearchInput] = useState('');
-  const [searchPageList, setSearchPageList] = useState(jobListingsData);
+  const [searchPageList, setSearchPageList] = useState(allJobs);
   const jobsRef = useRef([]);
-  jobsRef.current = jobListingsData;
+  jobsRef.current = allJobs;
 
   // EVENT HANDLERS
   const handleExperienceChecked = (id) => {
