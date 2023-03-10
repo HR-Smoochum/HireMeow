@@ -42,5 +42,3 @@ function SearchPage() {
 }
 
 export default SearchPage;
-
-/*bg="brand.green"*/
