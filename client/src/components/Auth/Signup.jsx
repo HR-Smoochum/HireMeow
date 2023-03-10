@@ -13,18 +13,18 @@ import Header from '../Header/Header.jsx';
 // COMPONENT
 function Signup() {
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [industry, setIndustry] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
+  const [user, setUser] = useState('seeker');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState('jobSeeker');
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handlePasswordConfirmChange = (e) => setPasswordConfirm(e.target.value);
   // eslint-disable-next-line consistent-return
   async function handleSubmit(e) {
     e.preventDefault();
@@ -40,6 +40,7 @@ function Signup() {
       setError('Failed to create account');
     }
     setLoading(false);
+    // console.log(currentUser.uid);
     navigate('/login');
   }
 
@@ -57,15 +58,21 @@ function Signup() {
           <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel>Email</FormLabel>
-              <Input type="email" id="1" value={email} onChange={handleEmailChange} required />
+              <Input type="email" id="1" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <FormLabel>First Name</FormLabel>
+              <Input type="text" id="2" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+              <FormLabel>Last Name</FormLabel>
+              <Input type="text" id="3" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+              <FormLabel>Industry</FormLabel>
+              <Input type="text" id="4" value={industry} onChange={(e) => setIndustry(e.target.value)} required />
               <FormLabel>Password</FormLabel>
-              <Input type="password" id="2" value={password} onChange={handlePasswordChange} required />
+              <Input type="password" id="5" value={password} onChange={(e) => setPassword(e.target.value)} required />
               <FormLabel>Confirm Password</FormLabel>
-              <Input type="password" id="3" value={passwordConfirm} onChange={handlePasswordConfirmChange} required />
+              <Input type="password" id="6" value={passwordConfirm} onChange={(e) => setPasswordConfirm(e.target.value)} required />
               <Center p={4}>
                 <RadioGroup onChange={setUser} value={user}>
                   <Stack direction="row">
-                    <Radio value="jobSeeker">Job Seeker</Radio>
+                    <Radio value="seeker">Job Seeker</Radio>
                     <Radio value="employer">Employer</Radio>
                   </Stack>
                 </RadioGroup>
