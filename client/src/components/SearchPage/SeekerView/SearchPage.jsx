@@ -101,7 +101,7 @@ function SearchPage() {
 
   return (
     <Box m="1rem" bg="brand.green">
-      <Header />
+      <Header title="All Jobs"/>
       <SearchBar setSearchInput={setSearchInput} />
       <HStack justify="flex-start" align="flex-start">
         <FilterPanel

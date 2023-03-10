@@ -1,4 +1,25 @@
 /* ============================
+   Global
+   ============================
+*/
+
+body {
+  background-color:#FFFBF6;
+}
+
+
+/* ============================
+   Search
+   ============================
+*/
+
+
+/* background */
+.css-1sm3bog {
+  background-color: #FFFBF6;
+}
+
+/* ============================
    Form
    ============================
 */
@@ -257,13 +278,14 @@
 */
 
 .blogHeaderContainer {
-  border-top: 0.07em solid lightslategray;
-  border-bottom: 0.07em solid lightslategray;
+  border-top: 0.05em solid lightslategray;
+  border-bottom: 0.05em solid lightslategray;
   display: flex;
   justify-content: center;
   column-gap: 4em;
   align-items: center;
   height: 3em;
+  margin: 1em 2em;
 }
 
 .blogSectionHighlights {

@@ -8,7 +8,7 @@ import modalContext from '../Utilities/modalContext.js';
 import calendarContext from '../Utilities/calendarContext.js';
 import Header from '../Header/Header.jsx';
 import {
-  Button, 
+  Button,
 } from '@chakra-ui/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
@@ -55,7 +55,7 @@ export default function Calendar() {
   };
   return (
     <div>
-      <Header />
+      <Header title="My Calendar"/>
       <FullCalendar
         viewClassNames='calendar-layout'
         plugins={[dayGridPlugin]}

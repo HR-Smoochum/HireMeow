@@ -28,6 +28,8 @@ function App() {
         green: '#ACC196',
         yellow: '#E9EB9E',
         light: '#fff7ef',
+        offWhite: '#FFFBF6',
+        lightOff: '#F9F9E3',
       },
     },
     fonts: {

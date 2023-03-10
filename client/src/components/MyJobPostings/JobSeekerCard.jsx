@@ -66,7 +66,7 @@ export default function JobSeekerCard() {
   };
   return (
     <>
-      <Header />
+      <Header title="My Seekers"/>
       <Tabs isFitted variant="unstyled">
         <TabList>
           <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>

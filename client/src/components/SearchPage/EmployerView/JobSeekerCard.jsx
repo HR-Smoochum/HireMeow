@@ -13,7 +13,7 @@ function SeekerCard({ seeker }) {
   };
 
   return (
-    <Card maxW="md">
+    <Card maxW="md" bg="brand.lightOff">
       <CardHeader>
         <Flex spacing="8">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">

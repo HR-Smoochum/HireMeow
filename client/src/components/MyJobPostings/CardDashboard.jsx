@@ -132,7 +132,7 @@ export default function CardDashboard() {
 
   return (
     <>
-      <Header />
+      <Header title='My Jobs'/>
       <Tabs isFitted variant="unstyled">
         <TabList>
           <Tab _selected={{ color: 'white', bg: 'brand.green' }}>Interested</Tab>

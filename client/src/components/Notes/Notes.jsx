@@ -54,8 +54,7 @@ function Notes() {
 
   return (
     <div className="notesComponent">
-      <Header />
-      <div className="notesContainer">My Notes</div>
+      <Header title="My Notes"/>
       <div className="noteItemsContainer">
         <div className="notesListContainer">
           <div className="notesListHeader">Notes</div>

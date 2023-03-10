@@ -48,8 +48,7 @@ function Resume() {
 
   return (
     <div className="uploadResumeContainer">
-      <Header />
-      <div className="myResumeHeader">Resume</div>
+      <Header title='My Resume'/>
       <div className="resumeInformationContainer">
         <div className="uploadResumeActionContainer">
           <div className="uploadResume">Upload Resume</div>

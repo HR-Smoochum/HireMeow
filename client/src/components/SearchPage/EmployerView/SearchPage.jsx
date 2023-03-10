@@ -32,8 +32,8 @@ function SearchPage() {
   }, [searchInput]);
 
   return (
-    <VStack m="1rem" bg="brand.green">
-      <Header />
+    <VStack m="1rem" bg="brand.offWhite">
+      <Header title="All Seekers" />
       <SearchBar setSearchInput={setSearchInput} />
       <ResultList searchPageList={searchPageList} />
     </VStack>
@@ -41,3 +41,5 @@ function SearchPage() {
 }
 
 export default SearchPage;
+
+/*bg="brand.green"*/

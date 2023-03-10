@@ -10,7 +10,7 @@ function ResultList({ searchPageList }) {
   // SET STATES/CONSTANTS
 
   return (
-    <SimpleGrid spacing={6} templateColumns="repeat(2, minmax(15rem, 1fr))" bg="brand.green">
+    <SimpleGrid spacing={6} templateColumns="repeat(2, minmax(15rem, 1fr))" bg="brand.off">
       {
         searchPageList.map(((seeker) => {
           return <SeekerCard seeker={seeker} key={seeker.id} />;
