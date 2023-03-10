@@ -4,8 +4,12 @@
 */
 
 body {
-  background-color:#FFFBF6;
+  background-color:#f7eee5;
 }
+/*
+#root {
+  background-color:#f7eee5;
+} */
 
 .sampleNone {
   background-color: #faf9f7;
