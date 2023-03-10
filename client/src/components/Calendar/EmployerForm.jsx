@@ -7,7 +7,7 @@ export default function EmployerForm({
 }) {
   const [interestlevel, setInterestLevel] = useState('interested');
   const [applicants, setApplicants] = useState({});
-  
+
   useEffect(() => {
     axios.get('/seekers')
       .then((res) => {
