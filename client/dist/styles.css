@@ -47,7 +47,7 @@
 }
 
 .editorContentArea {
-  border-top: .2em solid #c9c9c9 ;
+  /* border-top: .2em solid #c9c9c9 ; */
   border-bottom: .1em solid #313131 ;
 }
 
@@ -113,7 +113,6 @@
    ============================
 */
 
-
 .newNoteContainer {
   border: .1em solid black;
   display: flex;
@@ -121,6 +120,200 @@
   margin: 0em 10em 0 30em;
 }
 
+<<<<<<< HEAD
+.noteHeader {
+  text-align: center;
+  background-color: #c9c9c9;
+}
+
+/* ============================
+   Blog
+   ============================
+*/
+
+.blogHeaderContainer {
+  border-top: 0.07em solid lightslategray;
+  border-bottom: 0.07em solid lightslategray;
+  display: flex;
+  justify-content: center;
+  column-gap: 4em;
+  align-items: center;
+  height: 3em;
+}
+
+.blogSectionHighlights {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.blogSectionHighlights:hover {
+  text-transform: uppercase;
+  color: #1b1a1a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.blogSeparator {
+  width: 0.4em;
+  height: 0.4em;
+  border: 0.2em solid #313131;
+  border-radius: 0.5em;
+}
+
+.blogContainer {
+  padding: 5em;
+}
+
+.highlightContainer {
+  display: flex;
+  column-gap: 2em;
+}
+
+.highlightBlogContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1em;
+  width: 800px;
+}
+
+.highlightImageContainer {
+  margin: 0 0 0 3em;
+  height: 400px;
+  width: 450px;
+}
+
+.highlightTitle {
+  font-size: 40px;
+}
+
+.readMore {
+  padding: .5em;
+  border-radius: .2em;
+  border: .1em solid #383838;
+  margin: 0 40em 0 0;
+}
+
+.readMore:hover {
+  background-color: #e2e0e0;
+}
+
+.featuredBlogsContainer {
+  margin: 7em 0;
+  display: flex;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.featuredBlogPostsList {
+  height: 26em;
+  display: flex;
+  column-gap: 2em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 0 4em;
+}
+
+.individualBlogPost {
+  height: 400px;
+  min-width: 400px;
+  border: .15em solid #313131;
+  box-shadow: 0.2em 0.05em 1em #626060
+}
+
+.blogImage {
+  height: 300px;
+  width: 450px;
+  object-fit: cover;
+}
+
+.blogPostContentContainer {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 6em;
+  row-gap: 1em;
+  padding: 0 0 0 1em;
+}
+
+.blogTitle {
+  font-weight: bold;
+}
+
+
+/* ============================
+   Resume
+   ============================
+*/
+
+.uploadResumeContainer {
+
+}
+
+.myResumeHeader {
+  font-size: 2em;
+  border-top: 0.03em solid lightslategray;
+  border-bottom: 0.03em solid lightslategray;
+  height: 1.7em;
+  text-align: center;
+}
+
+.uploadResumeActionContainer {
+  width: 30em;
+  height: 12em;
+  border: 0.1em solid black;
+  margin: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.uploadResume {
+  font-size: 1.5em;
+  background-color: #e2e0e0;
+  width: 100%;
+}
+
+.uploadResumeButton {
+  padding: .3em 1em;
+  border: solid .1em black;
+  margin: 1em 10em;
+}
+
+.inputResume {
+  margin: 2em 0 0 6em;
+}
+
+.currentResumeLinkContainer {
+  height: 2em;
+  width: 40em;
+  border: 0.1em solid black;
+  margin: 1em 2em;
+}
+
+.resumeInformationContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em;
+}
+
+.resumeImage {
+  width: 40em;
+  height: 42em;
+}
+
+.resumeImageContainer {
+ border: .15em solid #626060;
+ width: 40.2em;
+ height: 42em;
+}
+
+.noResume {
+  text-align: center;
+  padding: 1em;
+  font-size: 2em;
+=======
 /* ============================
    Modal styles
    ============================
@@ -162,4 +355,5 @@
 .calendar-layout {
   position: relative;
   z-index: 0;
+>>>>>>> 1ff708382e9dd3460e8c7636743d35bc42dc7731
 }
