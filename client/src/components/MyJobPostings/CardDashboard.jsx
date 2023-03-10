@@ -31,11 +31,11 @@ export default function CardDashboard() {
     const uid = 1;
     axios.get(`http://localhost:3000/seekers/${uid}`).then((results) => {
       if (results.data.length !== 0) {
-        setInterested(results.data[0].saved.interested);
-        setVeryInterested(results.data[0].saved.veryInterested);
-        setExtremelyInterested(results.data[0].saved.extremelyInterested);
-        setApplied(results.data[0].saved.applied);
-        setInterviewed(results.data[0].saved.interviewedFor);
+        setInterested(results.data.saved.interested);
+        setVeryInterested(results.data.saved.veryInterested);
+        setExtremelyInterested(results.data.saved.extremelyInterested);
+        setApplied(results.data.saved.applied);
+        setInterviewed(results.data.saved.interviewedFor);
       }
     }).catch((err) => {
       console.error('get seeker from db err', err);

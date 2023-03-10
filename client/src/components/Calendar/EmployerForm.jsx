@@ -21,7 +21,7 @@ export default function EmployerForm({
         };
         for (const key in employer.saved) {
           for (const id of employer.saved[key]) {
-            const match = res.data.find((applicant) => applicant.uid === id);
+            const match = res.data.find((applicant) => Number(applicant.uid) === id);
             if (match) {
               applicantData[key].push(match);
             }

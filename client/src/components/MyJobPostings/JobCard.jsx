@@ -31,7 +31,7 @@ export default function JobCard({
                     <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
                       <Image
                         borderRadius="full"
-                        boxSize="50px"
+                        boxSize="40px"
                         src={Job.logo}
                         alt="company logo"
                       />
