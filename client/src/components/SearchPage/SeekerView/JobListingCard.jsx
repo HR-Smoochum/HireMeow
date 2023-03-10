@@ -50,11 +50,11 @@ function JobCard({
                   <Icon as={IoMdPaw} color="brand.yellow" mr="3px" />
                   Interested
                 </MenuItem>
-                <MenuItem value="very interested">
+                <MenuItem onClick={(e) => handleInterested(e, seekerID, job.id)} value="veryInterested">
                   <Icon as={IoMdPaw} color="brand.teal" mr="3px" />
                   Very Interested
                 </MenuItem>
-                <MenuItem value="extremely interested">
+                <MenuItem onClick={(e) => handleInterested(e, seekerID, job.id)} value="extremelyInterested">
                   <Icon as={IoMdPaw} color="brand.purple" mr="3px" />
                   Extremely Interested
                 </MenuItem>
