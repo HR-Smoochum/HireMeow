@@ -14,7 +14,7 @@ function Notifications() {
 
   return (
     <Menu>
-      <MenuButton as={Button}>
+      <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
         <IoNotificationsSharp />
       </MenuButton>
       <MenuList>

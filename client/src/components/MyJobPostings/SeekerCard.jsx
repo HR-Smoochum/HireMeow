@@ -8,26 +8,7 @@ import {
 import { HiEllipsisVertical } from 'react-icons/hi2';
 import { AiFillHeart } from 'react-icons/ai';
 
-// Seeker = {
-//   uid: 4,
-//   first_name: 'Ava',
-//   last_name: 'Wong',
-//   industry: 'Software Engineer',
-//   resume: {},
-//   notes: [],
-//   saved: {},
-// }
-export default function SeekerCard({ seeker }) {
-  const handleInterested = (e) => {
-    console.log(e.target);
-    // update Seeker's interested level
-    // if (e.target.value === 'very interested') {
-
-    // } else {
-
-    // }
-  };
-
+export default function SeekerCard({ seeker, handleInterested }) {
   return (
     <Card maxW="md">
       <CardHeader>
@@ -51,15 +32,15 @@ export default function SeekerCard({ seeker }) {
               variant="ghost"
             />
             <MenuList>
-              <MenuItem bg="brand.green" value="interested">
+              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="interested">
                 <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
                 Interested
               </MenuItem>
-              <MenuItem onClick={handleInterested} value="very interested">
+              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="veryInterested">
                 <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
                 Very Interested
               </MenuItem>
-              <MenuItem onClick={handleInterested} value="extremely interested">
+              <MenuItem onClick={(e) => handleInterested(e, seeker.uid)} value="extremelyInterested">
                 <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
                 Extremely Interested
               </MenuItem>
@@ -69,7 +50,8 @@ export default function SeekerCard({ seeker }) {
       </CardHeader>
       <CardBody>
         <Text>
-          {seeker.resume.resume}
+          Skills:
+          {seeker.resume.skills}
         </Text>
       </CardBody>
     </Card>

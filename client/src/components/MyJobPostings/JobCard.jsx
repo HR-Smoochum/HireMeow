@@ -52,11 +52,11 @@ export default function JobCard({
                           <Icon as={AiFillHeart} color="#ffcccc" mr="3px" />
                           Interested
                         </MenuItem>
-                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="very interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="veryInterested">
                           <Icon as={AiFillHeart} color="#ff8080" mr="3px" />
                           Very Interested
                         </MenuItem>
-                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="extremely interested">
+                        <MenuItem onClick={(e) => handleInterested(e, Job.id)} value="extremelyInterested">
                           <Icon as={AiFillHeart} color="#ff0000" mr="3px" />
                           Extremely Interested
                         </MenuItem>
@@ -65,8 +65,8 @@ export default function JobCard({
                   </Flex>
                 </CardHeader>
                 <CardBody>
-                  <Text>
-                    {Job.description.substring(0, 100)}
+                  <Text h="50px">
+                    {Job.description.substring(0, 80)}
                   </Text>
                   <Center>
                     <IconButton aria-label="show more" icon={<HiChevronDoubleDown />} variant="ghost" onClick={handleDetail} />

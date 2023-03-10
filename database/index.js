@@ -15,6 +15,7 @@ const seeker = mongoose.Schema({
   },
   first_name: String,
   last_name: String,
+  photo: String,
   industry: String,
   resume: Object, // {title: '', skills:''}
   notes: Array,

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Button } from '@chakra-ui/react'
 
 export default function EmployerForm({
-    employer
+    employer, setEvents, events, dismissModal
 }) {
   const [interestlevel, setInterestLevel] = useState('interested');
   const [applicants, setApplicants] = useState({});
+  
   useEffect(() => {
     axios.get('/seekers')
       .then((res) => {
@@ -28,16 +30,36 @@ export default function EmployerForm({
       .catch(e => {throw e;})
   }, []);
 
+  const handleSelection = (e) => {
+    setCandidate()
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {};
+    for (const [key, val] of new FormData(e.target)) {
+      data[key] = val;
+    }
+    console.log('this is data', data);
+    axios.put(`employers/${employer.uid}`, data)
+      .then(() => {
+        return axios.get(`employers/${employer.uid}`)
+      })
+      .then((res) => { setEvents(res.data[0].events); dismissModal() })
+      .catch((err) => console.log(err));
+  };
+
+
   return (
-    <form className="container" onSubmit={(ev) => ev.preventDefault()}>
+    <form className="container" onSubmit={(e) => { handleSubmit(e); }}>
       <div className="tab">
-        <button className="tablinks" onClick={() => setInterestLevel('interested')}>Interested</button>
-        <button className="tablinks" onClick={() => setInterestLevel('veryInterested')}>Very Interested</button>
-        <button className="tablinks" onClick={() => setInterestLevel('extremelyInterested')}>Extremely Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('interested')}}>Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('veryInterested')}}>Very Interested</button>
+        <button className="tablinks" onClick={(ev) => {ev.preventDefault(); setInterestLevel('extremelyInterested')}}>Extremely Interested</button>
      </div>
       <label>
         Candidates:
-        <select name="candidates">
+        <select name="candidate">
         {applicants[interestlevel]?.map((ele) => <option key={ele.uid}>{`${ele.resume.name}`}</option>)}
         </select>
       </label>
