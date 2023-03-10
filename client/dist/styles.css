@@ -1,11 +1,81 @@
-.container {
-    background-color: #799496;
-    border-radius: 0.5rem;
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-    width: 50vw;
-  }
+/* ============================
+   Form
+   ============================
+*/
+.fieldLabel {
+  color: #364142;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.fieldInput {
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+.formContainer {
+  background-color: #799496;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  width: 50vw;
+}
+
+.formContainer--employer {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 2rem 0;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formSubmitButton {
+  background-color: #a8cfaf;
+  border-radius: 10px;
+  color: #364142;
+  display: block;
+  font-weight: bold;
+  margin: 0.5rem auto 0;
+  padding: 0.5rem 1rem;
+}
+
+.formSubmitButton:hover {
+  box-shadow: inset 0 0 25px 5px rgba(0, 0, 0, 0.1);
+  color: #4f5f60;
+  cursor: pointer;
+}
+
+.tab {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.tablinks {
+  display: block;
+  font-weight: bold;
+  flex: 1 1 0;
+  padding: 1rem 0;
+}
+
+.tablinks:hover,
+.tablinks:active {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(220, 220, 220);
+}
+
+.tablinks--active,
+.tablinks--active:hover,
+.tablinks--active:active {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
 /* ============================
    Editor
    ============================
@@ -336,6 +406,7 @@
 .inner-modal {
   position: relative;
   margin: 0 auto;
+  width: max-content;
 }
 
 .dismiss {
@@ -346,6 +417,7 @@
   background: transparent;
   border: transparent;
   font-size: 1.5rem;
+  z-index: 1;
 }
 
 /* ============================
