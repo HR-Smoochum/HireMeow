@@ -33,11 +33,9 @@ module.exports = {
     });
   },
   postSeeker: (user) => {
-    console.log(user);
     return Seeker.create(user);
   },
   postEmployer: (user) => {
-    console.log(user);
     return Employer.create(user);
   },
 
