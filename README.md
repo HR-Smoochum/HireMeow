@@ -22,7 +22,7 @@ Job-search website to support job seekers in their search for jobs and employers
 
 ## Login & Authentication
 Created By: [Daniel Greaves](https://github.com/dgreaves18)
-![Alt Text](https://github.com/HR-Smoochum/JobSite/blob/readMe/ReadMeGifs/loginAuth.gif)
+![loginAuth](https://user-images.githubusercontent.com/115492619/224514549-843be203-4ab6-4e38-bc58-b79b9da01e55.gif)
 
 ## Header
 Created By: [Donna Wong](https://github.com/donnatopia)
