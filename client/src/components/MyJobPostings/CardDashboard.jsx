@@ -143,7 +143,7 @@ export default function CardDashboard() {
         </TabList>
         <TabPanels p="2rem">
           <TabPanel>
-            <SimpleGrid spacing={10} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+            <SimpleGrid spacing={25} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 interestedJobs.map(((Job, index) => {
                   return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
@@ -156,7 +156,7 @@ export default function CardDashboard() {
             }
           </TabPanel>
           <TabPanel>
-            <SimpleGrid spacing={10} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+            <SimpleGrid spacing={25} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 veryInterestedJobs.map(((Job, index) => {
                   return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
@@ -169,7 +169,7 @@ export default function CardDashboard() {
             }
           </TabPanel>
           <TabPanel>
-            <SimpleGrid spacing={10} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+            <SimpleGrid spacing={25} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 extremelyInterestedJobs.map(((Job, index) => {
                   return <JobCard Job={Job} key={index} handleCheck={handleCheck} handleSingleApply={handleSingleApply} handleInterested={handleInterested} />;
@@ -182,7 +182,7 @@ export default function CardDashboard() {
             }
           </TabPanel>
           <TabPanel>
-            <SimpleGrid spacing={10} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+            <SimpleGrid spacing={25} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 appliedJobs.map(((Job, index) => {
                   return <AppliedAndInterviewedJobs Job={Job} key={index} />;
@@ -192,7 +192,7 @@ export default function CardDashboard() {
             </SimpleGrid>
           </TabPanel>
           <TabPanel>
-            <SimpleGrid spacing={10} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
+            <SimpleGrid spacing={25} templateColumns="repeat(auto-fill, minmax(300px, 1fr))">
               {
                 interviewedJobs.map(((Job, index) => {
                   return <AppliedAndInterviewedJobs Job={Job} key={index} />;
