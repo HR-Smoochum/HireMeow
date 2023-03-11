@@ -15,12 +15,14 @@ function Notifications() {
   const [notifications, setNotifications] = useState([]);
 
   const generateNotifications = (events) => {
-    setNotifications(events.map((event) => {
-      const upcoming = new Date(event.date);
-      const now = new Date();
-      const days = (upcoming - now) / (24 * 60 * 60 * 1000);
-      return `${event.title} in ${Math.floor(days)} days`;
-    }));
+    if (events) {
+      setNotifications(events.map((event) => {
+        const upcoming = new Date(event.date);
+        const now = new Date();
+        const days = (upcoming - now) / (24 * 60 * 60 * 1000);
+        return `${event.title} in ${Math.floor(days)} days`;
+      }));
+    }
   };
 
   useEffect(() => {
@@ -35,7 +37,7 @@ function Notifications() {
 
   return (
     <Menu>
-      <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
+      <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
         <IoNotificationsSharp />
       </MenuButton>
       <MenuList>

@@ -44,33 +44,29 @@ export default function Header({ title }) {
   }, [mode, seeker.first_name, employer.first_name]);
 
   return (
-    <Flex flexDirection="column">
-      <Flex p="30" alignItems="center" maxHeight="md">
-        <Flex alignItems="center" onClick={(e) => handleHome(e)} cursor="pointer">
-          <Image src={Logo} alt="logo" objectFit="contain" maxHeight="15%" maxWidth="15%" />
-          <Heading size="lg" ml="2">Hire Meow</Heading>
-        </Flex>
-        <Spacer />
-        <Flex gap="2">
-          <Menu>
-            <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
-              <AiOutlineMenu />
-            </MenuButton>
-            <MenuList>
-              <Navigation mode={mode} />
-            </MenuList>
-          </Menu>
-          { mode !== 'guest' ? <Notifications /> : null }
-          <Menu>
-            <MenuButton as={Button} onClick={(e) => e.stopPropagation()}>
-              <CgProfile />
-            </MenuButton>
-            <Options mode={mode} firstName={firstName} />
-          </Menu>
-        </Flex>
+    <Flex p="30" alignItems="center" maxHeight="md">
+      <Flex alignItems="center" onClick={(e) => handleHome(e)} cursor="pointer">
+        <Image src={Logo} alt="logo" objectFit="contain" maxHeight="15%" maxWidth="15%" />
+        <Heading size="lg" ml="2">Hire Meow</Heading>
       </Flex>
-      { title ? <div className="notesContainer">{ title }</div> : null }
+      <Spacer />
+      <Flex gap="2">
+        <Menu>
+          <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
+            <AiOutlineMenu />
+          </MenuButton>
+          <MenuList>
+            <Navigation mode={mode} />
+          </MenuList>
+        </Menu>
+        { mode !== 'guest' ? <Notifications /> : null }
+        <Menu>
+          <MenuButton bg="brand.offWhite" as={Button} onClick={(e) => e.stopPropagation()}>
+            <CgProfile />
+          </MenuButton>
+          <Options mode={mode} firstName={firstName} />
+        </Menu>
+      </Flex>
     </Flex>
-
   );
 }

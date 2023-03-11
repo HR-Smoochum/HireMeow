@@ -11,8 +11,6 @@ import ResultList from './ResultList.jsx';
 import SearchBar from '../SearchBar.jsx';
 import JobContext from '../../Utilities/JobContext.js';
 import { environmentList, experienceList, employmentList } from '../filterValues.js';
-import jobListingsData from '../../Utilities/sampleJobListingData.js';
-import { useAuth } from '../../Auth/contexts/AuthContext';
 
 // COMPONENT
 function SearchPage() {
@@ -26,15 +24,6 @@ function SearchPage() {
   const [searchPageList, setSearchPageList] = useState(allJobs);
   const jobsRef = useRef([]);
   jobsRef.current = allJobs;
-  const { currentUser } = useAuth();
-  const { mode, setSeekerID, setEmployerID } = useContext(JobContext);
-
-  // Set user ID
-  if (mode === 'employers') {
-    setEmployerID(currentUser.uid);
-  } else {
-    setSeekerID(currentUser.uid);
-  }
 
   // EVENT HANDLERS
 
@@ -113,7 +102,7 @@ function SearchPage() {
   }, [experiences, employments, environments, searchInput, selectedSalary]);
 
   return (
-    <Box m="1rem" bg="brand.green">
+    <Box m="1rem" bg="brand.offWhite">
       <Header title="All Jobs"/>
       <SearchBar setSearchInput={setSearchInput} />
       <HStack justify="flex-start" align="flex-start">
