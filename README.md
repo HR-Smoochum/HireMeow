@@ -38,7 +38,8 @@ Created By: [Kathy Ye](https://github.com/kathyye15)
 
 ## My saved jobs & My saved seekers
 Created By: [Demi Gao](https://github.com/demiko55)
-<p align="center"><img width="1300" alt="related-products" src="https://user-images.githubusercontent.com/46610320/218278848-839b74e1-77b9-4aca-8a60-2c84f7a30e7a.png">
+![mySavedJobs](https://user-images.githubusercontent.com/116925220/224516671-f820293c-fa7f-4e4c-ba20-fa3602de978e.gif)
+
 
 ## Blog
 Created By: [Kathy Ye](https://github.com/kathyye15)
