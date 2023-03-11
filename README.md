@@ -30,7 +30,7 @@ Created By: [Donna Wong](https://github.com/donnatopia)
 
 ## Search
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
-<p align="center"><img width="1300" alt="related-products" src="https://user-images.githubusercontent.com/46610320/218278848-839b74e1-77b9-4aca-8a60-2c84f7a30e7a.png">
+![searchPage](https://user-images.githubusercontent.com/115492619/224514919-72d1a2cf-bcf3-44b9-aaac-83fde327fe96.gif)
 
 ## CALENDAR
 Created By: [Kathy Ye](https://github.com/kathyye15)
