@@ -39,6 +39,8 @@ Upon entering the page, users will be greeted with an authentication page, where
 
 As a guest, users will only have access to the main page and blog.
 
+![loginAuth](https://user-images.githubusercontent.com/115492619/224514549-843be203-4ab6-4e38-bc58-b79b9da01e55.gif)
+
 ## Calendar & Notifications
 Both job seekers and employers have the opportunity to schedule and display upcoming interviews and phone calls in an interactive calendar.
 
