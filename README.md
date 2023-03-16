@@ -44,9 +44,13 @@ As a guest, users will only have access to the main page and blog.
 ## Calendar & Notifications
 Both job seekers and employers have the opportunity to schedule and display upcoming interviews and phone calls in an interactive calendar.
 
-## Main Page
+## Main Search Page
+Created By: [Archaa Shrivastav](https://github.com/avinashi10)
+
   ### Job Seekers
   Job seekers can search based on keyword search with job titles and filter job listings based on type of employment, experience level, environment, salary, and date posted.
+  ![searchPage](https://user-images.githubusercontent.com/115492619/225764005-bafc4efa-5935-4f1c-843a-359eac419329.gif)
+
   
   Job seekers can mark a job based on their interest levels. This will save the job listing in their "My Jobs" page.
   
@@ -56,8 +60,12 @@ Both job seekers and employers have the opportunity to schedule and display upco
   Employers can mark a job seeker based on their interest levels. This will save the job seeker in their "My Seekers" page.
   
 ## My Jobs & My Seekers
+Created By: [Demi Gao](https://github.com/demiko55)
+
   ### Job Seekers
   Job seekers will have access to a "My Jobs" page, which will display all their saved jobs that they marked as interested, very interested, and extremely interested. Among these jobs, job seekers will have the ability to apply to multiple jobs at once. This will move the interested jobs to applied jobs. Applied jobs will automatically move to Interviewed jobs once the time has passed.
+
+![mySavedJobs](https://user-images.githubusercontent.com/116925220/224516671-f820293c-fa7f-4e4c-ba20-fa3602de978e.gif)
   
   ### Employers
   Employers will have access to a "My Seekers" page, which will display all their saved seekers that they marked as interested, very interested, and extremely interested.
