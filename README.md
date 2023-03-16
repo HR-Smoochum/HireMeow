@@ -35,6 +35,8 @@
 # Primary Features
 
 ## Authentication
+Created By: [Daniel Greaves](https://github.com/dgreaves18)
+
 Upon entering the page, users will be greeted with an authentication page, where they will have the opportunity to login as either a job seeker or employer.
 
 As a guest, users will only have access to the main page and blog.
@@ -49,9 +51,9 @@ Created By: [Archaa Shrivastav](https://github.com/avinashi10)
 
   ### Job Seekers
   Job seekers can search based on keyword search with job titles and filter job listings based on type of employment, experience level, environment, salary, and date posted.
-  ![searchPage](https://user-images.githubusercontent.com/115492619/225764005-bafc4efa-5935-4f1c-843a-359eac419329.gif)
-
   
+![searchPage](https://user-images.githubusercontent.com/115492619/225764005-bafc4efa-5935-4f1c-843a-359eac419329.gif)
+
   Job seekers can mark a job based on their interest levels. This will save the job listing in their "My Jobs" page.
   
   ### Employers
@@ -70,7 +72,11 @@ Created By: [Demi Gao](https://github.com/demiko55)
   ### Employers
   Employers will have access to a "My Seekers" page, which will display all their saved seekers that they marked as interested, very interested, and extremely interested.
   
+## Calendar
+Created By: [Kathy Ye](https://github.com/kathyye15)
+
 ## Notes
+Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 Both job seekers and employers have the opportunity to add notes about jobs, companies, interviews, people, etc.
 
 ## Resume
