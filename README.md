@@ -34,20 +34,23 @@
 
 # Primary Features
 ## Header
+
 Created By: [Donna Wong](https://github.com/donnatopia)
 
 There is a modernized header above each page whose menu dynamically renders based on authentication state. Job Seekers and employers will also receive notifications regarding upcoming interviews
+
+![Header](https://user-images.githubusercontent.com/116592476/225770315-fb851e27-416e-4672-ace4-bf1109e93522.gif)
 
 ## Authentication
 Created By: [Daniel Greaves](https://github.com/dgreaves18)
 
 Upon entering the page, users will be greeted with an authentication page, where they will have the opportunity to login as either a job seeker or employer.
 
-As a guest, users will only have access to the main page and blog.
+As a guest, users will only have access to the search page and blog.
 
 ![loginAuth](https://user-images.githubusercontent.com/115492619/224514549-843be203-4ab6-4e38-bc58-b79b9da01e55.gif)
 
-## Main Search Page
+## Search Page
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
 
   ### Job Seekers
