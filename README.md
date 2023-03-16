@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>HireMeow</h1>
+  <h1>Hire Meow</h1>
   <p>A site for job seekers to find jobs and employers to find job seekers</p>
 </div>
 
@@ -33,6 +33,10 @@
 </div>
 
 # Primary Features
+## Header
+Created By: [Donna Wong](https://github.com/donnatopia)
+
+There is a modernized header above each page whose menu dynamically renders based on authentication state. Job Seekers and employers will also receive notifications regarding upcoming interviews
 
 ## Authentication
 Created By: [Daniel Greaves](https://github.com/dgreaves18)
@@ -42,9 +46,6 @@ Upon entering the page, users will be greeted with an authentication page, where
 As a guest, users will only have access to the main page and blog.
 
 ![loginAuth](https://user-images.githubusercontent.com/115492619/224514549-843be203-4ab6-4e38-bc58-b79b9da01e55.gif)
-
-## Calendar & Notifications
-Both job seekers and employers have the opportunity to schedule and display upcoming interviews and phone calls in an interactive calendar.
 
 ## Main Search Page
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
@@ -75,14 +76,21 @@ Created By: [Demi Gao](https://github.com/demiko55)
 ## Calendar
 Created By: [Kathy Ye](https://github.com/kathyye15)
 
+Both job seekers and employers have the opportunity to schedule and display upcoming interviews and phone calls in an interactive calendar.
+
 ## Notes
 Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
+
 Both job seekers and employers have the opportunity to add notes about jobs, companies, interviews, people, etc.
 
 ## Resume
+Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
+
 Job seekers have the ability to upload their resume that can be sent to various job listings.
 
 ## Blog
+Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
+
 All users can read informative and inspirational blog posts.
 
 # Getting Started
