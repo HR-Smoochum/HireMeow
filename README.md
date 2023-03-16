@@ -87,3 +87,13 @@ npm run seed
 ```
 npm run start
 ```
+
+# Our Team
+| Role | Member |
+| --- | --- |
+| Project Owner | Donna Wong
+| Project Owner | Archaa Shrivastav |
+| Architect | Patrick Kelly |
+| Architect | Daniel Greaves |
+| UI Designer | Kathy Ye |
+| UI Designer | Demi Gao |
