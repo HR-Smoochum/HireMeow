@@ -7,6 +7,8 @@
 ## Front-End
 <div>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/static/v1?style=for-the-badge&message=React+Router&color=CA4245&logo=React+Router&logoColor=FFFFFF&label=">
+  <img src='https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white' />
   <img src="https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white" />
   <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white" />
   <img src="https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white" />
@@ -16,12 +18,14 @@
 <div>
   <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-  <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" />
+  <img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
 </div>
 
 ## Miscellaneous
 <div>
+  <img src='https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E' />
+  <img src='https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white' />
   <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
   <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white" />
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
@@ -89,11 +93,11 @@ npm run start
 ```
 
 # Our Team
-| Role | Member |
-| --- | --- |
-| Project Owner | Donna Wong
-| Project Owner | Archaa Shrivastav |
-| Architect | Patrick Kelly |
-| Architect | Daniel Greaves |
-| UI Designer | Kathy Ye |
-| UI Designer | Demi Gao |
+| Member | Role | Lead Component |
+| --- | --- | --- |
+| [Donna Wong](https://github.com/donnatopia) | Project Owner | Header |
+| [Archaa Shrivastav](https://github.com/avinashi10) | Project Owner | Main Page |
+| [Patrick Kelly](https://github.com/Patrick-Kelly-1330) | Architect | Resume, Blog, Notes |
+| [Daniel Greaves](https://github.com/dgreaves18) | Architect | Authentication
+| [Kathy Ye](https://github.com/kathyye15)| UI Designer | Calendar |
+| [Demi Gao](https://github.com/demiko55) | UI Designer | My Jobs/My Seekers |
