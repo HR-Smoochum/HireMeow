@@ -79,7 +79,15 @@ Created By: [Demi Gao](https://github.com/demiko55)
 ## Calendar
 Created By: [Kathy Ye](https://github.com/kathyye15)
 
-Both job seekers and employers have the opportunity to schedule and display upcoming interviews and phone calls in an interactive calendar.
+  ### Job Seekers
+  Job seekers can schedule interviews they have applied to using the interactive calendar.
+  
+  ![seeker](https://user-images.githubusercontent.com/46610320/225821548-bcf13d86-8ded-4598-af86-82030cb96935.gif)
+
+  ### Employers
+  Employers can schedule interviews with candidates they are interested in. The interactive modal dynamically displays candidate names based on their level of interest, ensuring a smooth and efficient user experience. Employers can filter candidates by level of interest, including "interested," "very interested," and "extremely interested."
+  
+![employer](https://user-images.githubusercontent.com/46610320/225821614-d723c19d-d280-4f31-bd2a-f21d571607cc.gif)
 
 ## Notes
 Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
