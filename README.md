@@ -71,7 +71,7 @@ Created By: [Demi Gao](https://github.com/demiko55)
   ### Job Seekers
   Job seekers will have access to a "My Jobs" page, which will display all their saved jobs that they marked as interested, very interested, and extremely interested. Among these jobs, job seekers will have the ability to apply to multiple jobs at once. This will move the interested jobs to applied jobs. Applied jobs will automatically move to Interviewed jobs once the time has passed.
 
-![mySavedJobs](https://user-images.githubusercontent.com/116925220/224516671-f820293c-fa7f-4e4c-ba20-fa3602de978e.gif)
+![savedJobs Seekers](https://user-images.githubusercontent.com/116925220/226431227-a692fc0f-fa80-4188-9397-8d97d31b1bab.gif)
   
   ### Employers
   Employers will have access to a "My Seekers" page, which will display all their saved seekers that they marked as interested, very interested, and extremely interested.
