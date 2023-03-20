@@ -18,7 +18,6 @@ export default function Navigation({ mode }) {
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/myseekers')}>My Seekers</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/calendar')}>My Calendar</MenuItem>
-        <MenuItem onClick={(e) => handleClick(e, '/resume')}>My Resume</MenuItem>
         <MenuItem onClick={(e) => handleClick(e, '/notes')}>My Notes</MenuItem>
         <MenuDivider />
         <MenuItem onClick={(e) => handleClick(e, '/blog')}>Blog</MenuItem>
