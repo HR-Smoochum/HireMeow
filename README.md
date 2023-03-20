@@ -102,6 +102,9 @@ Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 
 Job seekers have the ability to upload their resume that can be sent to various job listings.
 
+![resume](https://user-images.githubusercontent.com/51098314/226469773-dfe0a536-305c-49c6-817a-5c9dcd237ea1.gif)
+
+
 ## Blog
 Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 
