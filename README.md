@@ -104,6 +104,9 @@ Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 
 All users can read informative and inspirational blog posts.
 
+<img width="1499" alt="Screen Shot 2023-03-20 at 1 59 27 PM" src="https://user-images.githubusercontent.com/51098314/226464860-f38031ab-e20e-47b5-afb0-6d8651724902.png">
+
+
 # Getting Started
 1. Clone the repository
 ```
