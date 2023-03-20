@@ -94,6 +94,9 @@ Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 
 Both job seekers and employers have the opportunity to add notes about jobs, companies, interviews, people, etc.
 
+![notes](https://user-images.githubusercontent.com/51098314/226468152-95f64dce-adcf-4a54-9789-5331a11ac5ec.gif)
+
+
 ## Resume
 Created By: [Patrick Kelly](https://github.com/Patrick-Kelly-1330)
 
