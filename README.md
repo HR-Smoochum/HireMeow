@@ -54,9 +54,9 @@ As a guest, users will only have access to the search page and blog.
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
 
   #### Job Seekers
-  Job seekers can search based on keyword search with job titles and filter job listings based on type of employment, experience level, environment, salary, and date posted.
+  On this page, job seekers can search for job pastings using a keyword search and they can filter job listings based on a wide range of criteria to easily find their ideal jobs.
   
-![searchPage](https://user-images.githubusercontent.com/115492619/225764005-bafc4efa-5935-4f1c-843a-359eac419329.gif)
+![updated-JobSearchPage](https://user-images.githubusercontent.com/115492619/226765599-31c8ed89-626e-42f9-82db-80352280be3d.gif)
 
   Job seekers can mark a job based on their interest levels. This will save the job listing in their "My Jobs" page.
   
