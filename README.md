@@ -39,7 +39,7 @@ Created By: [Donna Wong](https://github.com/donnatopia)
 
 There is a modernized header above each page whose menu dynamically renders based on authentication state. Job Seekers and employers will also receive notifications regarding upcoming interviews
 
-![Header](https://user-images.githubusercontent.com/116592476/225770315-fb851e27-416e-4672-ace4-bf1109e93522.gif)
+![Header Gif](https://user-images.githubusercontent.com/116592476/229205205-e30eed9c-e238-48e7-a223-73910b22173e.gif)
 
 ### Authentication
 Created By: [Daniel Greaves](https://github.com/dgreaves18)
